@@ -1,0 +1,147 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winCatalogoPaciente"?>
+<zk>
+	<window id="winCatalogoPaciente" title="Pacientes" border="normal"
+		closable="true" height="500px" width="80%"
+		apply="org.ucla.sigma.controlador.ctrlWinCatalogoPaciente">
+		<style>
+			.z-fieldset.gbNortCenter{ border-style : solid; border-width
+			: 1px; border-color : #BFBFBF; padding: 0px; padding-bottom:
+			4px; padding-left: 10px; } .z-fieldset.gbEast{ border-style
+			: solid; border-width : 1px; border-color : #BFBFBF;
+			padding: 1px; padding-top: 9px;}
+		</style>
+
+		<borderlayout>
+			<north border="none" height="90px">
+				<borderlayout height="100%">
+					<center border="none">
+						<div>
+							<groupbox sclass="gbNortCenter"
+								height="35px" closable="false">
+								<caption style="color:#4D4D4D">
+									Responsable
+								</caption>
+								<hlayout spacing="3%">
+									<hlayout>
+										<label value="Cedula" />
+										<textbox id="txtCi" width="90px"
+											style="text-align: center" />
+									</hlayout>
+									<hlayout>
+										<label value="Nombre" />
+										<textbox
+											id="txtNombreResponsable" width="150px" />
+									</hlayout>
+									<hlayout>
+										<label value="Apellido" />
+										<textbox
+											id="txtApellidoResponsable" width="150px" />
+									</hlayout>
+								</hlayout>
+							</groupbox>
+							<groupbox sclass="gbNortCenter"
+								height="35px" closable="false">
+								<caption style="color:#4D4D4D">
+									Paciente
+								</caption>
+								<vlayout>
+									<hlayout spacing="3%">
+										<hlayout>
+											<label value="Nombre" />
+											<textbox
+												id="txtNombrePaciente" width="120px" />
+										</hlayout>
+										<hlayout>
+											<label value="Sexo" />
+											<listbox id="listSexo"
+												width="75px" model="@{winCatalogoPacientectrl.sexos}"
+												mold="select">
+												<listitem
+													self="@{each=sexo}" value="@{sexo}">
+													<listcell
+														label="@{sexo.nombre}" />
+												</listitem>
+											</listbox>
+										</hlayout>
+										<hlayout>
+											<label value="Especie" />
+											<listbox id="listEspecie"
+												width="75px" model="@{winCatalogoPacientectrl.especies}"
+												mold="select">
+												<listitem
+													self="@{each=especie}" value="@{especie}">
+													<listcell
+														label="@{especie.nombre}" />
+												</listitem>
+											</listbox>
+										</hlayout>
+										<hlayout>
+											<label value="Raza" />
+											<listbox id="listRaza"
+												width="145px" model="@{winCatalogoPacientectrl.razas}"
+												mold="select">
+												<listitem
+													self="@{each=raza}" value="@{raza}">
+													<listcell
+														label="@{raza.nombre}" />
+												</listitem>
+											</listbox>
+										</hlayout>
+									</hlayout>
+								</vlayout>
+							</groupbox>
+						</div>
+					</center>
+					<east border="none" width="100px">
+						<div align="center">
+							<groupbox sclass="gbEast" height="70px"
+								closable="false">
+								<caption>Filtrar</caption>								
+								<button id="btnBuscar" width="90%" label="Buscar" />
+								<separator spacing="2px" />
+								<button id="btnLimpiar" width="90%" label="Limpiar" />
+							</groupbox>
+						</div>
+					</east>
+				</borderlayout>
+			</north>
+			<center border="none">
+				<listbox id="listPaciente"
+					model="@{winCatalogoPacientectrl.pacientes}"
+					selectedItem="@{winCatalogoPacientectrl.seleccionPaciente}"
+					mold="paging" pageSize="10" >
+					<listhead>
+						<listheader label="Nombre" />
+						<listheader label="Sexo" />
+						<listheader label="Especie"  />
+						<listheader label="Raza"  />
+						<listheader label="Responsable"  />
+						<listheader label="Responsable CI "  />
+					</listhead>
+					<listitem self="@{each=paciente}"
+						value="@{paciente}">
+						<listcell label="@{paciente.nombre}" />
+						<listcell label="@{paciente.sexo.nombre}" />
+						<listcell
+							label="@{paciente.raza.especie.nombre}" />
+						<listcell label="@{paciente.raza.nombre}" />
+						<listcell
+							label="@{paciente.responsable.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}" />
+						<listcell
+							label="@{paciente.responsable.persona.cedula}" />
+					</listitem>
+				</listbox>
+			</center>
+			<south border="none" height="33px">
+				<div align="right">
+					<separator />
+					<button id="btnSeleccionar" label="Seleccionar"
+						image="/sigma/imagenes/botones-basicos/check.png" />
+					<button id="btnCancelar" label="Cancelar"
+						image="/sigma/imagenes/botones-basicos/cancelar.png" />
+				</div>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

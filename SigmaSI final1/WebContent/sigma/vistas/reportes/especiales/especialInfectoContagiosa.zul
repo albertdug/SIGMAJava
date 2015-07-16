@@ -1,0 +1,76 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winReporteInfecto"?>
+<zk>
+	<window id="winReporteInfecto" title="Enfermedades Infecto Contagiosas "
+		border="normal" width="100%"  closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinReporteInfecto">
+		<grid>
+			<columns>
+				<column label="" width="50%" />
+			</columns>
+			<rows>
+				<row>
+					<groupbox>
+						<caption>Reporte</caption>
+						Listado de incidencias de Enfermedades
+						Infecto Contagiosas
+					</groupbox>
+					<groupbox>
+						<caption label="Descripción" />
+						Muestra los datos de las incidencias de
+						enfermedades infecto contagiosas ocurridas en un período
+						de tiempo.
+					</groupbox>
+				</row>
+			</rows>
+		</grid>
+		<grid>
+			<auxhead>
+				<auxheader colspan="1"
+					label="Filtros de selección y búsqueda" />
+			</auxhead>
+			<columns></columns>
+		</grid>
+		<grid>
+			<columns>
+				<column label="" width="50%" />
+			</columns>
+			<rows>
+				<row>
+					<groupbox>
+						<grid>
+							<columns>
+								<column width="20%" />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<label value="Fecha"/> 
+								</row>
+								<row>
+									<label value="desde:" />
+									<datebox id="dbInicio"
+										readonly="true" constraint="no future" format="dd/MM/yyyy"/>
+								</row>
+								<row>
+									<label value="hasta:" />
+									<datebox id="dbFin" readonly="true" format="dd/MM/yyyy"/>
+								</row>
+							</rows>
+						</grid>
+					</groupbox>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<div align="center">
+			<button label="Exportar" id="btnExportar"
+				image="/sigma/imagenes/botones-basicos/pdf.png">
+			</button>
+			<button label="Cancelar" id="btnCancelar"
+				image="/sigma/imagenes/botones-basicos/cancelar.png">
+			</button>
+		</div>
+		<separator />
+	</window>
+</zk>

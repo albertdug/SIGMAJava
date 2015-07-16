@@ -1,0 +1,49 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEntidadExterna"?>
+<window id="winEntidadExterna" title="Entidad Externa" border="normal"
+	width="100%" closable="true" apply="org.ucla.sigma.controlador.ctrlWinEntidadExterna">
+	<grid>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtNombre" width="50%" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listEntidadEx"
+		model="@{winEntidadExternactrl.entidadExs}"
+		selectedItem="@{winEntidadExternactrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Nombre" />
+			<listheader label="Telefono" />
+			<listheader label="Fax" />
+			<listheader label="Correo" />
+			<listheader label="Tipo Entidad" />
+			<listheader label="Ciudad" />
+		</listhead>
+		<listitem self="@{each=entidadEx}" value="@{entidadEx}">
+			<listcell label="@{entidadEx.nombre }" />
+			<listcell label="@{entidadEx.telefono}" />
+			<listcell label="@{entidadEx.fax }" />
+			<listcell label="@{entidadEx.correo }" />
+			<listcell label="@{entidadEx.tipoEntidadExterna.nombre }" />
+			<listcell label="@{entidadEx.ciudad.nombre }" />
+		</listitem>
+	</listbox>
+</window>

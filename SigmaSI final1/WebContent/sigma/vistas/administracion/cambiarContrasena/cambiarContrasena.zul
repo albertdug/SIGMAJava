@@ -1,0 +1,44 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winCambiarContrasena" title="Cambiar Contraseña"
+		border="normal" closable="true" width="400px"
+		apply="org.ucla.sigma.controlador.ctrlWinCambiarContrasena">
+		<grid>
+			<columns>
+				<column width="50%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Usuario" />
+					<textbox id="txtUsuario" width="90%" readonly="true" />
+				</row>
+				<row>
+					<label value="Login" />
+					<textbox id="txtLogin" width="90%"
+						readonly="true" />
+				</row>
+				<row>
+					<label value="Contraseña Actual" />
+					<textbox id="txtContrasena" value="" width="90%"
+						focus="true" type="password" maxlength="8" />
+				</row>
+				<row>
+					<label value="Nueva Contraseña" />
+					<textbox id="txtNuevaContrasena" value=""
+						width="90%" type="password" maxlength="8"/>
+				</row>
+				<row>
+					<label value="Reescribir Nueva Contraseña" />
+					<textbox id="txtNuevaContrasena2" value=""
+						width="90%" type="password" maxlength="8" />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

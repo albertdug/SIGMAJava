@@ -1,0 +1,44 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditServicio"?>
+<zk>
+	<window id="winEditServicio" title="Servicio" width="50%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinEditServicio">
+		<grid>
+			<columns>
+				<column width="25%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombre"
+						value="@{winEditServicioctrl.servicio.nombre}" width="60%">
+					</textbox>
+				</row>
+				<row>
+					<label value="Descripción" />
+					<textbox id="txtDescripcion"
+						value="@{winEditServicioctrl.servicio.descripcion}" width="60%"
+						multiline="true" rows="1">
+					</textbox>
+				</row>
+				<row>
+					<label value="Tipo" />
+					<listbox id="listTipoServicio"
+						model="@{winEditServicioctrl.tipoServicios}" mold="select">
+						<listitem self="@{each=servicio}" value="@{servicio}">
+							<listcell label="@{servicio.tipo_servicio.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

@@ -1,0 +1,463 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="winConsultaGeneral" title="Ficha Medica"
+		border="normal" width="100%" closable="true">
+						<tabbox id="tb2" width="100%" height="400px">
+						<tabs>
+							<tab label="Datos Basicos" height="100%" />
+							<tab label="Caracteristicas" />
+						</tabs>
+						<tabpanels>
+							<!-- 					Datos del Responsable -->
+							<tabpanel >
+								<label value="Responsable" />
+								<grid id="grResponsable" width="100%">
+									<columns>
+										<column width="35%" />
+										<column width="40%" />
+										<column width="35%" />
+										<column width="35%" />
+									</columns>
+									<rows>
+										<row>
+											<datebox
+												id="dtConsultaGeneral1" onCreate="self.value = new Date()"
+												format="short" buttonVisible="false" width="60px" />
+											<div>
+												<label value="Cedula"
+													width="15px" />
+												<textbox id="txtCedula"
+													width="80px" />
+												<button id="btnBuscarR"
+													width="40px"
+													image="/sigma/imagenes/botones-basicos/buscar.png" />
+											</div>
+										</row>
+										<row>
+											<div>
+												<label value="Nombre" />
+												<textbox id="txtNombreR"
+													width="90%" />
+											</div>
+											<div>
+												<label value="Apellido" />
+												<textbox
+													id="txtApellidoR" width="90%" />
+											</div>
+											<div>
+												<label
+													value="Dirección" />
+												<textbox width="90%" />
+												<separator />
+											</div>
+
+											<div>
+												<label value="Telefono" />
+												<textbox width="90%" />
+												<separator />
+											</div>
+										</row>
+
+									</rows>
+								</grid>
+
+								<tabbox id="tbPaciente" width="100.3%"
+									height="auto" mold="accordion">
+									<tabs>
+										<tab label="Lista de Pacientes"
+											selected="false" />
+										<tab label="Datos del Paciente"
+											selected="false" />
+									</tabs>
+									<tabpanels>
+										<tabpanel
+											style="overflow:auto">
+											<!-- 								<listbox id="listPaciente" width="100%" model=""> -->
+											<!-- 									<listhead> -->
+											<!-- 										<listheader label=" Nombre" /> -->
+											<!-- 										<listheader label=" Especie" /> -->
+											<!-- 										<listheader label=" Raza" /> -->
+											<!-- 									</listhead> -->
+											<!-- 									<listitem self="" value=""> -->
+											<!-- 										<listcell label="" /> -->
+											<!-- 										<listcell label="" /> -->
+											<!-- 										<listcell label="" /> -->
+											<!-- 									</listitem> -->
+											<!-- 								</listbox> -->
+										</tabpanel>
+									</tabpanels>
+								</tabbox>
+								<label value="Paciente" />
+								<grid id="grPaciente" width="100%"
+									height="auto">
+									<columns>
+										<column width="40%" />
+										<column width="35%" />
+										<column width="35%" />
+										<column width="35%" />
+									</columns>
+									<rows>
+										<row>
+											<div>
+												<label value="Codigo"
+													width="15px" />
+												<textbox id="txtCodigo1"
+													width="80px" />
+												<button id="btnBuscarP"
+													width="40px"
+													image="/sigma/recursos/zk/Imagenes/BotonesBasicos/buscar.png" />
+											</div>
+											<div>
+												<label value="Nombre" />
+												<separator />
+												<textbox
+													id="txtNombreP1" width="90%" />
+											</div>
+											<div>
+												<label
+													value="Fecha de Nacimiento" />
+												<separator />
+												<textbox
+													id="txtFechaNacimientoP1" width="90%" />
+											</div>
+											<cell rowspan="3"
+												align="center" valign="center">
+												<image id="imgPaciente"
+													style="border:3px solid #CFCFCF" width="150px"
+													height="140px" src="" />
+											</cell>
+										</row>
+										<row>
+
+											<div>
+												<label value="Edad" />
+												<separator />
+												<textbox id="txtEdadP1"
+													width="90%" />
+											</div>
+											<div>
+												<label value="Sexo" />
+												<separator />
+												<textbox id="txtSexoP"
+													width="90%" />
+											</div>
+											<div>
+												<label
+													value="Tipo de Sangre" />
+												<separator />
+												<textbox id="txtSangreP"
+													width="90%" />
+											</div>
+										</row>
+
+										<row>
+											<div>
+												<label value="Especie" />
+												<separator />
+												<textbox
+													id="txtEspecieP" width="90%" />
+											</div>
+											<div>
+												<label value="Raza" />
+												<separator />
+												<textbox id="txtRazaP"
+													width="90%" />
+											</div>
+											<div>
+												<label value="Pelaje" />
+												<separator />
+												<textbox id="txtPelajeP"
+													width="90%" />
+											</div>
+										</row>
+										<row>
+											<div>
+												<label value="Peso" />
+												<separator />
+												<spinner width="90%" />
+											</div>
+											<button label="Guardar"
+												id="btnGuardar" 
+												image="/sigma/recursos/zk/Imagenes/BotonesBasicos/guardar.png" />
+											<button label="Cancelar"
+												id="btnCancelar" 
+												image="/sigma/recursos/zk/Imagenes/BotonesBasicos/cancelar.png" />
+										</row>
+									</rows>
+
+								</grid>
+							</tabpanel>
+                      <!--  Fin de datos Basicos -->
+                      <!--  Comienzo de Caracteristicas -->
+                      <!-- Inicio de las Caracteristicas del animal -->
+                      <tabpanel >
+                      	<tabbox id="tb3" width="100%"
+                      		height="400px">
+                      		<tabs>
+                      			<tab label="Animal" height="100%" />
+                      			<tab label="Apetito" />
+                      			<tab label="Tratamientos Previos" />
+                      			<tab label="Datos Adicionales" />
+                      		</tabs>
+                      		<tabpanels>
+                      		<tabpanel>
+                      		<separator /> 
+					<panel title="Hembra" width="88.5%"></panel> 
+					<grid width="88%"> 
+						<columns> 
+ 							<column width="20%" /> 
+ 							<column /> 
+						</columns> 
+ 						<rows> 
+ 							<row> 
+ 								<label value="Fecha del Ultimo Celo" /> 
+ 								<datebox width="90%" /> 
+ 								<separator /> 
+								<label value="Numero de Partos" /> 
+ 								<spinner width="90%" /> 
+ 							</row> 
+							<row> 
+ 								<label value="Fecha de Castracion" />
+ 								<datebox width="90%" /> 
+							</row> 
+						</rows> 
+ 					</grid> 
+
+					<!-- 				Fin Pestaña datos Hembra -->
+
+
+									<separator />
+									<panel title="Macho" width="88.5%"></panel>
+									<grid width="88%">
+										<columns>
+											<column width="22%" />
+											<column />
+										</columns>
+										<rows>
+											<row>
+												<label value="Caracteristicas de la libido" />
+												<textbox width="90%" />
+												<separator />
+												<label value="Fecha de Castracion" />
+												<datebox width="96%" />
+											</row>
+										</rows>
+									</grid>
+                      		                    		
+                      		</tabpanel>
+                      		
+<!--                       		Inicio de las Caracteristicas del apetito -->
+                      		<tabpanel>
+                      		<separator />
+									<panel title="Frecuencia"
+										width="88.5%">
+									</panel>
+									<grid width="88%">
+										<columns>
+											<column width="20%" />
+											<column />
+										</columns>
+										<rows>
+											<row>
+												<label value="De la Alimentacion" />
+												<combobox width="90%">
+													<comboitem label="1 vez al dia" />
+													<comboitem label="2 veces al dia" />
+													<comboitem label="Todo el dia" />
+												</combobox>
+												<separator/>
+												<label value="De la Miccion" />
+												<combobox width="90%">
+													<comboitem label="1 vez al dia" />
+													<comboitem label="2 veces al dia" />
+													<comboitem label="Todo el dia" />
+													</combobox>
+											</row>
+												<row>
+												<label value="De la Defecacion" />
+												<combobox width="90%">
+													<comboitem label="1 vez al dia" />
+													<comboitem label="2 veces al dia" />
+													<comboitem label="Todo el dia" />
+												</combobox>
+												<separator/>
+												<label value="Tipo de Alimentacion" />
+												<combobox width="90%">
+													<comboitem label="Perrarina" />
+													<comboitem label="Gatarina"  />
+													<comboitem label="Dieta" />
+													</combobox>
+											</row>
+										</rows>
+									</grid>
+									<separator />
+<!--               ______________________________________________  -->
+									
+									<panel title="Cantidad de agua ofrecida y frecuencia del consumo"
+										width="88.5%">
+									</panel>
+									<grid width="88%">
+										<columns>
+											<column width="20%" />
+											<column />
+										</columns>
+										<rows>
+											<row>
+												<label value="Frecuencia" />
+												<combobox width="90%">
+													<comboitem label="Regular" />
+													<comboitem label="Frecuente" />
+													<comboitem label="Escasa" />
+												</combobox>
+												<separator />
+												<label value="Cantidad" />
+												<spinner width="90%" />
+											</row>
+										</rows>
+									</grid>
+										<!-- 				____________________________________ -->
+
+									
+									
+                      		</tabpanel>
+                      		
+<!--                       		Inicio de tratamientos Previos -->
+
+                      		<tabpanel>
+                      		<separator />
+									<panel title="Inmunizaciones" width="88.5%"></panel>
+									<grid width="88%">
+										<columns>
+											<column width="20%" />
+										</columns>
+										<rows>
+											<row>
+
+												<label value="Fecha" />
+												<datebox width="96%" />
+												<label value="Vacuna" />
+												<combobox width="98%">
+													<comboitem label="Sextuplex" />
+													<comboitem label="Antirrabica" />
+												</combobox>
+											</row>
+											<row>
+												<label value="Mostro Certificado" />
+												<combobox width="96%">
+													<comboitem label="Si" />
+													<comboitem label="No" />
+												</combobox>
+											</row>
+										</rows>
+									</grid>
+					<!-- 				___________________________________ -->
+
+
+									<separator />
+									<panel title="Desparasitaciones" width="88.5%"></panel>
+									<grid width="88%">
+										<columns>
+											<column width="20%" />
+											<column />
+										</columns>
+										<rows>
+											<row>
+
+												<label value="Fecha" />
+												<datebox width="96%" />
+												<separator />
+												<label value="Producto" />
+												<combobox width="96%">
+													<comboitem label="Si" />
+													<comboitem label="No" />
+												</combobox>
+											</row>
+											<row>
+												<label value="Dosis" />
+												<combobox width="96%">
+													<comboitem label="Si" />
+													<comboitem label="No" />
+												</combobox>
+												<separator />
+												<label value="Vias de Administracion" />
+												<combobox width="96%">
+													<comboitem label="Si" />
+													<comboitem label="No" />
+												</combobox>
+											</row>
+										</rows>
+									</grid>
+					
+                      		</tabpanel>
+            <!-- 				____________________________ -->
+
+<!--             Inicio de datos adicionales -->
+
+             <tabpanel>
+                      											<separator />
+									<panel title="Enfermedades y Cirugias previas"
+										width="88.5%">
+									</panel>
+									<grid width="88%">
+										<columns>
+											<column width="100%" />
+										</columns>
+										<rows>
+											<row>
+												<textbox width="99%" />
+											</row>
+										</rows>
+									</grid>
+<!--                       		_______________________________ -->
+                      		
+                      			<separator />
+									<panel
+										title="Descripcion del ambiente donde vive el animal"
+										width="88.5%">
+									</panel>
+									<grid width="88%">
+										<columns>
+											<column width="100%" />
+										</columns>
+										<rows>
+											<row>
+												<textbox width="99%" />
+											</row>
+										</rows>
+									</grid>
+<!-- 				______________________________________________________________					 -->
+									<separator />
+									<panel title="Cambios en el Comportamiento"
+										width="88.5%">
+									</panel>
+									<grid width="88%">
+										<columns>
+											<column width="100%" />
+										</columns>
+										<rows>
+											<row>
+												<combobox width="99%">
+													<comboitem label="Cola" />
+													<comboitem label="Cuello" />
+													<comboitem label="Pata delantera Iz." />
+													<comboitem label="Pata delantera Der." />
+													<comboitem label="Pata trasera Iz." />
+													<comboitem label="Pata trasera Der." />
+												</combobox>
+											</row>
+										</rows>
+									</grid>
+									<separator />
+									<button id="btnGuardar1" label="Guardar" 
+										image="/sigma/recursos/zk/Imagenes/BotonesBasicos/buscar.png" />
+									<button id="btnCancelar1" label="Cancelar"
+										image="/sigma/recursos/zk/Imagenes/BotonesBasicos/cancelar.png" />
+                      		</tabpanel>
+                      		
+                      		</tabpanels>
+                      		</tabbox>
+                      </tabpanel>
+						</tabpanels>
+						</tabbox>
+</window>
+</zk>

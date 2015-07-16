@@ -1,0 +1,33 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winSelecReferencia"?>
+<zk>
+	<window id="winSelecReferencia" title="Tipo de Referencia"
+		width="50%" border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinSelecReferencia">
+		<borderlayout height="90px">
+			<center border="none">
+				<div>
+					<groupbox>
+						<caption
+							label="Seleccione el tipo de referencia" />
+						<separator />
+						<separator />
+						<div>
+							<button id="btnEspecializada"
+								label="Consulta Especializada"
+								image="/sigma/imagenes/medicos/general.png" />
+							<button id="btnLaboratorio" visible="false"
+								label="Laboratorio"
+								image="/sigma/imagenes/medicos/laboratorio.png" />
+							<button id="btnImagenologia"
+								label="Imagenología" image="/sigma/imagenes/medicos/rayos.png" />
+							<button id="btnCirugia"
+								label="Cirugía" image="/sigma/imagenes/medicos/cirugia.png" />
+						</div>
+					</groupbox>
+				</div>
+			</center>
+		</borderlayout>
+		<separator />
+	</window>
+</zk>

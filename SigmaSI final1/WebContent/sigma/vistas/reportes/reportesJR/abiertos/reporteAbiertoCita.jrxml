@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteAbiertoCita" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3e139296-b36d-4f31-885b-3ddc2b8ffdd5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tipoServicio" class="java.lang.String"/>
+	<parameter name="fechaCita" class="java.lang.String"/>
+	<field name="historial.paciente.historiaMedica" class="java.lang.String"/>
+	<field name="historial.paciente.nombre" class="java.lang.String"/>
+	<field name="tipoReferencia.nombre" class="java.lang.String"/>
+	<field name="tipoServicio.nombre" class="java.lang.String"/>
+	<field name="fechaExpedicion" class="java.lang.String"/>
+	<field name="fechaCita" class="java.lang.String"/>
+	<field name="historial.paciente.responsable.persona.nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="123" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="feb425bc-b7d8-4b5f-a804-17218ecd8926" x="20" y="103" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Historia Medica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="911c4b48-1ad2-4c99-99d8-bd2139ca90b4" x="127" y="103" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="00541e04-8cf9-48f3-8cb1-7e7f11f2da2a" x="349" y="103" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tipo Referencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5c4c541e-69d5-42ee-8ed8-47843038453b" x="459" y="103" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tipo Servicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b72854af-a072-4e00-b45e-0df782dd40f7" x="569" y="103" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Fecha Expedicion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b8db2433-efd5-490f-aac7-3b325cf7cba2" x="684" y="103" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Fecha Cita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b31a3bdf-4cc0-49d8-ba8c-4dd2b0852437" x="236" y="103" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Responsable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="062d828a-aca0-4cc9-a4ce-2f615a704eb0" x="20" y="0" width="119" height="20"/>
+				<textElement/>
+				<text><![CDATA[Criterios de busqueda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="43c2f4af-f7dc-4e5a-89cd-2f690590c703" x="139" y="0" width="68" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tipo Servicio]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3f574ee1-0d37-4483-b3a9-9b6a0735cabd" x="207" y="0" width="595" height="37"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{tipoServicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2870cd62-128d-4bfb-9c54-d0cd4f6da995" x="20" y="39" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Fecha de la cita]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="52e91e2a-ae37-4644-92e3-d11665158e93" x="120" y="39" width="364" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{fechaCita}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement uuid="a3e24704-b193-4529-af61-12b1f06407b8" x="20" y="9" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{historial.paciente.historiaMedica}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cef064f0-a944-4953-92d7-c43419ff404f" x="127" y="9" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{historial.paciente.nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6f9a27a5-2917-4ddf-bf52-c3ef44052bdf" x="349" y="9" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tipoReferencia.nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5942b822-ffe5-4ab2-8d2b-5c0bc397f826" x="459" y="9" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tipoServicio.nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d5ba6b37-a426-4ec2-9774-9944c8661ad6" x="569" y="9" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fechaExpedicion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b5566e59-8cf4-44c1-942c-ed2d0c35978b" x="684" y="9" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fechaCita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3fdbc47f-f7fd-4d04-9a04-0074790451fb" x="236" y="9" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{historial.paciente.responsable.persona.nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="gestion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aef297b7-4fa9-4250-8731-05ba83ec921f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="113"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="desde" class="java.util.Date"/>
+	<parameter name="hasta" class="java.util.Date"/>
+	<parameter name="logoucla" class="java.lang.String"/>
+	<parameter name="logohospital" class="java.lang.String"/>
+	<parameter name="rutasubdef" class="java.lang.String"/>
+	<parameter name="rutasubpat" class="java.lang.String"/>
+	<parameter name="rutasubcons" class="java.lang.String"/>
+	<parameter name="sernotin" class="java.util.List"/>
+	<parameter name="rutasubser" class="java.lang.String"/>
+	<parameter name="sernotincitas" class="java.util.List"/>
+	<parameter name="rutasubref" class="java.lang.String"/>
+	<parameter name="rutasubcit" class="java.lang.String"/>
+	<parameter name="rutasubdefdet" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select true]]>
+	</queryString>
+	<field name="bool" class="java.lang.Boolean"/>
+	<title>
+		<band height="163" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9dd6dbc8-224d-4e64-a086-1d4329953f6f" x="177" y="133" width="54" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="46f85fac-5c48-41b8-bbd8-485b01a60933" x="295" y="133" width="18" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="db30df51-d8d3-4125-8a17-bc3e4ec721fb" x="97" y="101" width="368" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informe de Gestión]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb519ac4-57d7-4b9f-912e-b3144866cdea" x="97" y="19" width="357" height="57"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[REPÚBLICA BOLIVARIANA DE VENEZUELA
+UNIVERSIDAD CENTROCCIDENTAL LISANDRO ALVARADO
+DECANATO DE CIENCIAS VETERINARIAS
+Hospital Veterinario "Dr. Humberto Ramirez Daza"]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="aad31990-dd6a-4beb-83e9-178681d7b838" x="315" y="133" width="66" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hasta}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="aad31990-dd6a-4beb-83e9-178681d7b838" x="231" y="133" width="66" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{desde}]]></textFieldExpression>
+			</textField>
+			<textField pattern="&apos;Fecha:&apos; dd/MM/yyyy">
+				<reportElement uuid="6e696ada-8387-4c4f-abf7-14219d6c1a49" x="444" y="82" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="f6fb306a-2bc2-411b-b1f4-e9112a639ff3" x="480" y="20" width="36" height="48"/>
+				<imageExpression><![CDATA[$P{logohospital}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="3ce0f5ae-9678-4352-a632-87d490903c50" x="33" y="20" width="47" height="56"/>
+				<imageExpression><![CDATA[$P{logoucla}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="1616b141-f5d2-44db-865d-035c1e5cf3e8" x="85" y="0" width="400" height="20"/>
+				<subreportParameter name="sernotin">
+					<subreportParameterExpression><![CDATA[$P{sernotin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="hasta">
+					<subreportParameterExpression><![CDATA[$P{hasta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="desde">
+					<subreportParameterExpression><![CDATA[$P{desde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{rutasubcons}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="21">
+			<subreport>
+				<reportElement uuid="0eec3cb4-a92c-4a8f-ab91-7e6067e0b3c3" x="85" y="0" width="400" height="21"/>
+				<subreportParameter name="hasta">
+					<subreportParameterExpression><![CDATA[$P{hasta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="desde">
+					<subreportParameterExpression><![CDATA[$P{desde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{rutasubser}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="21">
+			<subreport>
+				<reportElement uuid="1616b141-f5d2-44db-865d-035c1e5cf3e8" x="85" y="1" width="400" height="20"/>
+				<subreportParameter name="sernotincitas">
+					<subreportParameterExpression><![CDATA[$P{sernotincitas}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="hasta">
+					<subreportParameterExpression><![CDATA[$P{hasta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="desde">
+					<subreportParameterExpression><![CDATA[$P{desde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{rutasubref}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="20">
+			<subreport>
+				<reportElement uuid="1616b141-f5d2-44db-865d-035c1e5cf3e8" x="85" y="0" width="400" height="20"/>
+				<subreportParameter name="sernotincitas">
+					<subreportParameterExpression><![CDATA[$P{sernotincitas}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="hasta">
+					<subreportParameterExpression><![CDATA[$P{hasta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="desde">
+					<subreportParameterExpression><![CDATA[$P{desde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{rutasubcit}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="20">
+			<subreport>
+				<reportElement uuid="1616b141-f5d2-44db-865d-035c1e5cf3e8" x="69" y="0" width="430" height="20"/>
+				<subreportParameter name="hasta">
+					<subreportParameterExpression><![CDATA[$P{hasta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="desde">
+					<subreportParameterExpression><![CDATA[$P{desde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{rutasubpat}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="21">
+			<subreport>
+				<reportElement uuid="0eec3cb4-a92c-4a8f-ab91-7e6067e0b3c3" x="85" y="0" width="400" height="21"/>
+				<subreportParameter name="hasta">
+					<subreportParameterExpression><![CDATA[$P{hasta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="desde">
+					<subreportParameterExpression><![CDATA[$P{desde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{rutasubdef}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="21">
+			<subreport>
+				<reportElement uuid="0eec3cb4-a92c-4a8f-ab91-7e6067e0b3c3" x="85" y="0" width="400" height="21"/>
+				<subreportParameter name="hasta">
+					<subreportParameterExpression><![CDATA[$P{hasta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="desde">
+					<subreportParameterExpression><![CDATA[$P{desde}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{rutasubdefdet}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="64" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement uuid="d23678b5-6c82-49ba-ac7a-84af50cb5143" mode="Opaque" x="513" y="16" width="42" height="13" backcolor="#E6E6E6"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="479904cd-a6d3-4ce9-a8fa-92db65fee6e3" mode="Opaque" x="19" y="16" width="494" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="cd36d13b-2129-409e-810a-c7015d941e95" x="93" y="33" width="363" height="31"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Decanato de Ciencias Veterinarias de la Universidad Centroccidental
+"Lisandro Alvarado", Tarabana, Cabudare
+Hospital Veterinario "Dr. Humberto Ramírez Daza"]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

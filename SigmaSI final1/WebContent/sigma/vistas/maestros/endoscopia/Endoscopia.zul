@@ -1,0 +1,44 @@
+<?page title="Endoscopia" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEndoscopia"?>
+
+<window id="winEndoscopia" title="Tipo de Endoscopia" border="normal" closable="true"
+	width="100%" apply="org.ucla.sigma.controlador.ctrlWinEndoscopia">
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtEndoscopia" width="50%" focus="true" />
+					<button id="btnBuscar" label="Buscar" onClick=""
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listEndoscopia" model="@{winEndoscopiactrl.endoscopias}"
+		selectedItem="@{winEndoscopiactrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Tipo de Endoscopia" />
+		</listhead>
+		<listitem self="@{each=endoscopias}" value="@{endoscopias}">
+			<listcell label="@{endoscopias.nombre}" />
+		</listitem>
+	</listbox>
+</window>
+

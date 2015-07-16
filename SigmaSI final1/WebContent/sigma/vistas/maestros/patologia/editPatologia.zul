@@ -1,0 +1,36 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditPatologia"?>
+<zk>
+	<window id="winEditPatologia" title="Patología" width="50%"
+		border="normal" closable="true" apply="org.ucla.sigma.controlador.ctrlWinEditPatologia">
+		<grid>
+			<columns>
+				<column width="25%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombrePatologia"
+						value="@{winEditPatologiactrl.patologia.nombre}" width="60%">
+					</textbox>
+				</row>
+				<row>
+					<label value="Tipo de Patología" />
+					<listbox id="listTipoPatologia" mold="select"
+						width="60%" model="@{winEditPatologiactrl.tipoPatologias}">
+						<listitem self="@{each=tipoPatologia}"
+							value="@{tipoPatologia }">
+							<listcell label="@{tipoPatologia.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

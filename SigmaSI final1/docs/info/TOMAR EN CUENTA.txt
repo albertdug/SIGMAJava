@@ -1,0 +1,14 @@
+1 Colocar un try catch al guardar: 
+	try {
+		servicioEstado.guardarEstado(estado);				
+	} catch (Exception e) {
+		MensajeEmergente.mostrar("ERRDB");
+		e.printStackTrace();
+	}
+	
+2 Documentar
+
+3 Identar
+
+4 Para inicializar el proyecto eliminar la base de datos, crearla de nuevo y correr como aplicacion
+  initBD, revisar que la ruta este actualizada

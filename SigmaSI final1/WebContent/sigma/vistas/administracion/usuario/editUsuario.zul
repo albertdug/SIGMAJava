@@ -1,0 +1,82 @@
+<?page title="Usuario" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winUsuario"?>
+<zk>
+	<window id="winUsuario" title="Usuario" width="50%"
+		border="normal" closable="true" apply="org.ucla.sigma.controlador.ctrlWinEditUsuario">
+		<grid>
+			<columns>
+				<column width="25%" align="right" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Cedula" />
+					<div>
+					<intbox id="txtCedula" width="45%" />
+						<button id="btnBuscar" image="/sigma/imagenes/botones-basicos/buscar.png"/>
+					</div>
+				</row>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombre" readonly="true"
+						value="@{winUsuarioctrl.persona.nombre}" width="60%" />
+				</row>
+				<row>
+					<label value="Apellido" />
+					<textbox id="txtApellido" readonly="true"
+						value="@{winUsuarioctrl.persona.apellido}" width="60%" />
+				</row>
+				<row>
+					<label value="Estado" />
+					<listbox id="listEstados" disabled="true"
+						model="@{winUsuarioctrl.estados}" mold="select">
+						<listitem self="@{each=estado}"
+							value="@{estado }">
+							<listcell label="@{estado.estado.nombre}" />
+						</listitem>
+					</listbox>
+					</row>
+					<row>
+					<label value="Ciudad" />
+					<listbox id="listCiudads" disabled="true"
+						model="@{winUsuarioctrl.ciudads}" mold="select">
+						<listitem self="@{each=ciudad}"
+							value="@{ciudad}">
+							<listcell label="@{ciudad.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+				<row>
+					<label value="Direccion" />
+					<textbox id="txtDireccion"
+						value="@{winUsuarioctrl.persona.direccion}" width="80%" readonly="true" />
+				</row>
+				<row>
+					<label value="Telefono" />
+					<textbox id="txtTelefono"
+						value="@{winUsuarioctrl.persona.telefono}" width="95px" readonly="true" />
+				</row>
+				<row>
+					<label value="Correo" />
+					<textbox id="txtCorreo"
+						value="@{winUsuarioctrl.persona.correo}" width="60%" readonly="true" />
+				</row>
+				<row>
+					<label value="Login" />
+					<textbox id="txtLogin"
+						value="@{winUsuarioctrl.usuario.login}" width="60%" readonly="true" />
+				</row>
+				<row>
+					<label value="Password" />
+					<textbox id="txtPassword" 
+						value="@{winUsuarioctrl.usuario.password}" width="60%" readonly="true" />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

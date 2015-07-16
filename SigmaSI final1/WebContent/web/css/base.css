@@ -1,0 +1,44 @@
+@font-face {
+	font-family: "MyriadPro-Bold";
+	src: url('../fuentes/MyriadPro-BoldCond.otf');
+}
+
+@font-face {
+	font-family: "MyriadPro";
+	src: url('../fuentes/MyriadPro-Regular.otf');
+}
+
+@font-face {
+	font-family: "MyriadPro-Cond";
+	src: url('../fuentes/MyriadPro-Cond.otf');
+}
+
+@font-face {
+	font-family: "Ocean";
+	src: url('../fuentes/OceanSansStd-Light.otf');
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+html {
+	background-image: url('../imagenes/fondo-1.png');
+	background-color: #fff;
+	background-repeat: repeat-x;
+}
+
+body {
+	width: 900px;
+	margin: auto;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}

@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="demandaTipoServicio" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="82a3b240-1e5b-4f86-ad78-df2910330808">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="desde" class="java.util.Date"/>
+	<parameter name="hasta" class="java.util.Date"/>
+	<parameter name="titulo" class="java.lang.String"/>
+	<parameter name="serin" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="razaid1" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="razaid2" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="razaid4" class="java.lang.Integer"/>
+	<parameter name="razaid3" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[
+select ts.nombre tser,
+(select raza.nombre from raza where raza.id=$P{razaid1}) razanombre1,
+(select raza.nombre from raza where raza.id=$P{razaid2}) razanombre2,
+(select raza.nombre from raza where raza.id=$P{razaid3}) razanombre3,
+(select raza.nombre from raza where raza.id=$P{razaid4}) razanombre4,
+
+(select count(historial_servicio) from historial_servicio, historial, paciente 
+where historial_servicio.servicioid = ts.id  and historial.id = historial_servicio.historialid
+and historial_servicio.servicioid = ts.id and ts.tipo_servicioid = 'CGL'
+and historial.pacientehistoria_medica = paciente.historia_medica and historial.fecha between $P{desde} and $P{hasta}
+and paciente.razaid = $P{razaid1}) frecuenciaraza1,
+
+(select count(historial_servicio) from historial_servicio, historial, paciente 
+where historial_servicio.servicioid = ts.id  and historial.id = historial_servicio.historialid
+and historial_servicio.servicioid = ts.id and ts.tipo_servicioid = 'CGL'
+and historial.pacientehistoria_medica = paciente.historia_medica and historial.fecha between $P{desde} and $P{hasta}
+and paciente.razaid = $P{razaid2}) frecuenciaraza2,
+
+(select count(historial_servicio) from historial_servicio, historial, paciente 
+where historial_servicio.servicioid = ts.id  and historial.id = historial_servicio.historialid
+and historial_servicio.servicioid = ts.id and ts.tipo_servicioid = 'CGL'
+and historial.pacientehistoria_medica = paciente.historia_medica and historial.fecha between $P{desde} and $P{hasta}
+and paciente.razaid = $P{razaid3}) frecuenciaraza3,
+
+(select count(historial_servicio) from historial_servicio, historial, paciente 
+where historial_servicio.servicioid = ts.id  and historial.id = historial_servicio.historialid
+and historial_servicio.servicioid = ts.id and ts.tipo_servicioid = 'CGL'
+and historial.pacientehistoria_medica = paciente.historia_medica and historial.fecha between $P{desde} and $P{hasta}
+and paciente.razaid = $P{razaid4}) frecuenciaraza4,
+
+(select count(historial_servicio) from historial, historial_servicio, paciente where 
+historial.pacientehistoria_medica = paciente.historia_medica and historial.id = historial_servicio.historialid and ts.tipo_servicioid = 'CGL' and historial.fecha between $P{desde} and $P{hasta} and $X{IN, historial_servicio.servicioid ,serin} and paciente.razaid = $P{razaid1}) totalraza1,
+
+(select count(historial_servicio) from historial, historial_servicio, paciente where 
+historial.pacientehistoria_medica = paciente.historia_medica and historial.id = historial_servicio.historialid and ts.tipo_servicioid = 'CGL' and historial.fecha between $P{desde} and $P{hasta} and $X{IN, historial_servicio.servicioid ,serin} and paciente.razaid = $P{razaid2}) totalraza2,
+
+(select count(historial_servicio) from historial, historial_servicio, paciente where 
+historial.pacientehistoria_medica = paciente.historia_medica and historial.id = historial_servicio.historialid and ts.tipo_servicioid = 'CGL' and historial.fecha between $P{desde} and $P{hasta} and $X{IN, historial_servicio.servicioid ,serin} and paciente.razaid = $P{razaid3}) totalraza3,
+
+(select count(historial_servicio) from historial, historial_servicio, paciente where 
+historial.pacientehistoria_medica = paciente.historia_medica and historial.id = historial_servicio.historialid and ts.tipo_servicioid = 'CGL' and historial.fecha between $P{desde} and $P{hasta} and $X{IN, historial_servicio.servicioid ,serin} and paciente.razaid = $P{razaid4}) totalraza4
+
+from servicio ts where $X{IN, ts.id ,serin} order by tser]]>
+	</queryString>
+	<field name="tser" class="java.lang.String"/>
+	<field name="razanombre1" class="java.lang.String"/>
+	<field name="razanombre2" class="java.lang.String"/>
+	<field name="razanombre3" class="java.lang.String"/>
+	<field name="razanombre4" class="java.lang.String"/>
+	<field name="frecuenciaraza1" class="java.lang.Long"/>
+	<field name="frecuenciaraza2" class="java.lang.Long"/>
+	<field name="frecuenciaraza3" class="java.lang.Long"/>
+	<field name="frecuenciaraza4" class="java.lang.Long"/>
+	<field name="totalraza1" class="java.lang.Long"/>
+	<field name="totalraza2" class="java.lang.Long"/>
+	<field name="totalraza3" class="java.lang.Long"/>
+	<field name="totalraza4" class="java.lang.Long"/>
+	<group name="TOTAL">
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="21">
+				<staticText>
+					<reportElement uuid="8d91f189-478c-4ed1-a85b-1b38b293d84f" x="19" y="0" width="119" height="21"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="138" y="0" width="53" height="21"/>
+					<box leftPadding="5" rightPadding="5">
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalraza1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="191" y="0" width="53" height="21"/>
+					<box leftPadding="5" rightPadding="5">
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(($F{totalraza1}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{totalraza1}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="296" y="0" width="53" height="21"/>
+					<box leftPadding="5" rightPadding="5">
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(($F{totalraza2}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{totalraza2}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="243" y="0" width="53" height="21"/>
+					<box leftPadding="5" rightPadding="5">
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalraza2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="348" y="0" width="53" height="21"/>
+					<box leftPadding="5" rightPadding="5">
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalraza3}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="401" y="0" width="53" height="21"/>
+					<box leftPadding="5" rightPadding="5">
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(($F{totalraza3}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{totalraza3}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="453" y="0" width="53" height="21"/>
+					<box leftPadding="5" rightPadding="5">
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalraza4}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="506" y="0" width="52" height="21"/>
+					<box leftPadding="5" rightPadding="5">
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(($F{totalraza4}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{totalraza4}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="46" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="8b8cbb4b-16e4-45bb-b6b6-dcc7ede10c44" mode="Transparent" x="19" y="0" width="536" height="44"/>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="aad31990-dd6a-4beb-83e9-178681d7b838" x="319" y="24" width="66" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hasta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="9dd6dbc8-224d-4e64-a086-1d4329953f6f" x="181" y="24" width="54" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="aad31990-dd6a-4beb-83e9-178681d7b838" x="235" y="24" width="66" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{desde}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="46f85fac-5c48-41b8-bbd8-485b01a60933" x="299" y="24" width="18" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d5a91983-8e66-4f72-871a-80fdf3692cec" x="19" y="0" width="536" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<textField pattern="&apos;Fecha de emisión: &apos; EEEEE dd MMMMM yyyy">
+				<reportElement uuid="2b37d317-284f-4dac-b41f-26cc110af65b" x="0" y="4" width="572" height="21"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="8d91f189-478c-4ed1-a85b-1b38b293d84f" mode="Opaque" x="19" y="0" width="119" height="41" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="eba5654b-4d41-4bb3-b190-f086e614594f" mode="Opaque" x="138" y="0" width="105" height="21" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razanombre1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8d91f189-478c-4ed1-a85b-1b38b293d84f" mode="Opaque" x="138" y="21" width="53" height="20" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="eba5654b-4d41-4bb3-b190-f086e614594f" mode="Opaque" x="243" y="0" width="105" height="21" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razanombre2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eba5654b-4d41-4bb3-b190-f086e614594f" mode="Opaque" x="348" y="0" width="105" height="21" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razanombre3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eba5654b-4d41-4bb3-b190-f086e614594f" mode="Opaque" x="453" y="0" width="105" height="21" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razanombre4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8d91f189-478c-4ed1-a85b-1b38b293d84f" mode="Opaque" x="191" y="21" width="53" height="20" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d91f189-478c-4ed1-a85b-1b38b293d84f" mode="Opaque" x="296" y="21" width="53" height="20" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d91f189-478c-4ed1-a85b-1b38b293d84f" mode="Opaque" x="243" y="21" width="53" height="20" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d91f189-478c-4ed1-a85b-1b38b293d84f" mode="Opaque" x="401" y="21" width="53" height="20" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d91f189-478c-4ed1-a85b-1b38b293d84f" mode="Opaque" x="348" y="21" width="53" height="20" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d91f189-478c-4ed1-a85b-1b38b293d84f" mode="Opaque" x="505" y="21" width="53" height="20" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d91f189-478c-4ed1-a85b-1b38b293d84f" mode="Opaque" x="453" y="21" width="53" height="20" backcolor="#BADDFF"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[#]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="19" y="0" width="119" height="20"/>
+				<box leftPadding="5" rightPadding="5">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tser}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="138" y="0" width="53" height="20"/>
+				<box leftPadding="5" rightPadding="5">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{frecuenciaraza1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="191" y="0" width="53" height="20"/>
+				<box leftPadding="5" rightPadding="5">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{frecuenciaraza1}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{frecuenciaraza1}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="243" y="0" width="53" height="20"/>
+				<box leftPadding="5" rightPadding="5">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{frecuenciaraza2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="296" y="0" width="53" height="20"/>
+				<box leftPadding="5" rightPadding="5">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{frecuenciaraza2}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{frecuenciaraza2}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="401" y="0" width="53" height="20"/>
+				<box leftPadding="5" rightPadding="5">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{frecuenciaraza3}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{frecuenciaraza3}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="348" y="0" width="53" height="20"/>
+				<box leftPadding="5" rightPadding="5">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{frecuenciaraza3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="506" y="0" width="52" height="20"/>
+				<box leftPadding="5" rightPadding="5">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{frecuenciaraza4}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{frecuenciaraza4}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" x="453" y="0" width="53" height="20"/>
+				<box leftPadding="5" rightPadding="5">
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{frecuenciaraza4}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="cd36d13b-2129-409e-810a-c7015d941e95" x="104" y="21" width="363" height="31"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Decanato de Ciencias Veterinarias de la Universidad Centroccidental
+"Lisandro Alvarado", Tarabana, Cabudare
+Hospital Veterinario "Dr. Humberto Ramírez Daza"]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="479904cd-a6d3-4ce9-a8fa-92db65fee6e3" mode="Opaque" x="19" y="4" width="494" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="d23678b5-6c82-49ba-ac7a-84af50cb5143" mode="Opaque" x="513" y="4" width="42" height="13" backcolor="#E6E6E6"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="301" splitType="Stretch">
+			<barChart>
+				<chart customizerClass="org.ucla.sigma.componentsjr.TopBarLabels">
+					<reportElement uuid="0535ee28-40c5-48e8-a374-cb033e49579b" x="19" y="23" width="536" height="255">
+						<property name="net.sf.jasperreports.chart.range.axis.tick.interval" value="1"/>
+					</reportElement>
+					<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5">
+						<pen lineColor="#666666"/>
+						<topPen lineWidth="1.0" lineColor="#666666"/>
+						<leftPen lineWidth="1.0" lineColor="#666666"/>
+						<bottomPen lineWidth="1.0" lineColor="#666666"/>
+						<rightPen lineWidth="1.0" lineColor="#666666"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{razanombre1}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tser}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{frecuenciaraza1}]]></valueExpression>
+						<labelExpression><![CDATA[(($F{frecuenciaraza1}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{frecuenciaraza1}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></labelExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{razanombre2}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tser}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{frecuenciaraza2}]]></valueExpression>
+						<labelExpression><![CDATA[(($F{frecuenciaraza2}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{frecuenciaraza2}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></labelExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{razanombre3}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tser}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{frecuenciaraza3}]]></valueExpression>
+						<labelExpression><![CDATA[(($F{frecuenciaraza3}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{frecuenciaraza3}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></labelExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{razanombre4}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{tser}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{frecuenciaraza4}]]></valueExpression>
+						<labelExpression><![CDATA[(($F{frecuenciaraza4}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))==Double.NaN ? String.format("%.1f %%",0.0) : String.format("%.1f %%",($F{frecuenciaraza4}.doubleValue() * 100) / ($F{totalraza1}.doubleValue()+$F{totalraza2}.doubleValue()+$F{totalraza3}.doubleValue()+$F{totalraza4}.doubleValue()))]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot isShowLabels="true" isShowTickLabels="true">
+					<plot labelRotation="-45.0"/>
+					<itemLabel color="#000000">
+						<font fontName="Arial" size="8"/>
+					</itemLabel>
+					<valueAxisLabelExpression><![CDATA["FRECUENCIA"]]></valueAxisLabelExpression>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

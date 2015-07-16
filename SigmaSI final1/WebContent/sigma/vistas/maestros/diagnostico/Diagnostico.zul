@@ -1,0 +1,45 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winDiagnostico"?>
+
+<window id="winDiagnostico" title="Diagnostico" border="normal" closable="true"
+	width="100%" apply="org.ucla.sigma.controlador.ctrlWinDiagnostico">
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtDiagnostico" width="50%" focus="true"/>
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/recursos/zk/Imagenes/BotonesBasicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/recursos/zk/Imagenes/BotonesBasicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/recursos/zk/Imagenes/BotonesBasicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/recursos/zk/Imagenes/BotonesBasicos/eliminar.png" />
+					<button id="btnVer" label="Ver Todos"
+						image="/sigma/recursos/zk/Imagenes/BotonesBasicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listDiagnostico" model="@{winDiagnosticoctrl.all_diagnosticos}"
+		selectedItem="@{winDiagnosticoctrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Diagnostico" />
+			<listheader label="Descripcion" />			
+		</listhead>
+		<listitem self="@{each=diagnostico}" value="@{diagnostico}">
+			<listcell label="@{diagnostico.nombre}" />
+			<listcell label="@{diagnostico.descripcion}"/>
+		</listitem>
+	</listbox>
+</window>

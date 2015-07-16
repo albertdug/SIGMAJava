@@ -1,0 +1,44 @@
+<?page title="Ganglios Palpables" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winGanglio"?>
+<zk>
+<window id="winGanglio" title="Ganglios" border="normal"
+apply="org.ucla.sigma.controlador.ctrlWinGanglio">
+<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtNombreGanglio" width="50%" focus="true" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listGanglio" model="@{winGanglioctrl.ganglios}"
+		selectedItem="@{winGanglioctrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Ganglio Palpable" />
+		</listhead>
+		<listitem self="@{each=ganglio}" value="@{ganglio}">
+			<listcell label="@{ganglio.nombre}" />
+		</listitem>
+	</listbox>
+</window>
+</zk>

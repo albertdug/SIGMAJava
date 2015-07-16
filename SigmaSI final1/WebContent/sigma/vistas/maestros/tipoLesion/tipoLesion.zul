@@ -1,0 +1,45 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winTipoLesion"?>
+
+	<window id="winTipoLesion" title="Tipo de Lesión" border="normal" width="100%"
+		closable="true" apply="org.ucla.sigma.controlador.ctrlWinTipoLesion">
+
+		<grid>
+			<columns>
+				<column label="" />
+				<column label="" />
+			</columns>
+			<rows>
+				<row>
+					<div align="left">
+						<label value="Nombre" />
+						<textbox id="txtTipoLesion" width="50%" focus="true"/>
+						<button id="btnBuscar" label="Buscar"
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/buscar.png" />
+					</div><div align="right"><button id="btnNuevo" label="Nuevo"
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/agregar.png" />					
+					     	<button id="btnEditar" label="Editar"
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/editar.png" />
+					    	<button id="btnEliminar" label="Eliminar"
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/eliminar.png" />
+							<button id="btnVer" label="Ver"
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/ver.png" />
+					</div>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<listbox id="listTipoLesion" model="@{winTipoLesionctrl.all_tipolesion}"
+		selectedItem="@{winTipoLesionctrl.seleccion}" mold="paging"
+		pageSize="10">
+			<listhead>
+				<listheader width="40%" label="Nombre" />
+				<listheader width="60%" label="Descripción"/>
+			</listhead>
+			<listitem self="@{each=tipolesion}" value="@{tipolesion}">
+				<listcell label="@{tipolesion.nombre}" />
+				<listcell label="@{tipolesion.descripcion}" />
+		    </listitem>
+			
+		</listbox>
+	</window>

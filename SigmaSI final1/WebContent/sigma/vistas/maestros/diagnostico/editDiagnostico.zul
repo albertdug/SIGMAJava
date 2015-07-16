@@ -1,0 +1,33 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditDiagnostico"?>
+<zk>
+	<window id="winEditDiagnostico" title="Diagnostico" width="50%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinEditDiagnostico">
+		<grid>
+			<columns>
+				<column width="25%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre del Diagnostico" />
+					<textbox value="@{winEditDiagnosticoctrl.diagnostico.nombre}"
+						width="60%">
+					</textbox>
+				</row>
+				<row>
+					<label value="Descripcion del Diagnostico" />
+					<textbox value="@{winEditDiagnosticoctrl.diagnostico.descripcion}"
+						width="60%" multiline="true" rows="5">
+					</textbox>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/recursos/zk/Imagenes/BotonesBasicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/recursos/zk/Imagenes/BotonesBasicos/cancelar.png" />
+	</window>
+</zk>

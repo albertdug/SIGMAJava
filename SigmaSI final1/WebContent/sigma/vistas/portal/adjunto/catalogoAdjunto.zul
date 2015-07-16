@@ -1,0 +1,45 @@
+<?page title="Adjunto" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winCatalogoAdjunto"?>
+
+<window id="winCatalogoAdjunto" title="Adjunto" border="normal"
+	closable="true" width="80%"
+	apply="org.ucla.sigma.controlador.ctrlWinCatalogoAdjunto">
+	<grid>
+		<rows>
+			<row>
+			<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtNombreAdjunto" width="50%"
+						focus="true" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+						<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+				<div align="right">
+					<button id="btnSeleccionar" label="Seleccionar"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnCancelar" label="Cancelar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listAdjunto" model="@{winCatalogoAdjuntoctrl.adjuntos}" mold="paging"
+		pageSize="7" checkmark="true" multiple="true">
+		<listhead>
+			<listheader label="Nombre" />
+			<listheader label="Tamaño" />
+			<listheader label="Fecha" />
+			<listheader label="Extension" />
+		</listhead>
+		<listitem self="@{each=adjunto}" value="@{adjunto}">
+			<listcell label="@{adjunto.nombre}" />
+			<listcell label="@{adjunto.bytes,converter='org.ucla.sigma.componentszk.SizeFileConverter'}" />
+			<listcell label="@{adjunto.creacion,converter='org.ucla.sigma.componentszk.FormatDateConverter'}" />
+			<listcell
+				label="@{adjunto.extension}" />
+		</listitem>
+	</listbox>
+</window>

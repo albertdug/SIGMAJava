@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by ZK Studio -->
+
+<zk>
+<!-- 	<system-config> -->
+<!-- 		<ui-factory-class> -->
+<!-- 			org.zkoss.zk.ui.http.SerializableUiFactory -->
+<!-- 		</ui-factory-class> -->
+<!-- 		<disable-event-thread /> -->
+<!-- 	</system-config> -->
+	<device-config>
+		<device-type>ajax</device-type>
+		<timeout-uri>/sigma</timeout-uri>
+	</device-config>
+</zk>

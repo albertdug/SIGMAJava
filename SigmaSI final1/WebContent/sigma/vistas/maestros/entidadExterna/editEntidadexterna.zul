@@ -1,0 +1,92 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditEntidadExterna"?>
+<window id="winEditEntidadExterna" title="Entidad Externa" width="50%"
+	border="normal" closable="true" sizable="true"
+	apply="org.ucla.sigma.controlador.ctrlWinEditEntidadExterna">
+	<grid>
+		<columns>
+			<column width="15%" />
+			<column width="35%" />
+			<column width="15%" />
+			<column width="35%" />
+		</columns>
+		<rows>
+			<row>
+				<label value="Nombre" />
+				<textbox id="txtNombre"
+					value="@{winEditEntidadExternactrl.entidadExterna.nombre }" />
+				<label value="Tipo Entidad" />
+				<listbox id="listEntidadExs"
+					model="@{winEditEntidadExternactrl.tipoEntidadExs}"
+					mold="select">
+					<listitem self="@{each=entidadExterna}"
+						value="@{entidadExterna}">
+						<listcell label="@{entidadExterna.nombre}" />
+					</listitem>
+				</listbox>
+			</row>
+			<row>
+				<label value="Descripcion" />
+				<textbox id="txtDescripcion"
+					value="@{winEditEntidadExternactrl.entidadExterna.descripcion }"
+					multiline="true" rows="2" />
+				<label value="Dirección" />
+				<textbox id="txtDireccion"
+					value="@{winEditEntidadExternactrl.entidadExterna.direccion }"
+					multiline="true" rows="2" />
+			</row>
+			<row>
+				<label value="Estado" />
+				<listbox id="listEstados"
+					model="@{winEditEntidadExternactrl.estados}" mold="select">
+					<listitem self="@{each=estado}"
+						value="@{estado }">
+						<listcell label="@{estado.estado.nombre}" />
+					</listitem>
+				</listbox>
+				<label value="Ciudad" />
+				<listbox id="listCiudads"
+					model="@{winEditEntidadExternactrl.ciudads}" mold="select">
+					<listitem self="@{each=ciudad}" value="@{ciudad}">
+						<listcell label="@{ciudad.nombre}" />
+					</listitem>
+				</listbox>
+
+			</row>
+			<row>
+				<label value="Telefono" />
+				<textbox id="txtTelefono"
+					value="@{winEditEntidadExternactrl.entidadExterna.telefono }" />
+				<label value="Fax" />
+				<textbox id="txtFax"
+					value="@{winEditEntidadExternactrl.entidadExterna.fax }" />
+			</row>
+			<row>
+				<label value="Web" />
+				<textbox id="txtWeb"
+					value="@{winEditEntidadExternactrl.entidadExterna.web }" />
+				<label value="Correo" />
+				<textbox id="txtCorreo"
+					value="@{winEditEntidadExternactrl.entidadExterna.correo }" />
+			</row>
+			<row>
+				<label value="RIF" />
+				<textbox id="txtRif"
+					value="@{winEditEntidadExternactrl.entidadExterna.rif }" />
+				<label value="NIT" />
+				<textbox id="txtNit"
+					value="@{winEditEntidadExternactrl.entidadExterna.nit }" />
+			</row>
+			<row valign="top" spans="1,1,2">
+				<label value="Imagen" />
+				<button id="btnImg" label="Seleccionar Imagen" />
+				<image id="image"  width="70px" height="70px" />
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<button id="btnGuardar" label="Guardar"
+		image="/sigma/imagenes/botones-basicos/guardar.png" />
+	<button id="btnCancelar" label="Cancelar"
+		image="/sigma/imagenes/botones-basicos/cancelar.png" />
+</window>

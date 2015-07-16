@@ -1,0 +1,13 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Carnet" border="normal" closable="true">
+
+		<image src="/sigma/imagenes/decoracion/carnet.png" width="100%" height="100%"></image> 
+		<div align="right">
+		<button label="Imprimir" id="btnImprimir"
+			image="/sigma/imagenes/botones-basicos/calendario.png" />
+	
+		</div>
+
+	</window>
+</zk>

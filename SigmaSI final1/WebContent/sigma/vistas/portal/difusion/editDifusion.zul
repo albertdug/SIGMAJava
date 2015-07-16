@@ -1,0 +1,37 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditDifusion"?>
+<zk>
+	<window id="winEditDifusion" title="Difusion" width="50%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinEditDifusion">
+		<grid>
+			<columns>
+				<column width="25%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombre"
+						value="@{winEditDifusionctrl.difusion.nombre}" width="60%" />
+				</row>
+				<row>
+					<label value="Enlace" />
+					<textbox id="txtEnlace"
+						value="@{winEditDifusionctrl.difusion.enlace}" width="60%" />
+				</row>
+				
+				<row valign="top">
+									<button id="btnImg" label="Seleccionar Imagen" />
+
+					<image id="image" width="70px" height="70px"  />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

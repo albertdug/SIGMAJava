@@ -1,0 +1,30 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditArea"?>
+<zk>
+	<window id="winEditArea" title="Área" width="50%" border="normal"
+		closable="true" apply="org.ucla.sigma.controlador.ctrlWinEditArea">
+		<grid>
+			<columns>
+				<column width="25%" />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombre" width="60%"
+						value="@{winEditAreactrl.area.nombre}" />
+				</row>
+				<row valign="top">
+					<label value="Descripción" />
+					<textbox id="txtDescripcion"
+						value="@{winEditAreactrl.area.descripcion}" width="60%"
+						multiline="true" rows="2" />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

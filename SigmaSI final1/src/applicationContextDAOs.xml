@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<bean id="beanTipoServicioWebDAO" class="org.ucla.sigma.dao.TipoServicioWebDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- CONFIGURACION -->
+	<bean id="beanFuncionDAO" class="org.ucla.sigma.dao.FuncionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanPerfilDAO" class="org.ucla.sigma.dao.PerfilDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanNoModelDAO" class="org.ucla.sigma.dao.NoModelDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanMensajeDAO" class="org.ucla.sigma.dao.MensajeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTipoMensajeDAO" class="org.ucla.sigma.dao.TipoMensajeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanBotonDAO" class="org.ucla.sigma.dao.BotonDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- SIGMA -->
+	<bean id="beanEstadoDAO" class="org.ucla.sigma.dao.EstadoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanCiudadDAO" class="org.ucla.sigma.dao.CiudadDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanEspecieDAO" class="org.ucla.sigma.dao.EspecieDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanRazaDAO" class="org.ucla.sigma.dao.RazaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanHistorialDAO" class="org.ucla.sigma.dao.HistorialDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanConsultaGeneralDAO" class="org.ucla.sigma.dao.ConsultaGeneralDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTipoEntidadExternaDAO" class="org.ucla.sigma.dao.TipoEntidadExternaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanPersonaDAO" class="org.ucla.sigma.dao.PersonaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanPublicacionDAO" class="org.ucla.sigma.dao.PublicacionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanPublicidadDAO" class="org.ucla.sigma.dao.PublicidadDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanRecepcionistaDAO" class="org.ucla.sigma.dao.RecepcionistaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanReferenciaCirugiaDAO" class="org.ucla.sigma.dao.ReferenciaCirugiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanReferenciaConsultaEspecializadaDAO" class="org.ucla.sigma.dao.ReferenciaConsultaEspecializadaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanReferenciaDAO" class="org.ucla.sigma.dao.ReferenciaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanReferenciaImagenologiaDAO" class="org.ucla.sigma.dao.ReferenciaImagenologiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanReferenciaLaboratorioDAO" class="org.ucla.sigma.dao.ReferenciaLaboratorioDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanResponsableDAO" class="org.ucla.sigma.dao.ResponsableDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanRespuestaDAO" class="org.ucla.sigma.dao.RespuestaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanServicioDAO" class="org.ucla.sigma.dao.ServicioDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanSexoDAO" class="org.ucla.sigma.dao.SexoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanSintomaDAO" class="org.ucla.sigma.dao.SintomaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTipoDefuncionDAO" class="org.ucla.sigma.dao.TipoDefuncionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTipoPatologiaDAO" class="org.ucla.sigma.dao.TipoPatologiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTipoReferenciaDAO" class="org.ucla.sigma.dao.TipoReferenciaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTipoServicioDAO" class="org.ucla.sigma.dao.TipoServicioDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTipoTratamientoDAO" class="org.ucla.sigma.dao.TipoTratamientoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTratamientoDAO" class="org.ucla.sigma.dao.TratamientoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTraumatologiaDAO" class="org.ucla.sigma.dao.TraumatologiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanUsuarioDAO" class="org.ucla.sigma.dao.UsuarioDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanVeterinarioDAO" class="org.ucla.sigma.dao.VeterinarioDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanPatologiaDAO" class="org.ucla.sigma.dao.PatologiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanPacienteDAO" class="org.ucla.sigma.dao.PacienteDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanOftalmologiaDAO" class="org.ucla.sigma.dao.OftalmologiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanNotificacionDAO" class="org.ucla.sigma.dao.NotificacionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanNeurologiaDAO" class="org.ucla.sigma.dao.NeurologiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanLaboratorioDAO" class="org.ucla.sigma.dao.LaboratorioDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanImagenologiaDAO" class="org.ucla.sigma.dao.ImagenologiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanImagenDAO" class="org.ucla.sigma.dao.ImagenDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanHospitalDifusionDAO" class="org.ucla.sigma.dao.HospitalDifusionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanHospitalDAO" class="org.ucla.sigma.dao.HospitalDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanFichaMedicaDAO" class="org.ucla.sigma.dao.FichaMedicaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanEntidadExternaDAO" class="org.ucla.sigma.dao.EntidadExternaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanDifusionDAO" class="org.ucla.sigma.dao.DifusionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanDiaDAO" class="org.ucla.sigma.dao.DiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanDiaDeAtencionDAO" class="org.ucla.sigma.dao.DiaDeAtencionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanDermatologiaDAO" class="org.ucla.sigma.dao.DermatologiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanDefuncionDAO" class="org.ucla.sigma.dao.DefuncionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanCirugiaTransquirurgicoDAO" class="org.ucla.sigma.dao.CirugiaTransquirurgicoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="beanCirugiaProcesarDAO" class="org.ucla.sigma.dao.CirugiaProcesarDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="beanCirugiaDAO" class="org.ucla.sigma.dao.CirugiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="beanCirugiaPostOperatoriaDAO" class="org.ucla.sigma.dao.CirugiaPostOperatoriaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>	
+
+	<bean id="beanCirugiaPreOperatoriaDAO" class="org.ucla.sigma.dao.CirugiaPreOperatoriaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="beanCarnetDAO" class="org.ucla.sigma.dao.CarnetDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanCardiologiaDAO" class="org.ucla.sigma.dao.CardiologiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanBoletinInformativoDAO" class="org.ucla.sigma.dao.BoletinInformativoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanAreaDAO" class="org.ucla.sigma.dao.AreaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanAdjuntoDAO" class="org.ucla.sigma.dao.AdjuntoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanTipoAlimentacionDAO" class="org.ucla.sigma.dao.TipoAlimentacionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanFrecuenciaDAO" class="org.ucla.sigma.dao.FrecuenciaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanFrecuenciaBanoDAO" class="org.ucla.sigma.dao.FrecuenciaBanoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+		<bean id="beanFrecuenciaTipoDAO" class="org.ucla.sigma.dao.FrecuenciaTipoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanGanglioDAO" class="org.ucla.sigma.dao.GanglioDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanRitmoDAO" class="org.ucla.sigma.dao.RitmoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanSegmentoDAO" class="org.ucla.sigma.dao.SegmentoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanPatronDAO" class="org.ucla.sigma.dao.PatronDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+
+	<bean id="beanSiluetaDAO" class="org.ucla.sigma.dao.SiluetaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanPulmonarDAO" class="org.ucla.sigma.dao.PulmonarDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanAuscultacionDAO" class="org.ucla.sigma.dao.AuscultacionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanMembranaDAO" class="org.ucla.sigma.dao.MembranaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanCardiacaDAO" class="org.ucla.sigma.dao.CardiacaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanPalpacionAbdominalDAO" class="org.ucla.sigma.dao.PalpacionAbdominalDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanRadiografiaDAO" class="org.ucla.sigma.dao.RadiografiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanEcosonogramaDAO" class="org.ucla.sigma.dao.EcosonogramaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanEcocardiogramaDAO" class="org.ucla.sigma.dao.EcocardiogramaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanEndoscopiaDAO" class="org.ucla.sigma.dao.EndoscopiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanExamenDAO" class="org.ucla.sigma.dao.ExamenDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanTipoExamenDAO" class="org.ucla.sigma.dao.TipoExamenDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanCursoClinicoDAO" class="org.ucla.sigma.dao.CursoClinicoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanPosturaDAO" class="org.ucla.sigma.dao.PosturaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanAtaxiaDAO" class="org.ucla.sigma.dao.AtaxiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanValoracionSubjetivaDAO" class="org.ucla.sigma.dao.ValoracionSubjetivaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanCojeraDAO" class="org.ucla.sigma.dao.CojeraDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanReflejoEspinalDAO" class="org.ucla.sigma.dao.ReflejoEspinalDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanParesiaPlejiaDAO" class="org.ucla.sigma.dao.ParesiaPlejiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanDolorDAO" class="org.ucla.sigma.dao.DolorDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanReaccionPostularDAO" class="org.ucla.sigma.dao.ReaccionPostularDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanTipoPublicacionDAO" class="org.ucla.sigma.dao.TipoPublicacionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanGeneroPublicacionDAO" class="org.ucla.sigma.dao.GeneroPublicacionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanSuscripcionDAO" class="org.ucla.sigma.dao.SuscripcionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanReflejoDAO" class="org.ucla.sigma.dao.ReflejoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanPatronDistribucionDAO" class="org.ucla.sigma.dao.PatronDistribucionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanOtrasCaracteristicasDAO" class="org.ucla.sigma.dao.OtrasCaracteristicasDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanEstadoHidratacionDAO" class="org.ucla.sigma.dao.EstadoHidratacionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanColorDAO" class="org.ucla.sigma.dao.ColorDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanDosisDAO" class="org.ucla.sigma.dao.DosisDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanEspesorDAO" class="org.ucla.sigma.dao.EspesorDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanElasticidadDAO" class="org.ucla.sigma.dao.ElasticidadDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+
+	<bean id="beanConsistenciaDAO" class="org.ucla.sigma.dao.ConsistenciaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanProfundidadDAO" class="org.ucla.sigma.dao.ProfundidadDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanPulpejosDAO" class="org.ucla.sigma.dao.PulpejosDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanUnasDAO" class="org.ucla.sigma.dao.UnasDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanAreaEnfermedadDAO" class="org.ucla.sigma.dao.AreaEnfermedadDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanAvanceEnfermedadDAO" class="org.ucla.sigma.dao.AvanceEnfermedadDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+
+	<bean id="beanAspectoDAO" class="org.ucla.sigma.dao.AspectoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+
+	<bean id="beanMembranaMucosaDAO" class="org.ucla.sigma.dao.MembranaMucosaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanParteCuerpoDAO" class="org.ucla.sigma.dao.ParteCuerpoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTexturaPielDAO" class="org.ucla.sigma.dao.TexturaPielDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTexturaPilosaDAO" class="org.ucla.sigma.dao.TexturaPilosaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanLesionPrimariaDAO" class="org.ucla.sigma.dao.LesionPrimariaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanLesionSecundariaDAO" class="org.ucla.sigma.dao.LesionSecundariaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanProductoDAO" class="org.ucla.sigma.dao.ProductoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanMedicamentoDAO" class="org.ucla.sigma.dao.MedicamentoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanLesionPSDAO" class="org.ucla.sigma.dao.LesionPSDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanConfiguracionDAO" class="org.ucla.sigma.dao.ConfiguracionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="beanEspImagenologiaDAO" class="org.ucla.sigma.dao.EspImagenologiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="beanTipoImagenologiaDAO" class="org.ucla.sigma.dao.TipoImagenologiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+</beans>

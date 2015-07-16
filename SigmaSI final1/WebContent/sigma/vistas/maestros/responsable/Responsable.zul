@@ -1,0 +1,55 @@
+<?page title="Responsable" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winResponsable"?>
+
+<window id="winResponsable" title="Responsable" border="normal"
+	closable="true" width="100%"
+	apply="org.ucla.sigma.controlador.ctrlWinResponsable">
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Cedula" />
+					<intbox id="txtCedula" width="50%" focus="true" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listResponsable"
+		model="@{winResponsablectrl.responsables}"
+		selectedItem="@{winResponsablectrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Cedula" />
+			<listheader label="Nombre" />
+			<listheader label="Apellido" />
+			<listheader label="Telefono" />
+			<listheader label="Correo" />
+			<listheader label="Ciudad" />
+		</listhead>
+		<listitem self="@{each=responsable}" value="@{responsable}">
+			<listcell label="@{responsable.persona.cedula}" />
+			<listcell label="@{responsable.persona.nombre}" />
+			<listcell label="@{responsable.persona.apellido}" />
+			<listcell label="@{responsable.persona.telefono}" />
+			<listcell label="@{responsable.persona.correo}" />
+			<listcell label="@{responsable.persona.ciudad.nombre}" />
+		</listitem>
+	</listbox>
+</window>

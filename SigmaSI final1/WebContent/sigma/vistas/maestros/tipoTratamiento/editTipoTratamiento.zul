@@ -1,0 +1,24 @@
+<?page title="Tipo Tratamiento" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditTipoTratamiento"?>
+<zk>
+	<window id="winEditTipoTratamiento" title="Tipo de Tratamiento" width="50%"
+		border="normal" closable="true" apply="org.ucla.sigma.controlador.ctrlWinEditTipoTratamiento">
+		<grid>
+			<columns>
+				<column width="26%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombre" value="@{winEditTipoTratamientoctrl.tipoTratamiento.nombre}" width="60%" />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

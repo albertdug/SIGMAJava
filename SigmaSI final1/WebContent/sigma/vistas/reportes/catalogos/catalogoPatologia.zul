@@ -1,0 +1,31 @@
+<?page title="Estadistico Servicio" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winCatalogoPatologia"?>
+<zk>
+	<window id="winCatalogoPatologia" title="Catálogo Tipo de Patología"
+		border="normal" width="50%" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinCatalogoPatologia">
+		<groupbox>
+			<caption>Seleccione tipo(s) de patología(s)</caption>
+
+			<listbox id="listPatologia"
+				model="@{winCatalogoPatologiactrl.patologias}" checkmark="true"
+				mold="paging" multiple="true" pageSize="10" nonselectableTags="*"
+				onCreate="">
+				<listhead>
+					<listheader label="Nombre" />
+					<listheader label="Tipo" />
+				</listhead>
+				<listitem self="@{each=patologia}"
+					value="@{patologia}">
+					<listcell label="@{patologia.nombre}" />
+					<listcell label="@{patologia.tipoPatologia.nombre}" />
+				</listitem>
+			</listbox>
+			<separator></separator>
+			<button id="btnAceptar" label="Aceptar"
+				image="/sigma/imagenes/botones-basicos/aceptar.png" />
+			<button id="btnCancelar" label="Cancelar"
+				image="/sigma/imagenes/botones-basicos/cancelar.png" />
+		</groupbox>
+	</window>
+</zk>

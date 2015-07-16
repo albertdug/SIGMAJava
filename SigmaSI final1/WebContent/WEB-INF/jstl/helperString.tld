@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<tlib-version>1.0</tlib-version>
+	<uri>/WEB-INF/jstl/helperString.tld</uri>
+	<function>
+		<name>wordsLimiter</name>
+		<function-class>org.ucla.sigma.components.HelperString</function-class>
+		<function-signature>java.lang.String wordsLimiter(java.lang.String,int)
+		</function-signature>
+	</function>
+</taglib>
+<!-- http://digitaljoel.nerd-herders.com/2011/03/17/how-to-create-a-custom-taglib-containing-an-el-function-for-jsp/ -->
+<!-- http://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm -->

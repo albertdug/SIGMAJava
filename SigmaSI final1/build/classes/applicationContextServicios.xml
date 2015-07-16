@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+<bean id="beanServicioTipoServicioWeb" class="org.ucla.sigma.servicio.ServicioTipoServicioWeb">
+		<property name="tipoServicioWebDAO" ref="beanTipoServicioWebDAO"></property>
+	</bean>
+
+	<!-- CONFIGURACION -->
+	<bean id="beanServicioFuncion" class="org.ucla.sigma.servicio.ServicioFuncion">
+		<property name="funcionDAO" ref="beanFuncionDAO"></property>
+	</bean>
+	
+	<bean id="beanServicioPerfil" class="org.ucla.sigma.servicio.ServicioPerfil">
+		<property name="perfilDAO" ref="beanPerfilDAO"></property>
+	</bean>
+
+	<bean id="beanServicioNoModel" class="org.ucla.sigma.servicio.ServicioNoModel">
+		<property name="noModelDAO" ref="beanNoModelDAO"></property>
+	</bean>
+
+	<bean id="beanServicioTipoMensaje" class="org.ucla.sigma.servicio.ServicioTipoMensaje">
+		<property name="tipoMensajeDAO" ref="beanTipoMensajeDAO"></property>
+	</bean>
+
+	<bean id="beanServicioMensaje" class="org.ucla.sigma.servicio.ServicioMensaje">
+		<property name="mensajeDAO" ref="beanMensajeDAO"></property>
+	</bean>
+
+	<bean id="beanServicioBoton" class="org.ucla.sigma.servicio.ServicioBoton">
+		<property name="botonDAO" ref="beanBotonDAO"></property>
+	</bean>
+
+	<!-- SIGMA -->
+	<bean id="beanServicioEstado" class="org.ucla.sigma.servicio.ServicioEstado">
+		<property name="estadoDAO" ref="beanEstadoDAO"></property>
+	</bean>
+
+	<bean id="beanServicioCiudad" class="org.ucla.sigma.servicio.ServicioCiudad">
+		<property name="ciudadDAO" ref="beanCiudadDAO"></property>
+	</bean>
+
+	<bean id="beanServicioEspecie" class="org.ucla.sigma.servicio.ServicioEspecie">
+		<property name="especieDAO" ref="beanEspecieDAO"></property>
+	</bean>
+
+	<bean id="beanServicioRaza" class="org.ucla.sigma.servicio.ServicioRaza">
+		<property name="razaDAO" ref="beanRazaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioHistorial" class="org.ucla.sigma.servicio.ServicioHistorial">
+		<property name="historialDAO" ref="beanHistorialDAO"></property>
+	</bean>
+
+	<bean id="beanServicioConsultaGeneral" class="org.ucla.sigma.servicio.ServicioConsultaGeneral">
+		<property name="consultaGeneralDAO" ref="beanConsultaGeneralDAO"></property>
+	</bean>
+
+	<bean id="beanServicioPersona" class="org.ucla.sigma.servicio.ServicioPersona">
+		<property name="personaDAO" ref="beanPersonaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioPublicacion" class="org.ucla.sigma.servicio.ServicioPublicacion">
+		<property name="publicacionDAO" ref="beanPublicacionDAO"></property>
+	</bean>
+
+	<bean id="beanServicioPublicidad" class="org.ucla.sigma.servicio.ServicioPublicidad">
+		<property name="publicidadDAO" ref="beanPublicidadDAO"></property>
+	</bean>
+
+	<bean id="beanServicioRecepcionista" class="org.ucla.sigma.servicio.ServicioRecepcionista">
+		<property name="recepcionistaDAO" ref="beanRecepcionistaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioReferencia" class="org.ucla.sigma.servicio.ServicioReferencia">
+		<property name="referenciaDAO" ref="beanReferenciaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioReferenciaCirugia" class="org.ucla.sigma.servicio.ServicioReferenciaCirugia">
+		<property name="referenciaCirugiaDAO" ref="beanReferenciaCirugiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioReferenciaConsultaEspecializada"
+		class="org.ucla.sigma.servicio.ServicioReferenciaConsultaEspecializada">
+		<property name="referenciaConsultaEspecializadaDAO" ref="beanReferenciaConsultaEspecializadaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioReferenciaImagenologia" class="org.ucla.sigma.servicio.ServicioReferenciaImagenologia">
+		<property name="referenciaImagenologiaDAO" ref="beanReferenciaImagenologiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioReferenciaLaboratorio" class="org.ucla.sigma.servicio.ServicioReferenciaLaboratorio">
+		<property name="referenciaLaboratorioDAO" ref="beanReferenciaLaboratorioDAO"></property>
+	</bean>
+
+	<bean id="beanServicioResponsable" class="org.ucla.sigma.servicio.ServicioResponsable">
+		<property name="responsableDAO" ref="beanResponsableDAO"></property>
+	</bean>
+
+	<bean id="beanServicioRespuesta" class="org.ucla.sigma.servicio.ServicioRespuesta">
+		<property name="respuestaDAO" ref="beanRespuestaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioServicio" class="org.ucla.sigma.servicio.ServicioServicio">
+		<property name="servicioDAO" ref="beanServicioDAO"></property>
+	</bean>
+
+	<bean id="beanServicioSexo" class="org.ucla.sigma.servicio.ServicioSexo">
+		<property name="sexoDAO" ref="beanSexoDAO"></property>
+	</bean>
+
+	<bean id="beanServicioSintoma" class="org.ucla.sigma.servicio.ServicioSintoma">
+		<property name="sintomaDAO" ref="beanSintomaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioTipoDefuncion" class="org.ucla.sigma.servicio.ServicioTipoDefuncion">
+		<property name="tipoDefuncionDAO" ref="beanTipoDefuncionDAO"></property>
+	</bean>
+
+	<bean id="beanServicioTipoEntidadExterna" class="org.ucla.sigma.servicio.ServicioTipoEntidadExterna">
+		<property name="tipoEntidadExternaDAO" ref="beanTipoEntidadExternaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioTipoPatologia" class="org.ucla.sigma.servicio.ServicioTipoPatologia">
+		<property name="tipoPatologiaDAO" ref="beanTipoPatologiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioTipoReferencia" class="org.ucla.sigma.servicio.ServicioTipoReferencia">
+		<property name="tipoReferenciaDAO" ref="beanTipoReferenciaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioTipoServicio" class="org.ucla.sigma.servicio.ServicioTipoServicio">
+		<property name="tipoServicioDAO" ref="beanTipoServicioDAO"></property>
+	</bean>
+
+	<bean id="beanServicioTipoTratamiento" class="org.ucla.sigma.servicio.ServicioTipoTratamiento">
+		<property name="tipoTratamientoDAO" ref="beanTipoTratamientoDAO"></property>
+	</bean>
+
+	<bean id="beanServicioTratamiento" class="org.ucla.sigma.servicio.ServicioTratamiento">
+		<property name="tratamientoDAO" ref="beanTratamientoDAO"></property>
+	</bean>
+
+	<bean id="beanServicioTraumatologia" class="org.ucla.sigma.servicio.ServicioTraumatologia">
+		<property name="traumatologiaDAO" ref="beanTraumatologiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioUsuario" class="org.ucla.sigma.servicio.ServicioUsuario">
+		<property name="usuarioDAO" ref="beanUsuarioDAO"></property>
+	</bean>
+
+	<bean id="beanServicioVeterinario" class="org.ucla.sigma.servicio.ServicioVeterinario">
+		<property name="veterinarioDAO" ref="beanVeterinarioDAO"></property>
+	</bean>
+
+	<bean id="beanServicioPatologia" class="org.ucla.sigma.servicio.ServicioPatologia">
+		<property name="patologiaDAO" ref="beanPatologiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioPaciente" class="org.ucla.sigma.servicio.ServicioPaciente">
+		<property name="pacienteDAO" ref="beanPacienteDAO"></property>
+	</bean>
+
+	<bean id="beanServicioOftalmologia" class="org.ucla.sigma.servicio.ServicioOftalmologia">
+		<property name="oftalmologiaDAO" ref="beanOftalmologiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioNotificacion" class="org.ucla.sigma.servicio.ServicioNotificacion">
+		<property name="notificacionDAO" ref="beanNotificacionDAO"></property>
+	</bean>
+
+	<bean id="beanServicioNeurologia" class="org.ucla.sigma.servicio.ServicioNeurologia">
+		<property name="neurologiaDAO" ref="beanNeurologiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioLaboratorio" class="org.ucla.sigma.servicio.ServicioLaboratorio">
+		<property name="laboratorioDAO" ref="beanLaboratorioDAO"></property>
+	</bean>
+
+	<bean id="beanServicioImagenologia" class="org.ucla.sigma.servicio.ServicioImagenologia">
+		<property name="imagenologiaDAO" ref="beanImagenologiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioImagen" class="org.ucla.sigma.servicio.ServicioImagen">
+		<property name="imagenDAO" ref="beanImagenDAO"></property>
+	</bean>
+
+	<bean id="beanServicioHospitalDifusion" class="org.ucla.sigma.servicio.ServicioHospitalDifusion">
+		<property name="hospitalDifusionDAO" ref="beanHospitalDifusionDAO"></property>
+	</bean>
+
+	<bean id="beanServicioHospital" class="org.ucla.sigma.servicio.ServicioHospital">
+		<property name="hospitalDAO" ref="beanHospitalDAO"></property>
+	</bean>
+
+	<bean id="beanServicioFichaMedica" class="org.ucla.sigma.servicio.ServicioFichaMedica">
+		<property name="fichaMedicaDAO" ref="beanFichaMedicaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioEntidadExterna" class="org.ucla.sigma.servicio.ServicioEntidadExterna">
+		<property name="entidadExternaDAO" ref="beanEntidadExternaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioDifusion" class="org.ucla.sigma.servicio.ServicioDifusion">
+		<property name="difusionDAO" ref="beanDifusionDAO"></property>
+	</bean>
+
+	<bean id="beanServicioDia" class="org.ucla.sigma.servicio.ServicioDia">
+		<property name="diaDAO" ref="beanDiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioDiaDeAtencion" class="org.ucla.sigma.servicio.ServicioDiaDeAtencion">
+		<property name="diaDeAtencionDAO" ref="beanDiaDeAtencionDAO"></property>
+	</bean>
+
+	<bean id="beanServicioDermatologia" class="org.ucla.sigma.servicio.ServicioDermatologia">
+		<property name="dermatologiaDAO" ref="beanDermatologiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioDefuncion" class="org.ucla.sigma.servicio.ServicioDefuncion">
+		<property name="defuncionDAO" ref="beanDefuncionDAO"></property>
+	</bean>
+
+	<bean id="beanServicioCirugia" class="org.ucla.sigma.servicio.ServicioCirugia">
+		<property name="cirugiaDAO" ref="beanCirugiaDAO"></property>
+	</bean>
+	
+	<bean id="beanServicioCirugiaTransquirurgico" class="org.ucla.sigma.servicio.ServicioCirugiaTransquirurgico">
+		<property name="cirugiaTransquirurgicoDAO" ref="beanCirugiaTransquirurgicoDAO"></property>
+	</bean>
+	
+	<bean id="beanServicioCirugiaProcesar" class="org.ucla.sigma.servicio.ServicioCirugiaProcesar">
+		<property name="cirugiaProcesarDAO" ref="beanCirugiaProcesarDAO"></property>
+	</bean>
+
+	<bean id="beanServicioCirugiaPostOperatoria" class="org.ucla.sigma.servicio.ServicioCirugiaPostOperatoria">
+		<property name="cirugiaPostOperatoriaDAO" ref="beanCirugiaPostOperatoriaDAO"></property>
+	</bean>
+	
+	<bean id="beanServicioCirugiaPreOperatoria" class="org.ucla.sigma.servicio.ServicioCirugiaPreOperatoria">
+		<property name="cirugiaPreOperatoriaDAO" ref="beanCirugiaPreOperatoriaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioCarnet" class="org.ucla.sigma.servicio.ServicioCarnet">
+		<property name="carnetDAO" ref="beanCarnetDAO"></property>
+	</bean>
+
+	<bean id="beanServicioCardiologia" class="org.ucla.sigma.servicio.ServicioCardiologia">
+		<property name="cardiologiaDAO" ref="beanCardiologiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioBoletinInformativo" class="org.ucla.sigma.servicio.ServicioBoletinInformativo">
+		<property name="boletinInformativoDAO" ref="beanBoletinInformativoDAO"></property>
+	</bean>
+
+	<bean id="beanServicioArea" class="org.ucla.sigma.servicio.ServicioArea">
+		<property name="areaDAO" ref="beanAreaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioAdjunto" class="org.ucla.sigma.servicio.ServicioAdjunto">
+		<property name="adjuntoDAO" ref="beanAdjuntoDAO"></property>
+	</bean>
+<bean id="beanServicioTipoAlimentacion" class="org.ucla.sigma.servicio.ServicioTipoAlimentacion">
+		<property name="tipoAlimentacionDAO" ref="beanTipoAlimentacionDAO"></property>
+	</bean>
+	<bean id="beanServicioFrecuencia" class="org.ucla.sigma.servicio.ServicioFrecuencia">
+		<property name="frecuenciaDAO" ref="beanFrecuenciaDAO"></property>
+	</bean>
+<bean id="beanServicioFrecuenciaBano" class="org.ucla.sigma.servicio.ServicioFrecuenciaBano">
+		<property name="frecuenciaBanoDAO" ref="beanFrecuenciaBanoDAO"></property>
+	</bean>
+	<bean id="beanServicioFrecuenciaTipo" class="org.ucla.sigma.servicio.ServicioFrecuenciaTipo">
+		<property name="frecuenciaTipoDAO" ref="beanFrecuenciaTipoDAO"></property>
+	</bean>
+<bean id="beanServicioGanglio" class="org.ucla.sigma.servicio.ServicioGanglio">
+		<property name="ganglioDAO" ref="beanGanglioDAO"></property>
+	</bean>
+	<bean id="beanServicioSegmento" class="org.ucla.sigma.servicio.ServicioSegmento">
+		<property name="segmentoDAO" ref="beanSegmentoDAO"></property>
+	</bean>
+
+
+
+	<bean id="beanServicioSilueta" class="org.ucla.sigma.servicio.ServicioSilueta">
+		<property name="siluetaDAO" ref="beanSiluetaDAO"></property>
+	</bean>
+
+
+
+	<bean id="beanServicioRitmo" class="org.ucla.sigma.servicio.ServicioRitmo">
+		<property name="ritmoDAO" ref="beanRitmoDAO"></property>
+	</bean>
+
+
+
+	<bean id="beanServicioPulmonar" class="org.ucla.sigma.servicio.ServicioPulmonar">
+		<property name="pulmonarDAO" ref="beanPulmonarDAO"></property>
+	</bean>
+
+
+
+	<bean id="beanServicioAuscultacion" class="org.ucla.sigma.servicio.ServicioAuscultacion">
+		<property name="auscultacionDAO" ref="beanAuscultacionDAO"></property>
+	</bean>
+
+
+	
+	<bean id="beanServicioMembrana" class="org.ucla.sigma.servicio.ServicioMembrana">
+		<property name="membranaDAO" ref="beanMembranaDAO"></property>
+	</bean>
+	
+
+
+	<bean id="beanServicioCardiaca" class="org.ucla.sigma.servicio.ServicioCardiaca">
+		<property name="cardiacaDAO" ref="beanCardiacaDAO"></property>
+	</bean>
+
+
+	
+	<bean id="beanServicioPatron" class="org.ucla.sigma.servicio.ServicioPatron">
+		<property name="patronDAO" ref="beanPatronDAO"></property>
+	</bean>
+	
+
+<bean id="beanServicioPalpacionAbdominal" class="org.ucla.sigma.servicio.ServicioPalpacionAbdominal">
+		<property name="palpacionAbdominalDAO" ref="beanPalpacionAbdominalDAO"></property>
+	</bean>
+	<bean id="beanServicioRadiografia" class="org.ucla.sigma.servicio.ServicioRadiografia">
+		<property name="radiografiaDAO" ref="beanRadiografiaDAO"></property>
+	</bean>
+	
+	<bean id="beanServicioEcosonograma" class="org.ucla.sigma.servicio.ServicioEcosonograma">
+		<property name="ecosonogramaDAO" ref="beanEcosonogramaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioEcocardiograma" class="org.ucla.sigma.servicio.ServicioEcocardiograma">
+		<property name="ecocardiogramaDAO" ref="beanEcocardiogramaDAO"></property>
+	</bean>
+	<bean id="beanServicioEndoscopia" class="org.ucla.sigma.servicio.ServicioEndoscopia">
+		<property name="endoscopiaDAO" ref="beanEndoscopiaDAO"></property>
+	</bean>
+	<bean id="beanServicioExamen" class="org.ucla.sigma.servicio.ServicioExamen">
+		<property name="examenDAO" ref="beanExamenDAO"></property>
+	</bean>
+	<bean id="beanServicioTipoExamen" class="org.ucla.sigma.servicio.ServicioTipoExamen">
+		<property name="tipoExamenDAO" ref="beanTipoExamenDAO"></property>
+	</bean>
+	<bean id="beanServicioCursoClinico" class="org.ucla.sigma.servicio.ServicioCursoClinico">
+		<property name="cursoClinicoDAO" ref="beanCursoClinicoDAO"></property>
+	</bean>
+	
+	<bean id="beanServicioPostura" class="org.ucla.sigma.servicio.ServicioPostura">
+		<property name="posturaDAO" ref="beanPosturaDAO"></property>
+	</bean>
+	<bean id="beanServicioAtaxia" class="org.ucla.sigma.servicio.ServicioAtaxia">
+		<property name="ataxiaDAO" ref="beanAtaxiaDAO"></property>
+	</bean>
+	<bean id="beanServicioValoracionSubjetiva" class="org.ucla.sigma.servicio.ServicioValoracionSubjetiva">
+		<property name="valoracionSubjetivaDAO" ref="beanValoracionSubjetivaDAO"></property>
+	</bean>
+	<bean id="beanServicioCojera" class="org.ucla.sigma.servicio.ServicioCojera">
+		<property name="cojeraDAO" ref="beanCojeraDAO"></property>
+	</bean>
+	<bean id="beanServicioReflejoEspinal" class="org.ucla.sigma.servicio.ServicioReflejoEspinal">
+		<property name="reflejoEspinalDAO" ref="beanReflejoEspinalDAO"></property>
+	</bean>
+	<bean id="beanServicioParesiaPlejia" class="org.ucla.sigma.servicio.ServicioParesiaPlejia">
+		<property name="paresiaPlejiaDAO" ref="beanParesiaPlejiaDAO"></property>
+	</bean>
+	<bean id="beanServicioDolor" class="org.ucla.sigma.servicio.ServicioDolor">
+		<property name="dolorDAO" ref="beanDolorDAO"></property>
+	</bean>
+	<bean id="beanServicioReaccionPostular" class="org.ucla.sigma.servicio.ServicioReaccionPostular">
+		<property name="reaccionPostularDAO" ref="beanReaccionPostularDAO"></property>
+	</bean>
+	<bean id="beanServicioTipoPublicacion" class="org.ucla.sigma.servicio.ServicioTipoPublicacion">
+		<property name="tipoPublicacionDAO" ref="beanTipoPublicacionDAO"></property>
+	</bean>
+	<bean id="beanServicioGeneroPublicacion" class="org.ucla.sigma.servicio.ServicioGeneroPublicacion">
+		<property name="generoPublicacionDAO" ref="beanGeneroPublicacionDAO"></property>
+	</bean>
+	<bean id="beanServicioSuscripcion" class="org.ucla.sigma.servicio.ServicioSuscripcion">
+		<property name="suscripcionDAO" ref="beanSuscripcionDAO"></property>
+	</bean>
+	<bean id="beanServicioReflejo" class="org.ucla.sigma.servicio.ServicioReflejo">
+		<property name="reflejoDAO" ref="beanReflejoDAO"></property>
+	</bean>
+
+	<bean id="beanServicioPatronDistribucion" class="org.ucla.sigma.servicio.ServicioPatronDistribucion">
+		<property name="patronDistribucionDAO" ref="beanPatronDistribucionDAO"></property>
+	</bean>
+
+	<bean id="beanServicioOtrasCaracteristicas" class="org.ucla.sigma.servicio.ServicioOtrasCaracteristicas">
+		<property name="otrasCaracteristicasDAO" ref="beanOtrasCaracteristicasDAO"></property>
+	</bean>
+
+	<bean id="beanServicioEstadoHidratacion" class="org.ucla.sigma.servicio.ServicioEstadoHidratacion">
+		<property name="estadoHidratacionDAO" ref="beanEstadoHidratacionDAO"></property>
+	</bean>
+	
+	<bean id="beanServicioColor" class="org.ucla.sigma.servicio.ServicioColor">
+		<property name="colorDAO" ref="beanColorDAO"></property>
+	</bean>	
+	<bean id="beanServicioDosis" class="org.ucla.sigma.servicio.ServicioDosis">
+		<property name="dosisDAO" ref="beanDosisDAO"></property>
+	</bean>	
+	<bean id="beanServicioEspesor" class="org.ucla.sigma.servicio.ServicioEspesor">
+		<property name="espesorDAO" ref="beanEspesorDAO"></property>
+	</bean>
+	<bean id="beanServicioElasticidad" class="org.ucla.sigma.servicio.ServicioElasticidad">
+		<property name="elasticidadDAO" ref="beanElasticidadDAO"></property>
+	</bean>
+
+	<bean id="beanServicioConsistencia" class="org.ucla.sigma.servicio.ServicioConsistencia">
+		<property name="consistenciaDAO" ref="beanConsistenciaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioProfundidad" class="org.ucla.sigma.servicio.ServicioProfundidad">
+		<property name="profundidadDAO" ref="beanProfundidadDAO"></property>
+	</bean>
+
+	<bean id="beanServicioPulpejos" class="org.ucla.sigma.servicio.ServicioPulpejos">
+		<property name="pulpejosDAO" ref="beanPulpejosDAO"></property>
+	</bean>
+
+	<bean id="beanServicioUnas" class="org.ucla.sigma.servicio.ServicioUnas">
+		<property name="unasDAO" ref="beanUnasDAO"></property>
+	</bean>
+
+	<bean id="beanServicioAreaEnfermedad" class="org.ucla.sigma.servicio.ServicioAreaEnfermedad">
+		<property name="areaEnfermedadDAO" ref="beanAreaEnfermedadDAO"></property>
+	</bean>
+	
+	<bean id="beanServicioAvanceEnfermedad" class="org.ucla.sigma.servicio.ServicioAvanceEnfermedad">
+		<property name="avanceEnfermedadDAO" ref="beanAvanceEnfermedadDAO"></property>
+	</bean>	
+	
+	<bean id="beanServicioAspecto" class="org.ucla.sigma.servicio.ServicioAspecto">
+		<property name="aspectoDAO" ref="beanAspectoDAO"></property>
+	</bean>
+	
+		<bean id="beanServicioParteCuerpo" class="org.ucla.sigma.servicio.ServicioParteCuerpo">
+		<property name="parteCuerpoDAO" ref="beanParteCuerpoDAO"></property>
+	</bean>		
+	
+	<bean id="beanServicioMembranaMucosa" class="org.ucla.sigma.servicio.ServicioMembranaMucosa">
+		<property name="membranaMucosaDAO" ref="beanMembranaMucosaDAO"></property>
+	</bean>	
+	
+	
+	<bean id="beanServicioTexturaPiel" class="org.ucla.sigma.servicio.ServicioTexturaPiel">
+		<property name="texturaPielDAO" ref="beanTexturaPielDAO"></property>
+	</bean>	
+	
+	<bean id="beanServicioTexturaPilosa" class="org.ucla.sigma.servicio.ServicioTexturaPilosa">
+		<property name="texturaPilosaDAO" ref="beanTexturaPilosaDAO"></property>
+	</bean>		
+	
+	<bean id="beanServicioLesionPrimaria" class="org.ucla.sigma.servicio.ServicioLesionPrimaria">
+		<property name="lesionPrimariaDAO" ref="beanLesionPrimariaDAO"></property>
+	</bean>
+	
+	<bean id="beanServicioLesionSecundaria" class="org.ucla.sigma.servicio.ServicioLesionSecundaria">
+		<property name="lesionSecundariaDAO" ref="beanLesionSecundariaDAO"></property>
+	</bean>	
+	
+	<bean id="beanServicioProducto" class="org.ucla.sigma.servicio.ServicioProducto">
+		<property name="productoDAO" ref="beanProductoDAO"></property>
+	</bean>	
+	
+	<bean id="beanServicioMedicamento" class="org.ucla.sigma.servicio.ServicioMedicamento">
+		<property name="medicamentoDAO" ref="beanMedicamentoDAO"></property>
+	</bean>	
+	
+	<bean id="beanServicioLesionPS" class="org.ucla.sigma.servicio.ServicioLesionPS">
+		<property name="lesionPSDAO" ref="beanLesionPSDAO"></property>
+	</bean>
+
+	<bean id="beanServicioConfiguracion" class="org.ucla.sigma.servicio.ServicioConfiguracion">
+		<property name="ConfiguracionDAO" ref="beanConfiguracionDAO"></property>
+	</bean>
+
+	<bean id="beanServicioEspImagenologia" class="org.ucla.sigma.servicio.ServicioEspImagenologia">
+		<property name="espImagenologiaDAO" ref="beanEspImagenologiaDAO"></property>
+	</bean>
+
+	<bean id="beanServicioTipoImagenologia" class="org.ucla.sigma.servicio.ServicioTipoImagenologia">
+		<property name="tipoImagenologiaDAO" ref="beanTipoImagenologiaDAO"></property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,46 @@
+<?page title="Auscultacion" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winAuscultacion"?>
+
+<window id="winAuscultacion" title="Auscultacion" border="normal" closable="true"
+	width="100%" apply="org.ucla.sigma.controlador.ctrlWinAuscultacion">
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtNombreAuscultacion" width="50%"
+						focus="true" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listAuscultacion" model="@{winAuscultacionctrl.auscultacions}"
+		selectedItem="@{winAuscultacionctrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Auscultacion" />
+		</listhead>
+		<listitem self="@{each=auscultacion}" value="@{auscultacion}">
+			<listcell label="@{auscultacion.nombre}" />
+		</listitem>
+	</listbox>
+</window>
+
+

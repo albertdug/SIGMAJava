@@ -1,0 +1,48 @@
+<?page title="Frecuencia" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winFrecuencia"?>
+
+<zk>
+<window id="winFrecuencia" title="Frecuencia" border="normal" width="100%" apply="org.ucla.sigma.controlador.ctrlWinFrecuencia">
+<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtNombreFrecuencia" width="50%" focus="true" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listFrecuencia"
+		model="@{winFrecuenciactrl.frecuencias}"
+		selectedItem="@{winFrecuenciactrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Nombre" />
+			<listheader label="Tipo" />
+		</listhead>
+		<listitem self="@{each=frecuencia}"
+			value="@{frecuencia}">
+			<listcell label="@{frecuencia.nombre}" />
+			<listcell label="@{frecuencia.frecuenciaTipo.nombre}" />
+		</listitem>
+	</listbox>
+</window>
+</zk>

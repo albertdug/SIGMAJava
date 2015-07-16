@@ -1,0 +1,38 @@
+<?page title="Catálogo" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winCatalogo" title="Catálogo Médicos" border="normal"
+		width="50%" closable="true" >
+		<zscript>
+		<![CDATA[
+	public void ir(String pdf) {
+		Window win = (Window) Executions.createComponents(pdf, null, null);
+		win.doHighlighted();
+	}
+]]>
+		</zscript>
+		<groupbox>
+			<caption>Seleccione médico(s)</caption>
+			<listbox multiple="true" checkmark="true">
+				<listitem>
+					<listcell label="Todos" />
+				</listitem>
+				<listitem>
+					<listcell label="Carmen Montañes" />
+				</listitem>
+				<listitem>
+					<listcell label="Alicia Parra" />
+				</listitem>
+				<listitem>
+					<listcell label="Gerardo Pérez" />
+				</listitem>
+				<listitem>
+					<listcell label="Cristian Torrealba" />
+				</listitem>
+			</listbox>
+			<separator></separator>
+			<button label="Aceptar" image="/sigma/imagenes/botones-basicos/aceptar.png" />
+			<button id="btnCancelar" label="Cancelar"
+				image="/sigma/imagenes/botones-basicos/cancelar.png" />
+				</groupbox>
+	</window>
+</zk>

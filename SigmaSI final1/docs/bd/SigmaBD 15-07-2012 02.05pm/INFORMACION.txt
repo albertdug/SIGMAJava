@@ -1,0 +1,24 @@
+VERSION VISUAL PARADIGM:
+		9.0
+		
+POR HACER:		
+		PRECIOS DE SERVICIOS*
+
+FICHEROS:
+		MER:
+			SIGMA BD.vpp: Modelo en VP
+			SIGMA BD.sql: Script que genera el VP
+			SIGMA BD.png: Modelo en formato imagen
+			SIGMA BD MODELO: Mapping de Hibernate sin modificaciones
+			
+		SQL:
+			SIGMA BD DATOS INICIALES.sql: Script con datos 
+			
+CODIFICACION DE CARACTERES:
+		UTF-8 sin BOM
+			- El archivo debe modificarse en un editor de texto plano como NOTEPAD++ para WINDOWS, 
+			  y se debe verificar en el menu de codificacion que este activado UTF-8 sin BOM
+			- Para linux ejemplo Gedit de Gnome
+			- No usar ECLIPSE
+			
+*OPCIONAL

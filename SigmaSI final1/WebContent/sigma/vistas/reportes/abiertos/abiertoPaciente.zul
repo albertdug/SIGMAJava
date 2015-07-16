@@ -1,0 +1,162 @@
+<?page title="Abiertos" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winAbiertoPaciente"?>
+
+<zk>
+	<window id="winAbiertoPaciente"
+		title="Consulta de Paciente - Servicio Médico" width="100%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinAbiertoPaciente">
+		<grid>
+			<columns>
+				<column label="" width="50%" />
+			</columns>
+			<rows>
+				<row>
+					<groupbox>
+						<caption>Reporte</caption>
+						Listado de pacientes
+					</groupbox>
+					<groupbox>
+						<caption>Descripción</caption>
+						Muestra los datos de los pacientes que cumplan
+						con los parámetros seleccionados.
+					</groupbox>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<grid>
+			<auxhead>
+				<auxheader colspan="1"
+					label="Filtros de selección y búsqueda" />
+			</auxhead>
+			<columns></columns>
+		</grid>
+
+		<grid>
+			<columns>
+				<column label="" width="50%" />
+			</columns>
+			<rows>
+				<row>
+					<groupbox>
+						<caption>Datos del paciente</caption>
+
+						<listbox id="listColumna1" checkmark="false">
+							<listitem id="listItemEspecie">
+								<listcell label="Especie">
+									<button id="btnEspecie"
+										image="/sigma/imagenes/botones-basicos/buscar.png" />
+									<space />
+								</listcell>
+							</listitem>
+							<listitem id="listItemRaza">
+								<listcell label="Raza">
+									<space />
+									<button id="btnRaza"
+										image="/sigma/imagenes/botones-basicos/buscar.png" />
+								</listcell>
+							</listitem>
+							<listitem id="listItemSexo"
+								checkable="false">
+								<listcell height="50%"
+									label="Seleccione el sexo">
+									<listbox id="listSexo"
+										model="@{winAbiertoPacientectrl.sexos}" mold="paging"
+										multiple="true" checkmark="true">
+										<listhead>
+											<listheader label="Sexos" />
+										</listhead>
+										<listitem self="@{each=sexo}"
+											value="@{sexo}">
+											<listcell
+												label="@{sexo.nombre}" />
+										</listitem>
+									</listbox>
+								</listcell>
+							</listitem>
+							<listitem checkable="false">
+								<listcell label="Fecha de Nacimiento" />
+							</listitem>
+							<listitem checkable="false">
+								<listcell label="desde:">
+									<datebox id="dbInicioNacimiento"
+										readonly="true" format="dd/MM/yyyy" />
+								</listcell>
+							</listitem>
+							<listitem checkable="false">
+								<listcell label="hasta:">
+									<datebox id="dbFinNacimiento"
+										readonly="true" format="dd/MM/yyyy" />
+								</listcell>
+							</listitem>
+						</listbox>
+					</groupbox>
+					<groupbox>
+						<caption>Datos médicos</caption>
+
+						<listbox id="listColumna2" checkmark="false">
+							<listitem id="listItemTipoServicio">
+								<listcell label="Tipo de Servicio">
+									<space />
+									<button id="btnTipoServicio"
+										image="/sigma/imagenes/botones-basicos/buscar.png" />
+								</listcell>
+							</listitem>
+							<listitem id="listItemEspeciales">
+								<listcell label="Servicios">
+									<space />
+									<button id="btnServicio"
+										image="/sigma/imagenes/botones-basicos/buscar.png" />
+								</listcell>
+							</listitem>
+							<listitem id="listItemTipoPatologia">
+								<listcell label="Tipo de Patologia">
+									<space />
+									<button id="btnTipoPatologia"
+										image="/sigma/imagenes/botones-basicos/buscar.png" />
+								</listcell>
+							</listitem>
+							<listitem id="listItemPatologia">
+								<listcell label="Patologia">
+									<space />
+									<button id="btnPatologia"
+										image="/sigma/imagenes/botones-basicos/buscar.png" />
+								</listcell>
+							</listitem>
+							<listitem checkable="false">
+								<listcell label="Fecha de atención" />
+							</listitem>
+							<listitem checkable="false">
+								<listcell label="desde:">
+									<datebox id="dbInicioAtencion"
+										readonly="true" format="dd/MM/yyyy" />
+								</listcell>
+							</listitem>
+							<listitem checkable="false">
+								<listcell label="hasta:">
+									<datebox id="dbFinAtencion"
+										readonly="true" format="dd/MM/yyyy" />
+								</listcell>
+							</listitem>
+						</listbox>
+					</groupbox>
+
+				</row>
+				<row></row>
+			</rows>
+
+		</grid>
+		<separator />
+		<separator />
+		<div align="center">
+			<button label="Exportar" id="btnGenerar"
+				image="/sigma/imagenes/botones-basicos/reportes.png">
+			</button>
+			<button label="Cancelar" id="btnCancelar"
+				image="/sigma/imagenes/botones-basicos/cancelar.png">
+			</button>
+		</div>
+
+	</window>
+</zk>

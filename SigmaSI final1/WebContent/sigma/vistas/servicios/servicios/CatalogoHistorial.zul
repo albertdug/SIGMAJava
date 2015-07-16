@@ -1,0 +1,101 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winCatalogoHistorial"?>
+<zk>
+	<window id="winCatalogoHistorial" title="Pacientes" border="normal"
+		closable="true" height="500px" width="80%"
+		apply="org.ucla.sigma.controlador.ctrlWinCatalogoHistorial">
+		<style>
+			.z-fieldset.gbNortCenter{ border-style : solid; border-width
+			: 1px; border-color : #BFBFBF; padding: 0px; padding-bottom:
+			4px; padding-left: 10px; } .z-fieldset.gbEast{ border-style
+			: solid; border-width : 1px; border-color : #BFBFBF;
+			padding: 1px; padding-top: 9px;}
+		</style>
+
+		<borderlayout>
+			<north border="none" height="90px">
+				<borderlayout height="100%">
+					<center border="none">
+						<div>
+							<groupbox sclass="gbNortCenter"
+								height="35px" closable="false">
+								<caption style="color:#4D4D4D">
+									Responsable
+								</caption>
+								<hlayout spacing="3%">
+									<hlayout>
+										<label value="Cedula" />
+										<textbox id="txtCi" width="90px" readonly="true"
+											style="text-align: center" />
+									</hlayout>
+									<hlayout>
+										<label value="Nombre" />
+										<textbox readonly="true"
+											id="txtNombreResponsable" width="150px" />
+									</hlayout>
+									<hlayout>
+										<label value="Apellido" />
+										<textbox readonly="true"
+											id="txtApellidoResponsable" width="150px" />
+									</hlayout>
+								</hlayout>
+							</groupbox>
+							<groupbox sclass="gbNortCenter"
+								height="35px" closable="false">
+								<caption style="color:#4D4D4D">
+									Paciente
+								</caption>
+								<vlayout>
+									<hlayout spacing="3%">
+										<hlayout>
+											<label value="Nombre" />
+											<textbox readonly="true"
+												id="txtNombrePaciente" width="120px" />
+										</hlayout>
+									</hlayout>
+								</vlayout>
+							</groupbox>
+						</div>
+					</center>
+				</borderlayout>
+			</north>
+			<center border="none">
+				<listbox id="listHistorial"
+					model="@{winCatalogoHistorialctrl.historials}"
+					mold="paging" pageSize="10">
+					<listhead>
+						<listheader label="Historial" />
+						<listheader label="Nombre" />
+						<listheader label="Sexo" />
+						<listheader label="Especie" />
+						<listheader label="Raza" />
+						<listheader label="Responsable" />
+						<listheader label="Tipo Servicio" />
+					</listhead>
+					<listitem self="@{each=historial}"
+						value="@{historial}">
+						<listcell label="@{historial.paciente.historiaMedica}" />
+						<listcell label="@{historial.paciente.nombre}" />
+						<listcell label="@{historial.paciente.sexo.nombre}" />
+						<listcell
+							label="@{historial.paciente.raza.especie.nombre}" />
+						<listcell label="@{historial.paciente.raza.nombre}" />
+						<listcell
+							label="@{historial.paciente.responsable.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}" />
+						<listcell
+							label="@{historial.tipoServicio.nombre}" />
+					</listitem>
+				</listbox>
+			</center>
+			<south border="none" height="33px">
+				<div align="right">
+					<separator />
+					<button id="btnSeleccionar" label="Seleccionar"
+						image="/sigma/imagenes/botones-basicos/check.png" />
+					<button id="btnCancelar" label="Cancelar"
+						image="/sigma/imagenes/botones-basicos/cancelar.png" />
+				</div>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

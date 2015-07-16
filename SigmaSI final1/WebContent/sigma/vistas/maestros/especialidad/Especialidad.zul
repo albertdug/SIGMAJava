@@ -1,0 +1,48 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEspecialidad"?>
+
+<window id="winEspecialidad" title="Especialidad" border="normal" width="100%"
+	closable="true" apply="org.ucla.sigma.controlador.ctrlWinEspecialidad">
+		<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtEspecialidad"  value="@{winEditEspecialidadctrl.especialidad.nombre}" 
+					width="50%">
+					</textbox>
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/recursos/zk/Imagenes/BotonesBasicos/buscar.png" />
+				</div>
+				<div align="right">
+					        <button id="btnNuevo" label="Nuevo"					
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/agregar.png" />					
+					     	<button id="btnEditar" label="Editar" 
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/editar.png" />
+					    	<button id="btnEliminar" label="Eliminar"
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/eliminar.png" />
+							<button id="btnVer" label="Ver"							
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/ver.png" />
+				
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listEspecialidad" model="@{winEspecialidadctrl.all_especialidad}"
+		selectedItem="@{winEspecialidadctrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Especialidad" /> 
+			<listheader label="Desripción" /> 	
+		</listhead>
+		<listitem self="@{each=especialidad}" value="@{especialidad}">
+		<listcell label="@{especialidad.nombre}" />
+		<listcell label="@{especialidad.descripcion}" />
+		</listitem>
+	</listbox>
+</window>

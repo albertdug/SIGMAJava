@@ -1,0 +1,41 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditCiudad"?>
+<zk>
+	<window id="winEditCiudad" title="Ciudad" width="50%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinEditCiudad">
+		<grid>
+			<columns>
+				<column width="25%" />
+				<column/>
+			</columns>
+			<rows>
+				<row>
+					<label value="Ciudad" />
+					<textbox id="txtNombre" value="@{winEditCiudadctrl.ciudad.nombre}" width="60%" focus="true"/>
+				</row>
+				<row>
+					<label value="Código Postal" />
+					<intbox id="intCodigo" value="@{winEditCiudadctrl.ciudad.codigoPostal}"
+						width="20%" maxlength="5">
+					</intbox>
+				</row>
+				<row>
+					<label value="Estado" />
+					<listbox id="listEstados"
+						model="@{winEditCiudadctrl.estados}" mold="select">
+						<listitem self="@{each=estado}"
+							value="@{estado }">
+							<listcell label="@{estado.nombre}"/>
+						</listitem>
+					</listbox>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

@@ -1,0 +1,8 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winViewReport" title=" " closable="true" height="80%" width="80%"
+		border="normal" maximizable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinViewReport">
+		<iframe id="report" height="100%" width="100%" />
+	</window>
+</zk>

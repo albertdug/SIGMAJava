@@ -1,0 +1,98 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winReferenciaEspecializada"?>
+
+<zk>
+	<window id="winReferenciaEspecializada"
+		title="Referencia Consulta Especializada" width="60%" border="normal"
+		closable="true"  apply="org.ucla.sigma.controlador.ctrlWinReferenciaEspecializada">
+		<borderlayout height="280px">
+			<center border="none">
+				<div>
+					<groupbox>
+						<caption label="Responsable" />
+						<grid>
+							<columns>
+								<column width="15%" />
+								<column />
+								<column width="15%" />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<label value="Cédula" />
+									<textbox readonly="true" value = "@{winReferenciaEspecializadactrl.paciente.responsable.cedula}" />
+									<label value="Nombre" />
+									<textbox readonly="true" value="@{winReferenciaEspecializadactrl.paciente.responsable.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}" />
+								</row>
+							</rows>
+						</grid>
+					</groupbox>
+					<groupbox>
+						<caption label="Paciente" />
+						<grid>
+							<columns>
+								<column width="15%" />
+								<column />
+								<column width="15%" />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<label value="Historia Médica" />
+									<textbox readonly="true" value="@{winReferenciaEspecializadactrl.paciente.historiaMedica }"/>
+									<label value="Nombre" />
+									<textbox readonly="true" value="@{winReferenciaEspecializadactrl.paciente.nombre}" />
+								</row>
+								<row>
+									<label value="Sexo" />
+									<textbox readonly="true" value="@{winReferenciaEspecializadactrl.paciente.sexo.nombre}" />
+									<label value="Especie" />
+									<textbox readonly="true" value="@{winReferenciaEspecializadactrl.paciente.raza.especie.nombre}" />
+								</row>
+								<row>
+									<label value="Raza" />
+									<textbox readonly="true" value="@{winReferenciaEspecializadactrl.paciente.raza.nombre}" />
+									<label value="Edad" />
+									<textbox id="txtEdad" readonly="true"  />
+								</row>
+							</rows>
+						</grid>
+					</groupbox>
+					<groupbox>
+						<caption label="Datos de la Referencia" />
+						<grid>
+							<columns>
+								<column width="15%" />
+								<column />
+								<column width="15%" />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<label value="Servicio" />
+									<listbox id="listServicios"
+										model="@{winReferenciaEspecializadactrl.tipoServicios}"
+										mold="select">
+										<listitem
+											self="@{each=servicio}" value="@{servicio}">
+											<listcell
+												label="@{servicio.nombre}" />
+										</listitem>
+									</listbox>
+									<label value="Fecha de emisión" />
+									<datebox id="dbFechaActual" readonly="true" buttonVisible="false" format="dd/MM/yyyy"/>
+								</row>
+							</rows>
+						</grid>
+					</groupbox>
+				</div>
+			</center>
+			<east border="none"></east>
+		</borderlayout>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

@@ -1,0 +1,90 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winFichaMedica"?>
+
+<zk>
+
+	<window id="winFichaMedica" height="100%"
+		apply="org.ucla.sigma.controlador.ctrlWinFichaMedica">
+
+		<!-- 			<+++++++++++  TABBOX  +++++++++++> -->
+
+		<tabbox height="100%">
+			<tabs>
+				<tab label="Ficha Medica" width="15%"
+					style="text-align:center" />
+			</tabs>
+			<tabpanels>
+
+				<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+				<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+				<tabpanel height="100%">
+					<borderlayout height="100%">
+						<center border="none" autoscroll="true">
+							<div height="100%">
+
+								<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 1  +++++++++++> -->
+
+								<grid>
+									<columns>
+										<column width="100%"
+											valign="top" />
+									</columns>
+									<rows>
+										<row style="border:none">
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<caption
+													label="Caracteristicas" />
+												<div>
+													<textbox
+														id="txtCaracteristicas" width="99.5%"
+														style="resize: none;" maxlength="1000" multiline="true"
+														height="55px"
+														value="@{winFichaMedicactrl.fichaMedica.caracteristicas}" />
+												</div>
+											</groupbox>
+										</row>
+										<row style="border:none">
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<caption
+													label="Alergias" />
+												<div>
+													<textbox
+														id="txtAlergias" width="99.5%" style="resize: none;"
+														maxlength="1000" multiline="true" height="55px"
+														value="@{winFichaMedicactrl.fichaMedica.alergias}" />
+												</div>
+											</groupbox>
+										</row>
+										<row style="border:none">
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<caption
+													label="Observaciones Medicas" />
+												<div>
+													<textbox
+														id="txtObservaciones" width="99.5%" style="resize: none;"
+														maxlength="1000" multiline="true" height="55px"
+														value="@{winFichaMedicactrl.fichaMedica.observaciones}" />
+												</div>
+											</groupbox>
+										</row>
+									</rows>
+								</grid>
+
+								<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 1  +++++++++++> -->
+
+							</div>
+						</center>
+					</borderlayout>
+				</tabpanel>
+
+				<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+			</tabpanels>
+		</tabbox>
+	</window>
+
+</zk>

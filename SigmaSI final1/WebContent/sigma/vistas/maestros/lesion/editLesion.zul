@@ -1,0 +1,42 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditLesion"?>
+<zk>
+	<window id="winEditLesion" title="Lesion" width="50%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinEditLesion">
+		<grid>
+			<columns>
+				<column width="25%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre de la Lesion" />
+					<textbox value="@{winEditLesionctrl.lesion.nombre}"
+						width="60%" />
+				</row>
+				<row>
+					<label value="Tipo Lesion" />
+					<listbox id="listTipoLesion" mold="select"
+						model="@{winEditLesionctrl.all_tipoLesion}">
+						<listitem self="@{each=tipolesion}"
+							value="@{tipolesion}">
+							<listcell label="@{tipolesion.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+
+				<row>
+					<label value="Descripcion de la Lesion" />
+					<textbox
+						value="@{winEditLesionctrl.lesion.descripcion}" width="60%" />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/recursos/zk/Imagenes/BotonesBasicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/recursos/zk/Imagenes/BotonesBasicos/cancelar.png" />
+	</window>
+</zk>

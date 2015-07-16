@@ -1,0 +1,101 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winFichaBasica"?>
+<zk>
+	<window id="winFichaBasica" title="Ficha Básica" border="normal"
+		width="80%" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinFichaBasica">
+		<groupbox>
+			<caption>Responsable</caption>
+
+			<!-- Inicio de la Pestaña Datos -->
+
+			<grid width="100%">
+				<columns>
+					<column width="15%" />
+					<column width="30%" />
+					<column width="15%" />
+					<column width="30%" />
+					<column width="15%" />
+					<column width="30%" />
+				</columns>
+				<rows>
+					<row spans="1,1,4">
+						<label value="Cedula" />
+						<intbox id="txtCedulaResponsable" />
+						<button id="btnBuscar"
+							image="/sigma/imagenes/botones-basicos/buscar.png" />
+					</row>
+					<row>
+						<label value="Nombre" />
+						<textbox
+							value="@{winFichaBasicactrl.responsable.persona.nombre }"
+							id="txtNombreResponsable" readonly="true" />
+						<label value="Apellido" />
+						<textbox id="txtApellidoResponsable"
+							value="@{winFichaBasicactrl.responsable.persona.apellido }"
+							readonly="true" />
+						<label value="Telefono" />
+						<textbox id="txtTelefonoResponsable"
+							value="@{winFichaBasicactrl.responsable.persona.telefono }"
+							readonly="true" />
+					</row>
+					<row>
+						<label value="Correo Electronico" />
+						<textbox id="txtCorreoResponsable"
+							value="@{winFichaBasicactrl.responsable.persona.correo }"
+							readonly="true" />
+						<label value="Direccion" />
+						<textbox id="txtDirecionResponsable"
+							value="@{winFichaBasicactrl.responsable.persona.direccion }"
+							readonly="true" />
+						<label value="Ciudad" />
+						<textbox id="txtCiudadResponsable"
+							value="@{winFichaBasicactrl.responsable.persona.ciudad.nombre }"
+							readonly="true" />
+					</row>
+
+				</rows>
+			</grid>
+		</groupbox>
+		<separator height="10px" />
+		<groupbox visible="false" id="gbPacientes" height="auto"
+			width="auto">
+			<caption>Lista de Pacientes</caption>
+			<div align="right">
+				<button label="Nuevo Paciente" id="btnNuevoPac"
+					image="/sigma/imagenes/botones-basicos/guardar.png" />
+				<button label="Editar Paciente" id="btnEditarPac" disabled="true"
+					image="/sigma/imagenes/botones-basicos/editar.png" />
+			</div>
+			<separator />
+			<listbox id="listPaciente"
+				model="@{winPacientectrl.pacientes}"
+				selectedItem="@{winFichaBasicactrl.seleccion}" mold="paging"
+				pageSize="10">
+				<listhead>
+					<listheader label="Historia Médica" />
+					<listheader label="Nombre" />
+					<listheader label="Sexo" />
+					<listheader label="Raza" />
+					<listheader label="Especie" />
+				</listhead>
+				<listitem self="@{each=paciente}" value="@{paciente}">
+					<listcell label="@{paciente.historiaMedica}" />
+					<listcell label="@{paciente.nombre}" />
+					<listcell label="@{paciente.sexo.nombre}" />
+					<listcell label="@{paciente.raza.nombre}" />
+					<listcell label="@{paciente.raza.especie.nombre}" />
+				</listitem>
+			</listbox>
+		</groupbox>
+		<separator />
+		<div align="left">
+			<button id="btnGenerarCarnet" label="Generar Carnet"
+				visible="false" width="20%"
+				image="/sigma/imagenes/botones-basicos/perfil.png" />
+			<button id="btnCancelar" label="Cancelar"
+				visible="true" width="20%"
+				image="/sigma/imagenes/botones-basicos/cancelar.png" />
+		</div>
+	</window>
+</zk>

@@ -1,0 +1,39 @@
+<?page title="Imagen" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditImagen"?>
+<zk>
+	<window id="winEditImagen" title="Imagen" width="50%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinEditImagen">
+		<grid>
+			<columns>
+				<column width="120px" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Fecha de creación" />
+					<datebox id="dbCreacion" buttonVisible="false"
+						readonly="true" width="100px" format="dd/MM/yyyy" value="@{winEditImagenctrl.imagen.creacion}" />
+				</row>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombre"
+						value="@{winEditImagenctrl.imagen.nombre}" width="60%" />
+				</row>
+				<row valign="top">
+					<button id="btnImg" label="Subir Imagen"
+						upload="true" onUpload="winEditImagenctrl.subir(event)" />
+					<cell>
+						<image id="imgImagen" />
+					</cell>
+				</row>
+				
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

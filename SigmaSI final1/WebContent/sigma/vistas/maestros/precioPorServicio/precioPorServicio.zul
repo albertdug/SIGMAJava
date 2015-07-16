@@ -1,0 +1,36 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+	<window title="Precio por Servicio" width="100%" border="normal"
+		closable="true">
+		<grid>
+			<columns>
+				<column width="15%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Servicio" />
+					<combobox>
+						<comboitem />
+
+						<comboitem />
+					</combobox>
+				</row>
+				<row>
+					<label value="Precio" />
+					<textbox />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar" onClick=""
+			image="/sigma/recursos/zk/Imagenes/BotonesBasicos/guardar.png" />
+				<button id="btnEliminar" label="Eliminar" onClick=""
+						image="sigma/recursos/zk/Imagenes/BotonesBasicos/eliminar.png" />
+		<button id="btnCancelar" label="Cancelar" onClick=""
+			image="/sigma/recursos/zk/Imagenes/BotonesBasicos/cancelar.png" />
+		
+				
+	</window>
+</zk>

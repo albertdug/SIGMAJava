@@ -1,0 +1,51 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Tipo de Persona" border="normal" width="100%" closable="true">
+		<zscript>
+<![CDATA[
+	public void ir() {
+		Window win = (Window) execution.createComponents(
+				"/vistas/maestros/tipoPersona/editTipoPersona.zul", null, null);
+		try {
+			win.doModal();
+		} catch (Exception e) {
+		}
+	}
+]]>
+</zscript>
+		<grid>
+			<columns>
+				<column label="" />
+				<column label="" />
+			</columns>
+			<rows>
+				<row>
+					<div align="left">
+						<label value="Nombre" />
+						<textbox width="50%" />
+						<button label="Buscar" onClick=""
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/buscar.png" />
+					</div><div align="right"><button id="btnNuevo" label="Nuevo"
+							onClick="ir()"
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/agregar.png" />					
+					     	<button id="btnEditar" label="Editar" onClick=""
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/editar.png" />
+					    	<button id="btnEliminar" label="Eliminar"
+							onClick=""
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/eliminar.png" />
+							<button id="btnVer" label="Ver"
+							onClick="ir()"
+							image="/sigma/recursos/zk/Imagenes/BotonesBasicos/ver.png" />
+					</div>
+				</row>
+			</rows>
+		</grid>
+		<separator/>
+		<listbox>
+			<listhead>
+				<listheader width="40%" label="Nombre" />
+				<listheader width="60%" label="Descripción" />
+			</listhead>
+		</listbox>
+	</window>
+</zk>

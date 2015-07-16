@@ -1,0 +1,29 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditMedicamento"?>
+<zk>
+	<window id="winEditMedicamento" title="Medicamento" width="50%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinEditMedicamento">
+		<grid>
+			<columns>
+				<column width="35%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre del Medicamento" />
+					<textbox id="txtNombre"
+						value="@{winEditMedicamentoctrl.medicamento.nombre}" width="60%"
+						focus="true" />
+
+				</row>
+				
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

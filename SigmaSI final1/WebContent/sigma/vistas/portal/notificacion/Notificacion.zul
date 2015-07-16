@@ -1,0 +1,60 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winNotificacion"?>
+
+<window id="winNotificacion" title="Notificaciones" border="normal"
+	closable="true" apply="org.ucla.sigma.controlador.ctrlWinNotificacion">
+	<grid>
+		<columns>
+		<column width="70%" />
+		<column />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Fechas" />
+					<datebox id="dboxFechaDesde" width="20%"
+						format="dd/MM/yyyy" constraint="no future"/>
+					<datebox id="dboxFechaHasta" width="20%"
+						format="dd/MM/yyyy" />
+					<radiogroup id="rgTipo">
+						<radio checked="true" label="TODAS" value="null" />
+						<radio label="LEIDA" value="E" />
+						<radio label="NO LEIDA" value="A" />
+					</radiogroup>
+
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnLeer" label="Leer Notificación"
+						image="/sigma/imagenes/botones-basicos/comentarios.png" />
+					<button id="btnVer" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listNotificaciones"
+		model="@{winNotificacionctrl.notificaciones}"
+		selectedItem="@{winNotificacionctrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Nombre" />
+			<listheader label="Apellido" />
+			<listheader label="Correo" />
+			<listheader label="Teléfono" />
+			<listheader label="Fecha envío" />
+			<listheader  width="50px" align="center"/>
+		</listhead>
+		<listitem self="@{each=notificacion}" value="@{notificacion}">
+			<listcell label="@{notificacion.nombre}" />
+			<listcell label="@{notificacion.apellido}" />
+			<listcell label="@{notificacion.correo}" />
+			<listcell label="@{notificacion.telefono}" />
+			<listcell
+				label="@{notificacion.creacion,converter='org.ucla.sigma.componentszk.FormatDateConverter'}" />
+			<listcell image="@{notificacion,converter='org.ucla.sigma.componentszk.EstadoNotificacionConverter'}"/>
+		</listitem>
+	</listbox>
+</window>

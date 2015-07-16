@@ -1,0 +1,997 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winConsultaGeneral"?>
+
+<zk>
+
+	<window id="winConsultaGeneral" height="100%"
+		apply="org.ucla.sigma.controlador.ctrlWinConsultaGeneral">
+
+		<!-- 			<+++++++++++  TABBOX  +++++++++++> -->
+
+		<!--//			<++++++++++++++++++++++++++++++++++++++++  NOTA  ++++++++++++++++++++++++++++++++++++++++> -->
+		<!--//			<+  Este proceso es igual para todos las TABs, es decir, se pueden agregar TABs pero    +> -->
+		<!--//      	<+  siguiendo el mismo patrón (por excepción del tamaño de las mismas, que estará en    +> -->
+		<!--//        	<+  función de la cantidad de TABs), por otra parte, el contenido de cada TAB(tabpanel) +> -->
+		<!--//        	<+  es decisión propia (Hacer lo que la imaginación dicte).                             +> -->
+		<!--//        	<+	+++++++++++++++++++++++++++++++++++++   PD   +++++++++++++++++++++++++++++++++++++  +> -->
+		<!--//        	<+  Como sugerencia por cuestiones de estética, para los TEXTBOX(y parecidos) es 		+> -->
+		<!--//        	<+	mejor usar Width= "99,5%"(en lugar de 100%) y Style= "resize: none;"(este ultimo 	+> -->
+		<!--//        	<+	en caso de usar Multiline= "true" ), por otro lado, los GRIBs se adaptan al Width 	+> -->
+		<!--//        	<+	máximo automáticamente, evitar en lo posible usar Width =”100%”, todo esto solo 	+> -->
+		<!--//        	<+	cuando se trabaja con porcentajes, con píxeles, depende del ojo de cada quien.		+> -->
+		<!--//			<++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+		<tabbox height="100%">
+			<tabs>
+				<tab label="Consulta" width="15%"
+					style="text-align:center" selected="true" />
+				<tab label="Diagnostico" width="15%"
+					style="text-align:center" />
+				<tab label="Patologia" width="15%"
+					style="text-align:center" />
+				<tab label="Tratamiento" width="15%"
+					style="text-align:center" />
+			</tabs>
+			<tabpanels>
+
+				<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+				<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+				<tabpanel height="100%">
+					<borderlayout height="100%">
+						<center border="normal" autoscroll="true">
+							<div height="100%">
+
+								<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 1  +++++++++++> -->
+
+								<tabbox id="tbConsulta">
+									<tabs>
+										<tab label="Datos Clinicos"
+											width="33%" style="text-align:center" />
+										<tab label="Examen Clinico"
+											width="33%" style="text-align:center" />
+										<tab label="Servicios"
+											width="33%" style="text-align:center" />
+									</tabs>
+									<tabpanels>
+										<tabpanel>
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<grid
+													style="border:none">
+													<columns>
+														<column
+															width="15%" />
+														<column
+															width="35%" />
+														<column
+															width="15%" />
+														<column
+															width="35%" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<label
+																value="Peso (Kg)" width="100%" />
+															<spinner
+																id="spPeso" width="50px"
+																value="@{winConsultaGeneralctrl.consultaGeneral.peso}" />
+															<label
+																value="Altura (Mt)" width="100%" />
+															<spinner
+																id="spAltura" width="50px"
+																value="@{winConsultaGeneralctrl.consultaGeneral.altura}" />
+														</row>
+														<row
+															style="border:none">
+															<label
+																value="Estado del Pelaje" width="100%" />
+															<textbox
+																id="txtPelajeEstado" width="90%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.pelajeEstado}" />
+															<label
+																value="Tipo de Alimentacion" width="100%" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listTipoAlimentacion" width="120px"
+																model="@{winConsultaGeneralctrl.tipoAlimentaciones}"
+																mold="select">
+																<listitem
+																	self="@{each=tipoAlimentacion}"
+																	value="@{tipoAlimentacion}">
+																	<listcell
+																		label="@{tipoAlimentacion.nombre}" />
+																</listitem>
+															</listbox>
+														</row>
+														<row
+															style="border:none">
+															<label
+																value="Contacto con otros Animales" width="100%" />
+															<cell
+																colspan="3">
+																<textbox
+																	id="txtContactoAnimal" width="90%"
+																	value="@{winConsultaGeneralctrl.consultaGeneral.contactoAnimal}" />
+															</cell>
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+											<separator />
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<grid
+													style="border:none">
+													<columns>
+														<column
+															width="15%" />
+														<column
+															width="35%" />
+														<column
+															width="15%" />
+														<column
+															width="35%" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<label
+																value="Caracteristicas de la  Libido" width="100%" />
+															<textbox
+																id="txtLibido" width="90%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.libido}" />
+															<label
+																value="Ultimo Celo" width="100%" />
+															<datebox
+																id="dbUltimoCelo" format="medium" width="100px"
+																style="text-align: center"
+																value="@{winConsultaGeneralctrl.consultaGeneral.ultimoCelo}"
+																readonly="true" />
+														</row>
+														<row
+															style="border:none">
+															<label
+																value="Numero de Partos" width="100%" />
+															<spinner
+																id="spPartos" width="50px"
+																value="@{winConsultaGeneralctrl.consultaGeneral.partos}" />
+															<label
+																value="Fecha de Castracion" width="100%" />
+															<datebox
+																id="dbCastracion" width="100px"
+																style="text-align: center"
+																value="@{winConsultaGeneralctrl.consultaGeneral.castracion}"
+																readonly="true" />
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+										</tabpanel>
+										<tabpanel>
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<grid
+													style="border:none">
+													<columns>
+														<column
+															width="15%" />
+														<column
+															width="50%" />
+														<column
+															width="15%" />
+														<column
+															width="20%" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<label
+																value="Motivo de Ingreso" width="100%" />
+															<textbox
+																id="txtMotivoIngreso" width="90%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.motivoIngreso}" />
+															<label
+																value="Inicio de la Enfermedad" width="100%" />
+															<datebox
+																id="dbInicioEnfermedad" format="medium" width="100px"
+																style="text-align: center"
+																value="@{winConsultaGeneralctrl.consultaGeneral.inicioEnfermedad}"
+																readonly="true" />
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+											<separator />
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<grid
+													style="border:none">
+													<columns>
+														<column
+															width="15%" />
+														<column
+															width="14%" />
+														<column
+															width="15%" />
+														<column
+															width="14%" />
+														<column
+															width="15%" />
+														<column
+															width="14%" />
+														<column
+															width="15%" />
+														<column
+															width="13%" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<label
+																value="Temperatura °C" width="100%" />
+															<spinner
+																id="spTemperatura" width="50px"
+																value="@{winConsultaGeneralctrl.consultaGeneral.temperatura}" />
+															<label
+																value="T:PC" width="100%" />
+															<spinner
+																id="spTpc" width="50px"
+																value="@{winConsultaGeneralctrl.consultaGeneral.tpc}" />
+															<label
+																value="Respiracion (c/min)" width="100%" />
+															<spinner
+																id="spRespiracion" width="50px"
+																value="@{winConsultaGeneralctrl.consultaGeneral.respiracion}" />
+															<label
+																value="Frecuencia Cardiaca" width="100%" />
+															<spinner
+																id="spFrecuenciaCardiaca" width="50px"
+																value="@{winConsultaGeneralctrl.consultaGeneral.frecuenciaCardiaca}" />
+														</row>
+														<row
+															style="border:none">
+															<label
+																value="Pulso (p/min)" width="100%" />
+															<spinner
+																id="spPulso" width="50px"
+																value="@{winConsultaGeneralctrl.consultaGeneral.pulso}" />
+															<label
+																value="Pulso Arterial (p/min)" width="100%" />
+															<spinner
+																id="spPulsoArterial" width="50px"
+																value="@{winConsultaGeneralctrl.consultaGeneral.pulsoArterial}" />
+															<label
+																value="Pulsor Yugular" width="100%" />
+															<spinner
+																id="spPulsoYugular" width="50px"
+																value="@{winConsultaGeneralctrl.consultaGeneral.pulsoYugular}" />
+															<cell />
+															<cell />
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+											<separator />
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<grid
+													style="border:none">
+													<columns>
+														<column
+															width="18%" />
+														<column
+															width="32%" />
+														<column
+															width="18%" />
+														<column
+															width="32%" valign="top" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<label
+																value="Mucosas Visibles" width="100%" />
+															<!-- <+++++++BOLEANO++++++> -->
+															<combobox
+																id="cbMucosa" width="50px" readonly="true">
+																<comboitem
+																	label="Si" />
+																<comboitem
+																	label="No" />
+															</combobox>
+															<cell>
+																<label
+																	value="Ganglios Palpables" width="100%" />
+															</cell>
+															<cell
+																rowspan="3">
+																<!-- <+++++++AQUI++++++> -->
+																<listbox
+																	id="listGanglio" width="100%"
+																	model="@{winConsultaGeneralctrl.ganglios}" mold=""
+																	multiple="true" checkmark="true">
+																	<listitem
+																		self="@{each=ganglio}" value="@{ganglio}">
+																		<listcell
+																			label="@{ganglio.nombre}" />
+																	</listitem>
+																</listbox>
+															</cell>
+
+														</row>
+														<row
+															style="border:none">
+															<label
+																value="Ruido Adventicios" width="100%" />
+															<!-- <+++++++BOLEANO++++++> -->
+															<combobox
+																id="cbRuidoAdventicios" width="50px" readonly="true">
+																<comboitem
+																	label="Si" />
+																<comboitem
+																	label="No" />
+															</combobox>
+															<cell />
+														</row>
+														<row
+															style="border:none">
+															<label
+																value="Ectoparasitos" width="100%" />
+															<!-- <+++++++BOLEANO++++++> -->
+															<combobox
+																id="cbEctoparasitos" width="50px" readonly="true">
+																<comboitem
+																	label="Si" />
+																<comboitem
+																	label="No" />
+															</combobox>
+															<cell />
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+											<separator />
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<grid
+													style="border:none">
+													<columns>
+														<column
+															width="8%" />
+														<column
+															width="12%" />
+														<column
+															width="15%" />
+														<column
+															width="25%" />
+														<column
+															width="15%" />
+														<column
+															width="25%" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<label
+																value="Apetito" width="100%" />
+															<!-- <+++++++BOLEANO++++++> -->
+															<combobox
+																id="cbApetito" width="50px" readonly="true">
+																<comboitem
+																	label="Si" />
+																<comboitem
+																	label="No" />
+															</combobox>
+															<label
+																value="Frecuencia de Alimentacion" width="100%" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listApetitoFrecuencia" width="120px"
+																model="@{winConsultaGeneralctrl.frecuencias}"
+																mold="select">
+																<listitem
+																	self="@{each=frecuencia}" value="@{frecuencia}">
+																	<listcell
+																		label="@{frecuencia.nombre}" />
+																</listitem>
+															</listbox>
+															<label
+																value="Ultimo vez que se Alimento" width="100%" />
+															<datebox
+																id="dbUltimoAlimento" format="d/M/yy KK:mm:ss a"
+																width="150px" style="text-align: center"
+																value="@{winConsultaGeneralctrl.consultaGeneral.ultimoAlimento}"
+																readonly="true" />
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+											<separator />
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<grid
+													style="border:none">
+													<columns>
+														<column
+															width="10%" />
+														<column
+															width="23%" />
+														<column
+															width="10%" />
+														<column
+															width="23%" />
+														<column
+															width="10%" />
+														<column
+															width="24%" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<label
+																value="Vista" width="100%" />
+															<textbox
+																id="txtVista" width="90%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.vista}" />
+															<label
+																value="Oido" width="100%" />
+															<textbox
+																id="txtOido" width="90%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.oido}" />
+															<label
+																value="Gusto" width="100%" />
+															<textbox
+																id="txtGusto" width="90%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.gusto}" />
+														</row>
+														<row
+															style="border:none">
+															<label
+																value="Olfato" width="100%" />
+															<textbox
+																id="txtOlfato" width="90%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.olfato}" />
+															<label
+																value="Tacto" width="100%" />
+															<textbox
+																id="txtTacto" width="90%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.tacto}" />
+															<cell />
+															<cell />
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+											<separator />
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<grid
+													style="border:none">
+													<columns>
+														<column
+															width="9%" />
+														<column
+															width="24%" />
+														<column
+															width="9%" />
+														<column
+															width="24%" />
+														<column
+															width="9%" />
+														<column
+															width="25%" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<label
+																value="Secrecion Vaginal" width="100%" />
+															<textbox
+																id="txtSecrecionVaginal" width="95%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.secrecionVaginal}" />
+															<label
+																value="Testiculos" width="100%" />
+															<textbox
+																id="txtTesticulos" width="95%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.testiculos}" />
+															<label
+																value="Prepucio" width="100%" />
+															<textbox
+																id="txtPrepucio" width="95%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.prepucio}" />
+														</row>
+														<row
+															style="border:none">
+															<label
+																value="Aspecto Orina" width="100%" />
+															<textbox
+																id="txtOrina" width="95%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.orina}" />
+															<label
+																value="Vejiga" width="100%" />
+															<textbox
+																id="txtVejiga" width="95%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.vejiga}" />
+															<label
+																value="Riñon" width="100%" />
+															<textbox
+																id="txtRinnon" width="95%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.rinnon}" />
+														</row>
+														<row
+															style="border:none">
+															<label
+																value="Bazo" width="100%" />
+															<textbox
+																id="txtBazo" width="95%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.bazo}" />
+															<label
+																value="Higado" width="100%" />
+															<textbox
+																id="txtHigado" width="95%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.higado}" />
+															<cell />
+															<cell />
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+											<separator />
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<grid
+													style="border:none">
+													<columns>
+														<column
+															width="10%" />
+														<column
+															width="90%" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<label
+																value="Cambio de Caracter" width="100%" />
+															<textbox
+																id="txtCaracter" width="99%"
+																value="@{winConsultaGeneralctrl.consultaGeneral.caracter}" />
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+										</tabpanel>
+										<tabpanel>
+											<groupbox
+												style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+												<grid
+													style="border:none">
+													<columns>
+														<column
+															width="50%" valign="top" />
+														<column
+															width="50%" valign="top" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<listbox
+																id="listListadoServicio1"
+																model="@{winConsultaGeneralctrl.servicios1}"
+																multiple="true" checkmark="true">
+																<listhead />
+																<listitem
+																	self="@{each=servicio}" value="@{servicio}">
+																	<listcell
+																		label="@{servicio.nombre}" />
+																</listitem>
+															</listbox>
+															<listbox
+																id="listListadoServicio2"
+																model="@{winConsultaGeneralctrl.servicios2}"
+																multiple="true" checkmark="true">
+																<listhead />
+																<listitem
+																	self="@{each=servicio}" value="@{servicio}">
+																	<listcell
+																		label="@{servicio.nombre}" />
+																</listitem>
+															</listbox>
+														</row>
+														<row>
+															<cell
+																colspan="2">
+																<div>
+																	<label
+																		value="Descripcion" width="100%" />
+																	<textbox
+																		id="txtServicioDescripcion" width="99.5%"
+																		multiline="true" height="60px"
+																		value="@{winConsultaGeneralctrl.consultaGeneral.servicioDescripcion}" />
+																</div>
+															</cell>
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+										</tabpanel>
+									</tabpanels>
+								</tabbox>
+
+								<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 1  +++++++++++> -->
+
+							</div>
+						</center>
+					</borderlayout>
+				</tabpanel>
+
+				<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+				<tabpanel height="100%">
+					<borderlayout height="100%">
+						<center border="none" autoscroll="true">
+							<div height="100%">
+
+								<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 2  +++++++++++> -->
+
+								<groupbox id="gbSintoma" mold="3d">
+									<caption id="cpArrow"
+										image="/sigma/imagenes/botones-basicos/quitar.png"
+										label="Sintomas" />
+									<grid style="0px;border:none">
+										<columns>
+											<column width="50%"
+												valign="top" />
+											<column width="50%"
+												valign="top" />
+										</columns>
+										<rows>
+											<row style="border:none">
+												<listbox
+													id="listListadoSintomas1"
+													model="@{winConsultaGeneralctrl.sintomas1}" multiple="true"
+													checkmark="true">
+													<listhead />
+													<listitem
+														self="@{each=sintoma}" value="@{sintoma}">
+														<listcell
+															label="@{sintoma.nombre}" />
+													</listitem>
+												</listbox>
+												<listbox
+													id="listListadoSintomas2"
+													model="@{winConsultaGeneralctrl.sintomas2}" multiple="true"
+													checkmark="true">
+													<listhead />
+													<listitem
+														self="@{each=sintoma}" value="@{sintoma}">
+														<listcell
+															label="@{sintoma.nombre}" />
+													</listitem>
+												</listbox>
+											</row>
+										</rows>
+									</grid>
+								</groupbox>
+								<separator />
+								<grid>
+									<columns>
+										<column width="50%" />
+										<column width="50%" />
+									</columns>
+									<rows>
+										<row style="border:none">
+											<cell colspan="2">
+												<div>
+													<label
+														value="Procedimientos Diagnósticos" width="100%" />
+													<textbox
+														id="txtDiagnosticoProcedimiento" width="99.5%"
+														style="resize: none;" maxlength="1000" multiline="true"
+														height="50px"
+														value="@{winConsultaGeneralctrl.consultaGeneral.diagnosticoProcedimiento}" />
+												</div>
+											</cell>
+										</row>
+										<row style="border:none">
+											<cell colspan="2">
+												<div>
+													<label
+														value="Diagnostico Tentativo" width="100%" />
+													<textbox
+														id="txtDiagnosticoTentativo" width="99.5%"
+														style="resize: none;" maxlength="1000" multiline="true"
+														height="50px"
+														value="@{winConsultaGeneralctrl.consultaGeneral.diagnosticoTentativo}" />
+												</div>
+											</cell>
+										</row>
+										<row style="border:none">
+											<cell colspan="2">
+												<div>
+													<label
+														value="Diagnostico Diferencial" width="100%" />
+													<textbox
+														id="txtDiagnosticoDiferencial" width="99.5%"
+														style="resize: none;" maxlength="1000" multiline="true"
+														height="50px"
+														value="@{winConsultaGeneralctrl.consultaGeneral.diagnosticoDiferencial}" />
+												</div>
+											</cell>
+										</row>
+										<row style="border:none">
+											<cell colspan="2">
+												<div>
+													<label
+														value="Diagnostico Definitivo" width="100%" />
+													<textbox
+														id="txtDiagnosticoDefinitivo" width="99.5%"
+														style="resize: none;" maxlength="1000" multiline="true"
+														height="50px"
+														value="@{winConsultaGeneralctrl.consultaGeneral.diagnosticoDefinitivo}" />
+												</div>
+											</cell>
+										</row>
+									</rows>
+								</grid>
+
+								<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 2  +++++++++++> -->
+
+							</div>
+						</center>
+					</borderlayout>
+				</tabpanel>
+
+				<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+				<tabpanel height="100%">
+					<borderlayout height="100%">
+						<center border="none" autoscroll="true">
+							<div height="100%">
+
+								<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 3  +++++++++++> -->
+
+								<grid>
+									<columns>
+										<column width="30%" />
+										<column width="50%" />
+										<column width="20%" />
+									</columns>
+									<rows>
+										<row style="border:none">
+											<vlayout>
+												<label value="Tipo" />
+												<!-- <+++++++AQUI++++++> -->
+												<listbox
+													id="listPatologiaTipo" width="90%"
+													model="@{winConsultaGeneralctrl.tipoPatologiaCombo}"
+													mold="select">
+													<listitem
+														self="@{each=tipoPatologiaC}" value="@{tipoPatologiaC}">
+														<listcell
+															label="@{tipoPatologiaC.nombre}" />
+													</listitem>
+												</listbox>
+											</vlayout>
+											<vlayout>
+												<label
+													value="Patologias" />
+												<!-- <+++++++AQUI++++++> -->
+												<listbox
+													id="listPatoligias" width="90%"
+													model="@{winConsultaGeneralctrl.patologiaCombo}"
+													mold="select">
+													<listitem
+														self="@{each=patologiaC}" value="@{patologiaC}">
+														<listcell
+															label="@{patologiaC.nombre}" />
+													</listitem>
+												</listbox>
+											</vlayout>
+											<div>
+												<button
+													id="btnMasPatologia"
+													image="/sigma/imagenes/botones-basicos/agregar.png"
+													width="30px" />
+												<button
+													id="btnMenosPatologia"
+													image="/sigma/imagenes/botones-basicos/quitar.png"
+													width="30px" />
+											</div>
+										</row>
+										<row style="border:none">
+											<cell colspan="3">
+												<listbox
+													id="listListadoPatologias"
+													model="@{winConsultaGeneralctrl.patologias}">
+													<listhead>
+														<listheader
+															label="Tipo" />
+														<listheader
+															label="Patologia" />
+													</listhead>
+													<listitem
+														self="@{each=patologia}" value="@{patologia}">
+														<listcell
+															label="@{patologia.tipoPatologia.nombre}" />
+														<listcell
+															label="@{patologia.nombre}" />
+													</listitem>
+												</listbox>
+											</cell>
+										</row>
+										<row style="border:none">
+											<cell colspan="3">
+												<div>
+													<label
+														value="Comentario Clinico" width="100%" />
+													<textbox
+														id="txtPatologiaComentario" width="99.5%"
+														style="resize: none;" maxlength="1000" multiline="true"
+														height="50px"
+														value="@{winConsultaGeneralctrl.consultaGeneral.patologiaComentario}" />
+												</div>
+											</cell>
+										</row>
+									</rows>
+								</grid>
+
+								<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 3  +++++++++++> -->
+
+							</div>
+						</center>
+					</borderlayout>
+				</tabpanel>
+
+				<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+				<tabpanel height="100%">
+					<borderlayout height="100%">
+						<center border="none" autoscroll="true">
+							<div height="100%">
+
+								<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 4  +++++++++++> -->
+
+								<grid>
+									<columns>
+										<column width="30%" />
+										<column width="50%" />
+										<column width="20%" />
+									</columns>
+									<rows>
+										<row style="border:none">
+											<vlayout>
+												<label value="Tipo" />
+												<!-- <+++++++AQUI++++++> -->
+												<listbox
+													id="listTratamientoTipo" width="90%"
+													model="@{winConsultaGeneralctrl.tipoTratamientoCombo}"
+													mold="select">
+													<listitem
+														self="@{each=tipoTratamientoC}"
+														value="@{tipoTratamientoC}">
+														<listcell
+															label="@{tipoTratamientoC.nombre}" />
+													</listitem>
+												</listbox>
+											</vlayout>
+											<vlayout>
+												<label
+													value="Tratamiento" />
+												<!-- <+++++++AQUI++++++> -->
+												<listbox
+													id="listTratamiento" width="90%"
+													model="@{winConsultaGeneralctrl.tratamientoCombo}"
+													mold="select">
+													<listitem
+														self="@{each=tratamientoC}" value="@{tratamientoC}">
+														<listcell
+															label="@{tratamientoC.nombre}" />
+													</listitem>
+												</listbox>
+											</vlayout>
+											<div>
+												<button
+													id="btnMasTratamiento"
+													image="/sigma/imagenes/botones-basicos/agregar.png"
+													width="30px" />
+												<button
+													id="btnMenosTratamiento"
+													image="/sigma/imagenes/botones-basicos/quitar.png"
+													width="30px" />
+											</div>
+										</row>
+										<row style="border:none">
+											<cell colspan="3">
+												<listbox
+													id="listListadoTratamiento"
+													model="@{winConsultaGeneralctrl.tratamientos}">
+													<listhead>
+														<listheader
+															label="Tratamiento" />
+														<listheader
+															label="Tipo" />
+													</listhead>
+													<listitem
+														self="@{each=tratamiento}" value="@{tratamiento}">
+														<listcell
+															label="@{tratamiento.nombre}" />
+														<listcell
+															label="@{tratamiento.tipoTratamiento.nombre}" />
+													</listitem>
+												</listbox>
+											</cell>
+										</row>
+										<row style="border:none">
+											<cell colspan="3">
+												<div>
+													<label
+														value="Indicaciones Terapeuticas" width="100%" />
+													<textbox
+														id="txtTratamientoIndicaciones" width="99.5%"
+														style="resize: none;" maxlength="1000" multiline="true"
+														height="50px"
+														value="@{winConsultaGeneralctrl.consultaGeneral.tratamientoIndicaciones}" />
+												</div>
+											</cell>
+										</row>
+										<row style="border:none">
+											<cell colspan="3">
+												<div>
+													<label
+														value="Tratamiento Aplicado en la Consulta" width="100%" />
+													<textbox
+														id="txtTratamientoAplicado" width="99.5%"
+														style="resize: none;" maxlength="1000" multiline="true"
+														height="50px"
+														value="@{winConsultaGeneralctrl.consultaGeneral.tratamientoAplicado}" />
+												</div>
+											</cell>
+										</row>
+										<row style="border:none">
+											<cell colspan="3">
+												<div>
+													<label
+														value="Indicaciones Terapeuticas Enviadas" width="100%" />
+													<textbox
+														id="txtTratamientoEnviado" width="99.5%"
+														style="resize: none;" maxlength="1000" multiline="true"
+														height="50px"
+														value="@{winConsultaGeneralctrl.consultaGeneral.tratamientoEnviado}" />
+												</div>
+											</cell>
+										</row>
+										<row style="border:none">
+											<cell colspan="3">
+												<groupbox
+													style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+													<div>
+														<label
+															value="Observaciones" width="100%" />
+														<textbox
+															id="txtObservaciones" width="99.5%" style="resize: none;"
+															maxlength="1000" multiline="true" height="60px"
+															value="@{winConsultaGeneralctrl.consultaGeneral.observaciones}" />
+													</div>
+												</groupbox>
+											</cell>
+										</row>
+									</rows>
+								</grid>
+
+								<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 4  +++++++++++> -->
+
+							</div>
+						</center>
+					</borderlayout>
+				</tabpanel>
+
+				<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+				<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+			</tabpanels>
+		</tabbox>
+	</window>
+
+</zk>

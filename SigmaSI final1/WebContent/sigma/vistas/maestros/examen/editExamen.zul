@@ -1,0 +1,36 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditExamen"?>
+<zk>
+	<window id="winEditExamen" title="Examen" width="50%"
+		border="normal" closable="true" apply="org.ucla.sigma.controlador.ctrlWinEditExamen">
+		<grid>
+			<columns>
+				<column width="25%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombreExamen"
+						value="@{winEditExamenctrl.examen.nombre}" width="60%">
+					</textbox>
+				</row>
+				<row>
+					<label value="Tipo de Examen" />
+					<listbox id="listTipoExamen" mold="select"
+						width="60%" model="@{winEditExamenctrl.tipoExamenes}">
+						<listitem self="@{each=tipoExamen}"
+							value="@{tipoExamen }">
+							<listcell label="@{tipoExamen.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

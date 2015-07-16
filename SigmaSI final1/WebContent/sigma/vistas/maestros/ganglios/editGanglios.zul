@@ -1,0 +1,25 @@
+<?page title="Ganglios Palpables" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditGanglio"?>
+<zk>
+<window id="winEditGanglio" title="Ganglios" border="normal" width="50%" apply="org.ucla.sigma.controlador.ctrlWinEditGanglio">
+		<grid>
+			<columns>
+				<column width="25%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Indicacion del Ganglio" />
+					<textbox id="txtNombre" value="@{winEditGanglioctrl.ganglio.nombre}" width="60%"
+						focus="true" />/>
+
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+</window>
+</zk>

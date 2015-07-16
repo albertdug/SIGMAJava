@@ -1,0 +1,33 @@
+<?page title="Adjunto" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditAdjunto"?>
+<zk>
+	<window id="winEditAdjunto" title="Adjunto" width="50%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinEditAdjunto">
+		<grid>
+			<columns>
+				<column width="120px" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Fecha de creación" />
+					<datebox id="dbCreacion" buttonVisible="false"
+						readonly="true" width="100px" format="dd/MM/yyyy" value="@{winEditAdjuntoctrl.adjunto.creacion}" />
+				</row>
+				<row valign="top">
+					<button id="upAdjunto" label="Subir Adjunto"
+						upload="true" onUpload="winEditAdjuntoctrl.subir(event)"  />
+					<cell>
+						<label id="lblAdj" />
+					</cell>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

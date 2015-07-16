@@ -1,0 +1,89 @@
+<?page title="Veterinario" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditVeterinario"?>
+<zk>
+	<window id="winEditVeterinario" title="Veterinario" width="50%"
+		border="normal" closable="true" apply="org.ucla.sigma.controlador.ctrlWinEditVeterinario">
+		<grid>
+			<columns>
+				<column width="25%" align="right" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Cedula" />
+					<div>
+					<intbox id="txtCedula" width="45%" />
+						<button id="btnBuscar" image="/sigma/imagenes/botones-basicos/buscar.png"/>
+					</div>
+				</row>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombre" readonly="true"
+						value="@{winEditVeterinarioctrl.persona.nombre}" width="60%" />
+				</row>
+				<row>
+					<label value="Apellido" />
+					<textbox id="txtApellido" readonly="true"
+						value="@{winEditVeterinarioctrl.persona.apellido}" width="60%" />
+				</row>
+				<row>
+					<label value="Estado" />
+					<listbox id="listEstados" disabled="true"
+						model="@{winEditVeterinarioctrl.estados}" mold="select">
+						<listitem self="@{each=estado}"
+							value="@{estado }">
+							<listcell label="@{estado.estado.nombre}" />
+						</listitem>
+					</listbox>
+					</row>
+					<row>
+					<label value="Ciudad" />
+					<listbox id="listCiudads" disabled="true"
+						model="@{winEditVeterinarioctrl.ciudads}" mold="select">
+						<listitem self="@{each=ciudad}"
+							value="@{ciudad}">
+							<listcell label="@{ciudad.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+				<row>
+					<label value="Direccion" />
+					<textbox id="txtDireccion" readonly="true"
+						value="@{winEditVeterinarioctrl.persona.direccion}" width="80%" />
+				</row>
+				<row>
+					<label value="Telefono" />
+					<textbox id="txtTelefono" readonly="true"
+						value="@{winEditVeterinarioctrl.persona.telefono}" width="95px" />
+				</row>
+				<row>
+					<label value="Correo" />
+					<textbox id="txtCorreo" readonly="true"
+						value="@{winEditVeterinarioctrl.persona.correo}" width="60%" />
+				</row>
+				<row id="rw1">
+					<label value="N° Sanidad" />
+					<textbox id="txtSanidad" readonly="true"
+						value="@{winEditVeterinarioctrl.veterinario.numeroSanidad}"
+						width="60%" />
+				</row>
+				<row id="rw2">
+					<label value="N° Colegio de Medicos" />
+					<textbox id="txtColegio" readonly="true"
+						value="@{winEditVeterinarioctrl.veterinario.numeroColegio}"
+						width="60%" />
+				</row>
+				<row id="rw3">
+					<label value="Rif." />
+					<textbox id="txtRif" readonly="true"
+						value="@{winEditVeterinarioctrl.veterinario.rif}" width="60%" />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

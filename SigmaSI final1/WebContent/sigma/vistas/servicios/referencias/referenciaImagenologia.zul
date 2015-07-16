@@ -1,0 +1,156 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winReferenciaImagenologia"?>
+
+<zk>
+	<window id="winReferenciaImagenologia"
+		title="Referencia Consulta de Imagenología" width="60%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinReferenciaImagenologia">
+		<borderlayout height="500px">
+			<center border="none">
+				<div>
+					<groupbox>
+						<caption label="Responsable" />
+						<grid>
+							<columns>
+								<column width="15%" />
+								<column />
+								<column width="15%" />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<label value="Cédula" />
+									<textbox readonly="true"
+										value="@{winReferenciaImagenologiactrl.paciente.responsable.cedula}" />
+									<label value="Nombre" />
+									<textbox readonly="true"
+										value="@{winReferenciaImagenologiactrl.paciente.responsable.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}" />
+								</row>
+							</rows>
+						</grid>
+					</groupbox>
+					<groupbox>
+						<caption label="Paciente" />
+						<grid>
+							<columns>
+								<column width="15%" />
+								<column />
+								<column width="15%" />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<label value="Historia Médica" />
+									<textbox readonly="true"
+										value="@{winReferenciaImagenologiactrl.paciente.historiaMedica }" />
+									<label value="Nombre" />
+									<textbox readonly="true"
+										value="@{winReferenciaImagenologiactrl.paciente.nombre}" />
+								</row>
+								<row>
+									<label value="Sexo" />
+									<textbox readonly="true"
+										value="@{winReferenciaImagenologiactrl.paciente.sexo.nombre}" />
+									<label value="Especie" />
+									<textbox readonly="true"
+										value="@{winReferenciaImagenologiactrl.paciente.raza.especie.nombre}" />
+								</row>
+								<row>
+									<label value="Raza" />
+									<textbox readonly="true"
+										value="@{winReferenciaImagenologiactrl.paciente.raza.nombre}" />
+									<label value="Edad" />
+									<textbox id="txtEdad"
+										readonly="true" />
+								</row>
+							</rows>
+						</grid>
+					</groupbox>
+					<groupbox>
+						<caption label="Datos de la Referencia" />
+						<grid>
+							<columns>
+								<column width="40%" />
+								<column width="43%" />
+								<column width="15%" />
+							</columns>
+							<rows>
+								<row>
+									<div>
+										<label value="Fecha de emisión" />
+										<space />
+										<datebox id="dbFechaActual"
+											readonly="true" buttonVisible="false" format="dd/MM/yyyy" />
+									</div>
+								</row>
+								<row>
+									<div>
+										<label value="Tipo de Estudio" />
+										<listbox id="listEstudio"
+											model="@{winReferenciaImagenologiactrl.tipoImagenologias}"
+											mold="select">
+
+											<listitem
+												self="@{each=estudios}" value="@{estudios}">
+												<listcell
+													label="@{estudios.nombre}" />
+											</listitem>
+										</listbox>
+									</div>
+									<div>
+										<label value="Especificación" />
+										<listbox id="listEspecificacion"
+											model="@{winReferenciaImagenologiactrl.espImagenologiaCombo}"
+											mold="select">
+											<listitem
+												self="@{each=especificacion}" value="@{especificacion}">
+												<listcell
+													label="@{especificacion.nombre}" />
+											</listitem>
+										</listbox>
+									</div>
+									<div>
+										<button id="btnMas"
+											image="/sigma/imagenes/botones-basicos/agregar.png"
+											width="30px" />
+										<button id="btnMenos"
+											image="/sigma/imagenes/botones-basicos/quitar.png"
+											width="30px" />
+									</div>
+								</row>
+								<row style="border:none">
+									<cell colspan="3">
+										<listbox
+											id="listListadoImagenologia"
+											model="@{winReferenciaImagenologiactrl.espImagenologias}">
+											<listhead>
+												<listheader
+													label="Tipo de Estudio" />
+												<listheader
+													label="Especificación" />
+											</listhead>
+											<listitem
+												self="@{each=espImagenologia}" value="@{espImagenologia}">
+												<listcell
+													label="@{espImagenologia.tipoImagenologia.nombre}" />
+												<listcell
+													label="@{espImagenologia.nombre}" />
+											</listitem>
+										</listbox>
+									</cell>
+								</row>
+
+							</rows>
+						</grid>
+					</groupbox>
+				</div>
+			</center>
+		</borderlayout>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="carnet" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="22e4075e-d1c1-4ae8-9d56-051b316a9fc8">
+	<property name="ireport.zoom" value="1.331000000000004"/>
+	<property name="ireport.x" value="5"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="hospital" class="org.ucla.sigma.modelo.Hospital" isForPrompting="false"/>
+	<parameter name="carnet" class="org.ucla.sigma.modelo.Carnet"/>
+	<parameter name="rutaimagen" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="3bef570f-b363-4258-92e8-5534e3a8de19" x="237" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[CARNET ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement uuid="479904cd-a6d3-4ce9-a8fa-92db65fee6e3" mode="Opaque" x="10" y="0" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="d23678b5-6c82-49ba-ac7a-84af50cb5143" mode="Opaque" x="525" y="0" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="b4cb5275-03f1-4554-abfd-702ef9d81b30" x="10" y="0" width="100" height="13"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="216" splitType="Stretch">
+			<image>
+				<reportElement uuid="07567954-9eca-4485-bc00-5dd5c75b4caf" x="0" y="0" width="572" height="216"/>
+				<imageExpression><![CDATA[$P{rutaimagen}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="ca28702c-7770-4167-a3bc-7552d79d37be" x="29" y="158" width="12" height="15" forecolor="#A1D156"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[@]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="ee470311-0d71-4c4b-9aba-22816ddfc5ca" x="39" y="158" width="100" height="15" forecolor="#2AB8DE"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hospital}.getTwitter()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f0666913-7b5d-4ba5-afac-d9784d9f1cc4" x="29" y="175" width="100" height="13" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hospital}.getTelefonoA()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ca79537f-7692-4677-abe4-ad039cded1da" x="299" y="170" width="256" height="26" forecolor="#666666"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hospital}.getDireccion()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f9743fd7-9620-4aae-9f8b-2216eee58966" x="299" y="160" width="256" height="12" forecolor="#666666"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hospital}.getHorario()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="646af667-9f50-4591-8257-8e148ce22eeb" x="299" y="148" width="256" height="12" forecolor="#666666"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hospital}.getSlogan()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cb53ed20-188e-4288-a2f7-04890dc0c71e" x="299" y="136" width="256" height="12" forecolor="#666666"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hospital}.getNombre()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="92a548d0-73b0-40e4-8b17-4fdeafdd7119" x="94" y="60" width="64" height="14" forecolor="#83A93D"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESPONSABLE:]]></text>
+			</staticText>
+			<textField pattern="&apos;FECHA EXP: &apos;dd/MM/yyyy">
+				<reportElement uuid="1a0bc794-eacf-4007-9e73-3945ae992a4e" x="175" y="164" width="100" height="14" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carnet}.getExpedicion()]]></textFieldExpression>
+			</textField>
+			<textField pattern="&apos;FECHA VEN: &apos;dd/MM/yyyy">
+				<reportElement uuid="1a0bc794-eacf-4007-9e73-3945ae992a4e" x="175" y="174" width="100" height="14" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carnet}.getVencimiento()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6b63f232-c4bb-4425-8313-f678dfbc167b" x="160" y="60" width="112" height="14" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carnet}.getPaciente().getResponsable().getPersona().getNombre() + " " + $P{carnet}.getPaciente().getResponsable().getPersona().getApellido()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="92a548d0-73b0-40e4-8b17-4fdeafdd7119" x="94" y="70" width="39" height="14" forecolor="#83A93D"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CÉDULA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6b63f232-c4bb-4425-8313-f678dfbc167b" x="133" y="70" width="100" height="14" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carnet}.getPaciente().getResponsable().getPersona().getCedula()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="92a548d0-73b0-40e4-8b17-4fdeafdd7119" x="94" y="80" width="49" height="14" forecolor="#83A93D"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELÉFONO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6b63f232-c4bb-4425-8313-f678dfbc167b" x="143" y="80" width="100" height="14" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carnet}.getPaciente().getResponsable().getPersona().getTelefono()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="92a548d0-73b0-40e4-8b17-4fdeafdd7119" x="94" y="96" width="75" height="14" forecolor="#2AB8DE"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HISTORIA MÉDICA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6b63f232-c4bb-4425-8313-f678dfbc167b" x="171" y="96" width="100" height="14" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carnet}.getPaciente().getHistoriaMedica()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6b63f232-c4bb-4425-8313-f678dfbc167b" x="135" y="105" width="135" height="14" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carnet}.getPaciente().getNombre()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="92a548d0-73b0-40e4-8b17-4fdeafdd7119" x="94" y="105" width="40" height="14" forecolor="#2AB8DE"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6b63f232-c4bb-4425-8313-f678dfbc167b" x="122" y="115" width="135" height="14" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carnet}.getPaciente().getSexo().getNombre()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="92a548d0-73b0-40e4-8b17-4fdeafdd7119" x="94" y="115" width="28" height="14" forecolor="#2AB8DE"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEXO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="92a548d0-73b0-40e4-8b17-4fdeafdd7119" x="94" y="125" width="40" height="14" forecolor="#2AB8DE"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESPECIE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6b63f232-c4bb-4425-8313-f678dfbc167b" x="133" y="125" width="135" height="14" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carnet}.getPaciente().getRaza().getEspecie().getNombre()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6b63f232-c4bb-4425-8313-f678dfbc167b" x="122" y="134" width="135" height="14" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carnet}.getPaciente().getRaza().getNombre()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="92a548d0-73b0-40e4-8b17-4fdeafdd7119" x="94" y="134" width="26" height="14" forecolor="#2AB8DE"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAZA:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="6b63f232-c4bb-4425-8313-f678dfbc167b" x="180" y="143" width="100" height="14" forecolor="#666666"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carnet}.getPaciente().getFechaNac()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="92a548d0-73b0-40e4-8b17-4fdeafdd7119" x="94" y="143" width="100" height="14" forecolor="#2AB8DE"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA NACIMIENTO:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

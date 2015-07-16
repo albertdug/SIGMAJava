@@ -1,0 +1,262 @@
+@import url('base.css');
+
+@import url('skin.css');
+
+/* CABECERA */
+header #top {
+	padding: 5px;
+	border-radius: 0 0 7px 7px;
+	border: #c0c0c0 solid 1px;
+	border-top-width: 0;
+	background-image: url('../imagenes/fondo-2.png');
+	background-color: #fff;
+	background-position: bottom;
+	background-repeat: repeat-x;
+}
+
+header #top #redes-sociales {
+	float: right;
+	margin-top: 20px;
+	margin-right: 20px;
+}
+
+header #top #nombre-hosp {
+	float: left;
+	margin-top: 5px;
+	margin-left: 15px;
+	font-size: 25px;
+	font-family: "Ocean", sans-serif;
+	width: 270px;
+	color: #0084fb;
+	text-shadow: #004000 1px 1px 1px;
+}
+
+
+header #top-banner {
+	width: 900px;
+	height: 262px;
+	background-image: url('../imagenes/banner-1.png');
+	background-repeat: no-repeat;
+	margin-top: 10px;
+}
+
+header #top-banner #imagen-1 {
+	margin-left: -20px;
+	float: left;
+}
+
+header #top-banner #imagen-2 {
+	float: right;
+	margin-top: -26px;
+	margin-right: -70px;
+}
+
+header #top-banner #texto-1 {
+	position: absolute;
+	margin-left: 290px;
+	margin-top: 50px;
+	width: 250px;
+}
+
+header #top-banner #texto-1 h1 {
+	font-family: "Ocean", sans-serif;
+	color: #1d5895;
+	font-size: 30px;
+	text-shadow: #004000 1px 1px 1px;
+	border: 0;
+	padding: 0;
+}
+
+header #top-banner #texto-1 h2 {
+	font-family: "Ocean", sans-serif;
+	color: #fff;
+	font-size: 23px;
+	text-shadow: #004000 1px 1px 1px;
+}
+
+header #top-banner #texto-1 h3 {
+	font-family: "Ocean", sans-serif;
+	color: #1d5895;
+	font-size: 17px;
+	text-shadow: #004000 1px 1px 1px;
+}
+
+header #top-banner #texto-2 {
+	position: absolute;
+	margin-left: 240px;
+	margin-top: 167px;
+	width: 645px;
+}
+
+header #top-banner #texto-2 h1 {
+	font-family: "MyriadPro-Bold", sans-serif;
+	color: #fff;
+	font-size: 30px;
+	text-shadow: #004000 1px 1px 1px;
+	border: 0;
+	padding: 0;
+}
+
+header #top-banner #texto-2 h1 span {
+	font-size: 25px;
+	color: #e6f807;
+}
+
+header #top-banner #texto-2 p {
+	font-family: "MyriadPro", sans-serif;
+	color: #fff;
+	font-size: 14px;
+	text-align: justify;
+}
+/* FIN DE CABECERA */
+
+/* BARRA LATERAL */
+aside {
+	margin-top: 10px;
+	float: left;
+	width: 250px;
+}
+
+aside p,aside h1,aside input,aside a.imagen-enlace {
+	margin-bottom: 10px;
+}
+
+aside>p {
+	font-family: "MyriadPro", sans-serif;
+	color: #808080;
+	font-size: 15px;
+	text-align: justify;
+}
+/* FIN DE BARRA LATERAL */
+
+/* PIE DE PAGINA */
+footer {
+	border-top: #9d9f9a solid 3px;
+	margin-top: 10px;
+	clear: both;
+}
+
+footer #copy-right {
+	font-family: "MyriadPro", sans-serif;
+	color: #808080;
+	font-size: 15px;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+footer #num-emergencia {
+	background-color: #86c505;
+	padding: 5px;
+	width: 270px;
+}
+
+/* FIN DE PIE DE PAGINA  */
+
+/* MENU */
+nav {
+	margin-top: 10px;
+	float: right;
+	width: 640px;
+}
+
+nav ul {
+	border-radius: 7px;
+	border: #c0c0c0 solid 1px;
+	background-image: url('../imagenes/fondo-5.png');
+	background-color: #fff;
+	background-position: bottom;
+	background-repeat: repeat-x;
+}
+
+nav ul li {
+	float: left;
+}
+
+nav ul li a {
+	float: left;
+	padding: 10px;
+	font-family: sans-serif;
+	color: #78797b;
+	width: 107px;
+	text-align: center;
+	font-size: 13px;
+}
+
+nav ul li:hover>a {
+	color: #0084fb;
+	box-shadow: inset 0px 0px 5px 2px #ccc;
+	background-color: #fff;
+}
+
+nav ul li:hover.izquierda a {
+	border-radius: 7px 0 0 7px;
+}
+
+nav ul li:hover.derecha a {
+	border-radius: 0 7px 7px 0;
+}
+
+/* DESPLEGABLE */
+nav ul li ul {
+	display: none;
+	position: absolute;
+	margin-top: 35px;
+}
+
+nav ul li:hover ul {
+	display: block;
+}
+
+nav ul li ul li {
+	float: none;
+}
+
+nav ul li ul li a {
+	width: 160px;
+	text-align: left;
+}
+
+nav ul li ul li:hover a {
+	border-radius: 7px 7px 7px 7px;
+}
+
+/* FIN MENU */
+
+/* CONTENIDO */
+section {
+	float: right;
+	margin-top: 10px;
+	font-family: "MyriadPro", sans-serif;
+	/* 	PROPORCIONALES WIDTH Y PADDING 640PX */
+	width: 600px;
+	padding: 20px;
+	/* 	PROPORCIONALES WIDTH Y PADDING 640PX */
+	background-color: #fff;
+	background-image: url('../imagenes/fondo-6.png');
+	background-position: top;
+	background-repeat: repeat-x;
+	border-radius: 7px 7px 0 0;
+}
+
+section article {
+	margin-bottom: 20px;
+}
+
+section article p {
+	text-align: justify;;
+}
+
+section h1,section article h2,section article p,section article input,section article textarea
+	{
+	margin-bottom: 10px;
+}
+
+section article img.float-left {
+	margin-right: 10px;
+}
+
+section article img.float-right {
+	margin-left: 10px;
+}
+
+/* FIN DE CONTENIDO */

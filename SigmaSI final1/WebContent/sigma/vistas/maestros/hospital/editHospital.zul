@@ -1,0 +1,113 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditHospital"?>
+<window id="winEditHospital" title="Hospital" width="70%"
+	border="normal" closable="true" sizable="true" apply="org.ucla.sigma.controlador.ctrlWinEditHospital">
+	<grid>
+		<columns>
+			<column width="15%" />
+			<column width="35%" />
+			<column width="15%" />
+			<column width="35%" />
+		</columns>
+		<rows>
+			<row>
+				<label value="Nombre" />
+				<textbox id="txtNombre"
+					value="@{winEditHospitalctrl.hospital.nombre }" />
+				<label value="Descripcion" />
+				<textbox id="txtDescripcion"
+					value="@{winEditHospitalctrl.hospital.descripcion }"
+					multiline="true" rows="2" />
+			</row>
+			<row>
+				<label value="Estado" />
+				<listbox id="listEstados"
+					model="@{winEditHospitalctrl.estados}" mold="select">
+					<listitem self="@{each=estado}"
+						value="@{estado }">
+						<listcell label="@{estado.estado.nombre}" />
+					</listitem>
+				</listbox>
+				<label value="Ciudad" />
+				<listbox id="listCiudads"
+					model="@{winEditHospitalctrl.ciudads}" mold="select">
+					<listitem self="@{each=ciudad}" value="@{ciudad}">
+						<listcell label="@{ciudad.nombre}" />
+					</listitem>
+				</listbox>
+			</row>
+			<row>
+				<label value="Dirección" />
+				<textbox id="txtDireccion"
+					value="@{winEditHospitalctrl.hospital.direccion }" multiline="true"
+					rows="2" />
+				<label value="Telefono Principal" />
+				<textbox id="txtTelefonoA"
+					value="@{winEditHospitalctrl.hospital.telefonoA }" />
+			</row>
+			<row>
+				<label value="Telefono Alternativo" />
+				<textbox id="txtTelefonoB"
+					value="@{winEditHospitalctrl.hospital.telefonoB }" />
+				<label value="Correo Principal" />
+				<textbox id="txtCorreoA"
+					value="@{winEditHospitalctrl.hospital.correoA }" />
+			</row>
+			<row>
+				<label value="Correo Alternativo" />
+				<textbox id="txtCorreoB"
+					value="@{winEditHospitalctrl.hospital.correoB }" />
+				<label value="Fax Principal" />
+				<textbox id="txtFaxA"
+					value="@{winEditHospitalctrl.hospital.faxA }" />
+			</row>
+			<row>
+			<label value="Fax Alternativo" />
+				<textbox id="txtFaxB"
+					value="@{winEditHospitalctrl.hospital.faxB }" />
+				<label value="NIT" />
+				<textbox id="txtNit"
+					value="@{winEditHospitalctrl.hospital.nit }" />
+			</row>
+			<row>
+			<label value="RIF" />
+				<textbox id="txtRif"
+					value="@{winEditHospitalctrl.hospital.rif }" />
+			<label value="Horario" />
+				<textbox id="txtHorario"
+					value="@{winEditHospitalctrl.hospital.horario }" />
+			</row>
+			<row>
+			<label value="Mision" />
+				<textbox id="txtMision"
+					value="@{winEditHospitalctrl.hospital.mision }" />
+			<label value="Vision" />
+				<textbox id="txtVision"
+					value="@{winEditHospitalctrl.hospital.vision }" />
+			</row>
+			<row>
+			<label value="Objetivo" />
+				<textbox id="txtObjetivo"
+					value="@{winEditHospitalctrl.hospital.objetivo }" />
+			<label value="Slogan" />
+				<textbox id="txtSlogan"
+					value="@{winEditHospitalctrl.hospital.slogan }" />
+			</row>	
+			<row>
+			<label value="Twitter" />
+				<textbox id="txtTwitter"
+					value="@{winEditHospitalctrl.hospital.twitter }" />			
+			</row>	
+			<row valign="top" spans="1,1,2">
+				<label value="Imagen" />
+				<button id="btnImg" label="Seleccionar Imagen" />
+				<image id="image" width="70px" height="70px" />
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<button id="btnGuardar" label="Guardar"
+		image="/sigma/imagenes/botones-basicos/guardar.png" />
+	<button id="btnCancelar" label="Cancelar"
+		image="/sigma/imagenes/botones-basicos/cancelar.png" />
+</window>

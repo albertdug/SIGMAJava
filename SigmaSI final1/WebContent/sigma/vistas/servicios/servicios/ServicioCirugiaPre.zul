@@ -1,0 +1,435 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winServicioCirugiaPreOperatoria"?>
+
+<zk>
+	<window id="winServicioCirugiaPreOperatoria" title="Pre-Operatorio"
+		border="normal" width="100%" closable="true" height="100%"
+		apply="org.ucla.sigma.controlador.ctrlWinServicioCirugiaPreOperatoria">
+
+		<!-- Inicio Default -->
+
+		<style>
+			.z-fieldset.gbNortCenter{ border-style : solid; border-width
+			: 1px; border-color : #BFBFBF; padding: 0px; padding-bottom:
+			4px; padding-left: 10px; } .z-fieldset.gbDate{ border-style
+			: solid; border-width : 1px; border-color : #BFBFBF;
+			padding: 0px; padding-bottom: 4px;} .z-fieldset.gbEast{
+			border-style : solid; border-width : 1px; border-color :
+			#BFBFBF; padding: 1px;}
+		</style>
+
+		<!-- 			<+++++++++++  BORDERLAYOUT  +++++++++++> -->
+
+		<borderlayout height="100%">
+
+			<!-- 			<+++++++++++  NORTE  +++++++++++> -->
+
+			<north id="blNorte" border="none" height="115px">
+				<borderlayout height="100%">
+
+					<!-- 			<+++++++++++  NORTE - CENTRO  +++++++++++> -->
+
+					<center border="none">
+						<div>
+							<groupbox sclass="gbNortCenter"
+								height="62px" closable="false">
+								<caption style="color:#4D4D4D">
+									Paciente
+								</caption>
+								<vlayout>
+									<hlayout spacing="3%"
+										width="100%">
+										<hbox width="210px">
+											<hlayout spacing="5px">
+												<hbox width="40px">
+													<label value="Historia" />
+												</hbox>
+												<textbox id="txtHm"
+													width="90px" style="text-align:center" />
+												<button id="btnBuscar"
+													width="40px" height="22px"
+													image="/sigma/imagenes/botones-basicos/buscar.png" />
+											</hlayout>
+										</hbox>
+										<hlayout>
+											<label value="Nombre" />
+											<textbox
+												id="txtNombrePaciente"
+												value="@{winServicioCirugiaPreOperatoriactrl.paciente.nombre}"
+												readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Edad" />
+											<textbox id="txtEdad"
+												width="60px" style="text-align:center" readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Sexo" />
+											<textbox id="txtSexo"
+												width="60px"
+												value="@{winServicioCirugiaPreOperatoriactrl.paciente.sexo.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+									</hlayout>
+									<hlayout spacing="3%"
+										width="100%">
+										<hbox width="210px" />
+										<hlayout>
+											<label value="Especie" />
+											<textbox id="txtEspecie"
+												width="50px"
+												value="@{winServicioCirugiaPreOperatoriactrl.paciente.raza.especie.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Raza" />
+											<textbox id="txtRaza"
+												width="130px"
+												value="@{winServicioCirugiaPreOperatoriactrl.paciente.raza.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+									</hlayout>
+								</vlayout>
+							</groupbox>
+							<separator height="0px" />
+							<groupbox height="35px"
+								sclass="gbNortCenter">
+								<caption style="color:#4D4D4D">
+									Responsable
+								</caption>
+								<hlayout spacing="3%" width="100%">
+									<hbox width="210px">
+										<hlayout spacing="5px">
+											<hbox width="40px" >
+												<label value="Cedula"/>
+											</hbox>
+											<textbox id="txtCi"
+												width="90px"
+												value="@{winServicioCirugiaPreOperatoriactrl.paciente.responsable.cedula}"
+												style="text-align: center" readonly="true" />
+										</hlayout>
+									</hbox>
+									<hlayout>
+										<label value="Nombre" />
+										<textbox
+											id="txtNombreResponsable" width="200px"
+											value="@{winServicioCirugiaPreOperatoriactrl.paciente.responsable.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}"
+											readonly="true" />
+									</hlayout>
+								</hlayout>
+							</groupbox>
+						</div>
+					</center>
+
+					<!-- 			<+++++++++++  NORTE - ESTE  +++++++++++> -->
+
+					<east border="none" width="17%">
+						<div align="center">
+							<groupbox height="35px" sclass="gbDate">
+								<caption style="color:#4D4D4D">
+									Fecha Actual
+								</caption>
+								<hlayout width="100%">
+									<datebox id="dbFechaActual" 
+										format="dd/MM/yyyy" buttonVisible="false" width="100%"
+										style="text-align:center" readonly="true" />
+								</hlayout>
+							</groupbox>
+							<separator height="7px" />
+							<groupbox height="57px" sclass="gbEast">
+								<vlayout spacing="1px" width="100%">
+									<hlayout>
+										<button label="Historial"
+											style="font-size:11px" id="btnHistorial" width="95px"
+											height="18px" />
+									</hlayout>
+									<hlayout>
+										<button label="Referencia"
+											style="font-size:11px" id="btnReferenciaMedica" width="95px"
+											height="18px" />
+									</hlayout>
+									<hlayout>
+										<button label="Defunción"
+											style="font-size:11px" id="btnDefuncion" width="95px"
+											height="18px" />
+									</hlayout>
+								</vlayout>
+							</groupbox>
+						</div>
+					</east>
+
+				</borderlayout>
+			</north>
+
+			<!-- 			<+++++++++++  CENTRO  +++++++++++> -->
+
+			<center id="blCentro" border="none" margins="0,0,0,0">
+				<div id="contCentro" height="100%">
+
+					<!-- 			<+++++++++++  TABBOX  +++++++++++> -->
+
+					<!--//			<++++++++++++++++++++++++++++++++++++++++  NOTA  ++++++++++++++++++++++++++++++++++++++++> -->
+					<!--//			<+  Este proceso es igual para todos las TABs, es decir, se pueden agregar TABs pero    +> -->
+					<!--//      	<+  siguiendo el mismo patrón (por excepción del tamaño de las mismas, que estará en    +> -->
+					<!--//        	<+  función de la cantidad de TABs), por otra parte, el contenido de cada TAB(tabpanel) +> -->
+					<!--//        	<+  es decisión propia (Hacer lo que la imaginación dicte).                             +> -->
+					<!--//        	<+	+++++++++++++++++++++++++++++++++++++   PD   +++++++++++++++++++++++++++++++++++++  +> -->
+					<!--//        	<+  Como sugerencia por cuestiones de estética, para los TEXTBOX(y parecidos) es 		+> -->
+					<!--//        	<+	mejor usar Width= "99,5%"(en lugar de 100%) y Style= "resize: none;"(este ultimo 	+> -->
+					<!--//        	<+	en caso de usar Multiline= "true" ), por otro lado, los GRIBs se adaptan al Width 	+> -->
+					<!--//        	<+	máximo automáticamente, evitar en lo posible usar Width =”100%”, todo esto solo 	+> -->
+					<!--//        	<+	cuando se trabaja con porcentajes, con píxeles, depende del ojo de cada quien.		+> -->
+					<!--//        	<+	+++++++++++++++++++++++++++++++++++++   PD   +++++++++++++++++++++++++++++++++++++  +> -->
+					<!--//        	<+  Como se ha de notar Diagnostico, Patologia y Tratamientos ya estan diseñados por	+> -->
+					<!--//        	<+	lo cual no deben ser modificadas, igualmente se pueden agregar o quitar las demas 	+> -->
+					<!--//        	<+	TABs segun sea el caso, aun asi, si es el caso de los servicios q carecen de alguna	+> -->
+					<!--//        	<+	de estas TABs, entonces estas deberan ser quitadas o incluso modificadas, pero	 	+> -->
+					<!--//        	<+	teniendo presente que estos cambios afectaran al controlador y por tanto deben ser  +> -->
+					<!--//        	<+	modificados en el mismo(el controlador)											 	+> -->
+					<!--//			<++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+
+					<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+
+
+					<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 1  +++++++++++> -->
+
+					<borderlayout height="100%">
+						<center border="none" autoscroll="true">
+							<groupbox>
+								<caption>
+									Preparación Pre-Quirúrgica
+								</caption>
+								<groupbox hflex="min">
+									<grid sizedByContent="true" span="true" hflex="min">
+										<rows>
+											<row>
+												<div>
+													<label
+														value="Acepromicina" />
+													<textbox
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.acepromicina}"
+														id="txtAcepromicina" width="30%" />
+													<label value="ml" />
+												</div>
+												<div>
+													<label
+														value="Diacepam" />
+													<textbox
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.diacepam}"
+														id="txtDiacepam" width="30%" />
+													<label value="ml" />
+												</div>
+											</row>
+											<row>
+												<div>
+													<label
+														value="Midozolam" />
+													<textbox
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.midozolam}"
+														id="txtMidozolam" width="30%" />
+													<label value="ml" />
+												</div>
+												<div>
+													<label
+														value="Atropina" />
+													<textbox
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.atropina}"
+														id="txtAtropina" width="30%" />
+													<label value="ml" />
+												</div>
+											</row>
+										</rows>
+									</grid>
+								</groupbox>
+								<separator />
+								<grid hflex="min">
+									<rows>
+										<row>
+											<groupbox hflex="min">
+												<caption>
+													Antibióticos
+												</caption>
+												<grid
+													sizedByContent="true" span="true" hflex="min">
+													<rows>
+														<row>
+															<label
+																value="1." />
+															<textbox
+																value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.antibiotico1}"
+																id="txtAntibiotico1" />
+															<label
+																value="Dosis:" />
+															<textbox
+																value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.dosis1}"
+																id="txtDosis1" />
+														</row>
+														<row>
+															<label
+																value="2." />
+															<textbox
+																value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.antibiotico2}"
+																id="txtAntibiotico2" />
+															<label
+																value="Dosis:" />
+															<textbox
+																value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.dosis2}"
+																id="txtDosis2" />
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+											<groupbox hflex="min">
+												<caption>
+													Analgesicos
+												</caption>
+												<grid
+													sizedByContent="true" span="true" hflex="min">
+													<rows>
+														<row>
+															<label
+																value="1." />
+															<textbox
+																id="txtAnalgesico1"
+																value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.analgesico1}" />
+															<label
+																value="Dosis:" />
+															<textbox
+																id="txtDosis3"
+																value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.dosis3}" />
+														</row>
+														<row>
+															<label
+																value="2." />
+															<textbox
+																id="txtAnalgesico2"
+																value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.analgesico2}" />
+															<label
+																value="Dosis:" />
+															<textbox
+																value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.dosis4}"
+																id="txtDosis4" />
+														</row>
+													</rows>
+												</grid>
+
+											</groupbox>
+										</row>
+
+									</rows>
+								</grid>
+								<!-- desde aqui -->
+								<groupbox hflex="min">
+									<caption>Anestesicos</caption>
+									<grid sizedByContent="true"
+										span="true" hflex="min">
+										<rows>
+											<row>
+												<div>
+													<label
+														value="Propofol" />
+													<textbox
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.propofol}"
+														id="txtPropofol" width="30%" />
+													<label value="ml" />
+												</div>
+												<div>
+													<label
+														value="Ketamina" />
+													<textbox width="30%"
+														id="txtKetamina"
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.ketamina}" />
+													<label value="ml" />
+												</div>
+											</row>
+											<row>
+												<div>
+													<label
+														value="Zoletil" />
+													<textbox width="30%"
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.zoletil}"
+														id="txtZoletil" />
+													<label value="ml" />
+												</div>
+												<div>
+													<label
+														value="Isofrurano" />
+													<textbox width="30%"
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.isofrurano}"
+														id="txtIsofrurano" />
+													<label value="%" />
+												</div>
+											</row>
+											<row>
+												<div hflex="min">
+													<label
+														value="Oxígeno" />
+													<textbox width="30%"
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.oxigeno}"
+														id="txtOxigeno" />
+													<label
+														value="ml/min" />
+												</div>
+												<div>
+													<label
+														value="Lidocaína" />
+													<textbox
+														id="txtLidocaina" width="30%"
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.lidocaina}" />
+													<label value="ml" />
+												</div>
+											</row>
+											<row>
+												<div>
+													<label
+														value="Sonda Endotraqueal" />
+													<spinner
+														id="spSondaEndotraqueal" width="30%"
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.sondaEndotraqueal}" />
+												</div>
+												<div>
+													<label
+														value="Aguja Espinal" />
+													<spinner
+														id="spAgujaEspinal" width="30%"
+														value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.agujaEspinal}" />
+												</div>
+											</row>
+										</rows>
+									</grid>
+								</groupbox>
+
+								<separator />
+								<label value="Comentarios:" />
+								<textbox id="txtComentario" width="98%"
+									maxlength="2000" multiline="true" height="50px"
+									value="@{winServicioCirugiaPreOperatoriactrl.cirugiaPreOperatoria.comentario}" />
+
+							</groupbox>
+
+						</center>
+					</borderlayout>
+
+					<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 1  +++++++++++> -->
+
+				</div>
+			</center>
+
+			<!-- 			<+++++++++++  SUR  +++++++++++> -->
+
+			<south height="32px" border="none" id="blSur">
+				<div style="padding:4px;">
+					<button label="Guardar" id="btnGuardarPrincipal"
+						image="/sigma/imagenes/botones-basicos/guardar.png" />
+					<button label="Cancelar" id="btnCancelarPrincipal"
+						image="/sigma/imagenes/botones-basicos/cancelar.png" />
+				</div>
+			</south>
+
+		</borderlayout>
+
+		<!--Fin Default -->
+	</window>
+</zk>

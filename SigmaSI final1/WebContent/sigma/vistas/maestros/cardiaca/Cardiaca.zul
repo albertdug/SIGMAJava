@@ -1,0 +1,45 @@
+<?page title="Cardiaca" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winCardiaca"?>
+
+<window id="winCardiaca" title="Cardiaca" border="normal" closable="true"
+	width="100%" apply="org.ucla.sigma.controlador.ctrlWinCardiaca">
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtNombreCardiaca" width="50%"
+						focus="true" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listCardiaca" model="@{winCardiacactrl.cardiacas}"
+		selectedItem="@{winCardiacactrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Cardiaca" />
+		</listhead>
+		<listitem self="@{each=cardiaca}" value="@{cardiaca}">
+			<listcell label="@{cardiaca.nombre}" />
+		</listitem>
+	</listbox>
+</window>
+

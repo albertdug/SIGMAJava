@@ -1,0 +1,246 @@
+System.out.println("Messagebox.OK: " + Messagebox.OK);
+System.out.println("Messagebox.CANCEL: " + Messagebox.CANCEL);
+System.out.println("Messagebox.ABORT: " + Messagebox.ABORT);
+System.out.println("Messagebox.IGNORE: " + Messagebox.IGNORE);
+System.out.println("Messagebox.NO: " + Messagebox.NO);
+System.out.println("Messagebox.YES: " + Messagebox.YES);
+System.out.println("------------------");
+System.out.println("Messagebox.QUESTION: " + Messagebox.QUESTION);
+System.out.println("Messagebox.ERROR: " + Messagebox.ERROR);
+System.out.println("Messagebox.EXCLAMATION: " + Messagebox.EXCLAMATION);
+System.out.println("Messagebox.INFORMATION: " + Messagebox.INFORMATION);
+System.out.println("------------------");
+System.out.println("Messagebox.YES |  Messagebox.NO: "+ (Messagebox.YES | Messagebox.NO));
+------------------------------------------------------------------------------------------
+//		try {
+//			win.doModal();
+//			if (win.hasAttribute("recargar")) {
+//				if (win.getAttribute("recargar").equals("A")) {
+//					all_estados.clear();
+//					all_estados = servicioEstado.buscarTodos();
+//					listEstado.setModel(new BindingListModelList(all_estados,
+//							false));
+//				}
+//			}
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+--------------------------------------------------------------------------------------------
+nextval('seq_boton'::regclass)
+columnDefinition="date"
+@Column(name = "id", unique = true, nullable = false, columnDefinition="int default nextval('seq_boton'::regclass)") (no funciono)
+ALTER TABLE products ALTER COLUMN price SET DEFAULT 7.77;
+--------------------------------------------------------------------------------------------
+(nextval\('.*'\:\:regclass\),)
+--------------------------------------------------------------------------------------------
+
+	// public static String normalizarTexto(String s) {
+	// //
+	// // JDK1.5
+	// // use sun.text.Normalizer.normalize(s, Normalizer.DECOMP, 0);
+	// //
+	// String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
+	// Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+	// return pattern.matcher(temp).replaceAll("");
+	// }
+--------------------------------------------------------------------------------------------
+1)
+CREATE OR REPLACE FUNCTION lower_unaccent(text)
+RETURNS text
+AS $$
+SELECT lower(translate($1
+     , 'π≤≥·‡‚„‰Âaaa¿¡¬√ƒ≈AAA∆ccÁ©CC«––ËÈÍ?Îeeeee» À?EEEEEÄgGiÏÌÓÔÏiiiÃÕŒœ?ÃIIIlLnnÒNN—ÚÛÙıˆooo¯“”‘’÷OOOÿårÆRös?ﬂäS?˘˙˚¸uuuuŸ⁄€‹UUUU˝ˇ›üûzzéZZ'
+     , '123aaaaaaaaaaaaaaaaaaacccccccddeeeeeeeeeeeeeeeeeeeeggiiiiiiiiiiiiiiiiiillnnnnnnooooooooooooooooooorrrsssssssuuuuuuuuuuuuuuuuyyyyzzzzzz'
+     ));
+$$ IMMUTABLE STRICT LANGUAGE SQL;
+
+**NOTA PENDIENTE CON EL LOWER EN EL SELECT**
+
+2)
+CREATE EXTENSION unaccent;
+--------------------------------------------------------------------------------------------
+// @Override
+	// public Object coerceToUi(Object data, Component comp) {
+	// // TODO Auto-generated method stub
+	// AImage imagen;
+	// try {
+	// InputStream in = new ByteArrayInputStream((byte[]) data);
+	// BufferedImage bImageFromConvert = ImageIO.read(in);
+	// BufferedImage imagenNueva = ImgConverter.resize(
+	// bImageFromConvert, 50, 50);
+	// imagen = new AImage(null, (byte[]) data);
+	// ((Listcell) comp).setImageContent(imagenNueva);
+	// return null;
+	//
+	// } catch (IOException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	// return null;
+	//
+	// }
+-----------------------------------------------------------------------------------------------
+// System.out.println(media.getStreamData());
+			// System.out.println(media.getFormat());
+			// System.out.println(media.getName());
+			// System.out.println(media.getByteData());
+			// img1 = new Imagen();
+			// img1 = servicioImagenTarget1.buscarImagen("1");
+			// System.out.println(img1.getId());
+			// try {
+			// org.zkoss.image.AImage aimg = new org.zkoss.image.AImage(null,
+			// img1.getImagen());
+			// imagen.setContent(aimg);
+			// } catch (IOException e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// }
+
+			// img1.setId("1");
+			// servicioImagenTarget1.guardarImagen(img1);
+			// org.zkoss.zul.Image image = new org.zkoss.zul.Image();
+			// image.setContent(media);
+			// image.setParent(pics);
+			// } else {
+			// try {
+			// MensajeEmergente.mostrar("ERRUNKNOW");
+			// } catch (InterruptedException e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// }
+			//
+--------------------------------------------------------------------------------------------------
+@Fetch (FetchMode.SELECT) redundacia de datos con eager
+----------------------------------------------------------------------------------------------------
+private void generarMenu() {
+
+		for (Funcionalidad menu : funcionalidades) {
+			boolean menuexist = false;
+			Tree tempTree = new Tree();
+			tempTree.setRows(8);
+			tempTree.setWidth("auto");
+			tempTree.setHeight("auto");
+
+			Treechildren contItem = new Treechildren();
+
+			for (Iterator iterator_menu = menu.getFuncionalidads().iterator(); iterator_menu
+					.hasNext();) {
+				Funcionalidad padre = (Funcionalidad) iterator_menu.next();
+
+				// ES FUNCIONALIDAD UN PADRE
+				for (Iterator iterator_per = perfil.getFuncionalidads()
+						.iterator(); iterator_per.hasNext();) {
+					Funcionalidad per_fun = (Funcionalidad) iterator_per.next();
+					if (padre.equals(per_fun)) {
+						Treeitem temptreeitem = new Treeitem(padre.getNombre());
+						temptreeitem.setOpen(false);
+						final String url = padre.getUrl();
+						temptreeitem.addEventListener("onClick",
+								new EventListener() {
+
+									@Override
+									public void onEvent(Event e)
+											throws Exception {
+										if (e.getName().equalsIgnoreCase(
+												"onClick")) {
+											ir(url);
+										}
+
+									}
+								});
+						contItem.appendChild(temptreeitem);
+						System.out.println("\t" + padre.getNombre());
+						menuexist = true;
+						break;
+					}
+				}
+				// ES FUNCIONALIDAD UN PADRE
+
+				// ES PADRE
+				boolean funcionexist = false;
+				Treeitem temptreeitem = new Treeitem(padre.getNombre());
+				temptreeitem.setOpen(false);
+				Treechildren contItem2 = new Treechildren();
+				temptreeitem.appendChild(contItem2);
+				for (Iterator iterator_padre = padre.getFuncionalidads()
+						.iterator(); iterator_padre.hasNext();) {
+
+					Funcionalidad funcion = (Funcionalidad) iterator_padre
+							.next();
+					for (Iterator iterator_per = perfil.getFuncionalidads()
+							.iterator(); iterator_per.hasNext();) {
+						Funcionalidad per_fun = (Funcionalidad) iterator_per
+								.next();
+						if (funcion.equals(per_fun)) {
+							Treeitem temptreeitemfun = new Treeitem(
+									funcion.getNombre());
+							final String url = funcion.getUrl();
+							temptreeitemfun.addEventListener("onClick",
+									new EventListener() {
+
+										@Override
+										public void onEvent(Event e)
+												throws Exception {
+											if (e.getName().equalsIgnoreCase(
+													"onClick")) {
+												ir(url);
+											}
+
+										}
+									});
+							contItem2.appendChild(temptreeitemfun);
+							System.out.println("\t\t" + funcion.getNombre());
+							funcionexist = true;
+							menuexist = true;
+							break;
+						}
+					}
+
+				}
+				if (funcionexist) {
+
+					contItem.appendChild(temptreeitem);
+					System.out.println("\t" + padre.getNombre());
+				}
+				// ES PADRE
+
+			}
+			if (menuexist) {
+				Tab tabmenu = new Tab(menu.getNombre());
+				tabmenu.setSelected(false);
+				ctnTabs.appendChild(tabmenu);
+
+				Tabpanel tapp = new Tabpanel();
+				tempTree.appendChild(contItem);
+				tapp.appendChild(tempTree);
+
+				ctnTabsP.appendChild(tapp);
+
+				System.out.println(menu.getNombre());
+			}
+
+		}
+	}
+	-------------------------------------------------------------------------------
+	@RequestMapping(method = RequestMethod.GET)
+	public String printContacto(ModelMap model,
+			@RequestParam(value = "prueba", required = false) String prueba) {
+
+		hospital = servicioHospital.buscarUno(
+				"Hospital Veterinario \"Dr. Humberto Ramirez Daza\"", 'A');
+		model.addAttribute("hospital", hospital);
+		model.addAttribute("prueba", prueba);
+
+		return "Contacto";
+	}
+	-----------------------------------------------------------------------------
+	HttpServletRequest request,	
+	System.out.println(request.getParameter(""));
+	-------------------------------------------------------------------------------
+	
+	    headers.setContentLength(imagen.getBytes().length);
+
+----------------------------------------------------------------------------------------
+Cambiar onAfterRender por onCreate del listbox, llamar el metodo renderAll() del listbox para renderizar todos los listitem y listcell
+si estamos usando paginacion

@@ -1,0 +1,27 @@
+<?page title="Silueta" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditSilueta"?>
+<zk>
+	<window id="winEditSilueta" title="Silueta" width="50%"
+		border="normal" closable="true" apply="org.ucla.sigma.controlador.ctrlWinEditSilueta">
+		
+		<grid>
+			<columns>
+				<column width="26%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre del Silueta" />
+					<textbox id="txtNombre"
+						value="@{winEditSiluetactrl.silueta.nombre}" width="60%" />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>
+

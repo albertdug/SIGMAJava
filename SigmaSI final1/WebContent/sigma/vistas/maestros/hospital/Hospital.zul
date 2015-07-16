@@ -1,0 +1,46 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winHospital"?>
+
+<window id="winHospital" title="Hospital" border="normal"
+	closable="true" width="100%"
+	apply="org.ucla.sigma.controlador.ctrlWinHospital">
+<grid>
+	<rows>
+		<row>
+
+			<div align="right">
+
+				<button id="btnEditar" label="Editar"
+					image="/sigma/imagenes/botones-basicos/editar.png" />
+
+			</div>
+		</row>
+	</rows>
+</grid>
+
+	<separator />
+	<listbox id="listHospital" model="@{winHospitalctrl.hospitals}"
+		selectedItem="@{winHospitalctrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Nombre" />
+			<listheader label="Telefono" />
+			<listheader label="Fax" />
+			<listheader label="Correo" />
+			<listheader label="Twitter" />
+			<listheader label="Ciudad" />
+		</listhead>
+		<listitem self="@{each=hospital}" value="@{hospital}">
+			<listcell label="@{hospital.nombre }" />
+			<listcell label="@{hospital.telefonoA}" />
+			<listcell label="@{hospital.faxA }" />
+			<listcell label="@{hospital.correoA }" />
+			<listcell label="@{hospital.twitter }" />
+			<listcell label="@{hospital.ciudad.nombre }" />
+		</listitem>
+	</listbox>
+
+
+
+
+</window>

@@ -1,0 +1,55 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditBoletinInformativo"?>
+<window id="winEditBoletinInformativo" title="Boletin Informativo" width="50%"
+	border="normal" closable="true" sizable="true"
+	apply="org.ucla.sigma.controlador.ctrlWinEditBoletinInformativo">
+	<grid>
+		<columns>
+			<column width="150px" />
+			<column />
+		</columns>
+		<rows>
+			<row>
+				<label value="Fecha de creación" />
+				<datebox id="dbfehca" buttonVisible="false" readonly="true"
+					width="100px" format="dd/MM/yyyy" />
+			</row>
+			<row>
+				<label value="Titulo" />
+				<textbox id="txtTitulo"
+					value="@{winEditBoletinInformativoctrl.boletinInformativo.titulo}" width="90%"
+					focus="true" />
+			</row>
+			<row>
+				<label value="Texto" />
+				<textbox id="txtTexto"
+					value="@{winEditBoletinInformativoctrl.boletinInformativo.texto}"
+					multiline="true" rows="6" width="90%" />
+			</row>
+			<row>
+				<label value="Fecha de Envio" />
+				<datebox id="dbEnvio" width="100px"
+					format="dd/MM/yyyy" constraint="no past; no today"
+					value="@{winEditBoletinInformativoctrl.boletinInformativo.envio}" />
+			</row>
+			<row valign="top" spans="1,1,2">
+				<button id="btnAdj" label="Seleccionar Publicaciones" />
+				<listbox id="listPublicaciones"
+				model="@{winEditBoletinInformativoctrl.publicaciones}" mold="paging"
+				pageSize="10">
+				<listhead>
+					<listheader label="Publicaciones" />
+				</listhead>
+				<listitem self="@{each=publicacion}" value="@{publicacion}">
+					<listcell label="@{publicacion.titulo}" />
+				</listitem>
+			</listbox>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<button id="btnGuardar" label="Guardar y Enviar"
+		image="/sigma/imagenes/botones-basicos/guardar.png" />
+	<button id="btnCancelar" label="Cancelar"
+		image="/sigma/imagenes/botones-basicos/cancelar.png" />
+</window>

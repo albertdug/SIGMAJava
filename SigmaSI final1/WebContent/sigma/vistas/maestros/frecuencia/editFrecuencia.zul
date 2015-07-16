@@ -1,0 +1,36 @@
+<?page title="Edit Frecuencia" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditFrecuencia"?>
+<zk>
+	<window id="winEditFrecuencia" title="Frecuencia" border="normal"
+		width="50%"
+		apply="org.ucla.sigma.controlador.ctrlWinEditFrecuencia">
+		<grid>
+			<columns>
+				<column width="25%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Descripcion de la Frecuencia" />
+					<textbox id="txtDescripcion" width="80%" focus="true"
+						value="@{winEditFrecuenciactrl.frecuencia.nombre}" />
+				</row>
+				<row>
+				<label value="Tipo de la Frecuencia" />
+					<listbox id="listTipoFrecuencia" width="60%"
+						model="@{winEditFrecuenciactrl.tipoFrecuencias}" mold="select">
+						<listitem self="@{each=tipoFrecuencia}"
+							value="@{tipoFrecuencia}">
+							<listcell label="@{tipoFrecuencia.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

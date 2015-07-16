@@ -1,0 +1,44 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winLesion"?>
+<window id="winLesion" title="Lesión" border="normal" width="100%"
+	closable="true" apply="org.ucla.sigma.controlador.ctrlWinLesion">
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtBuscar" width="50%" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/recursos/zk/Imagenes/BotonesBasicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/recursos/zk/Imagenes/BotonesBasicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/recursos/zk/Imagenes/BotonesBasicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/recursos/zk/Imagenes/BotonesBasicos/eliminar.png" />
+					<button id="btnVer" label="Ver"
+						image="/sigma/recursos/zk/Imagenes/BotonesBasicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listLesion" model="@{winLesionctrl.all_lesion}"
+		selectedItem="@{winLesionctrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Lesion" />
+			<listheader label="Tipo de Lesion" />
+		</listhead>
+		<listitem self="@{each=lesion}" value="@{lesion}">
+			<listcell label="@{lesion.nombre}" />
+			<listcell label="@{lesion.tipoLesion.nombre}" />
+		</listitem>
+	</listbox>
+</window>

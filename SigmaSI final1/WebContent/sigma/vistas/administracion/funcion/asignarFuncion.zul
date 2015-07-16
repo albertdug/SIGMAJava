@@ -1,0 +1,53 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winAsigFuncion"?>
+
+<window id="winAsigFuncion" title="Asignar Funciones" border="normal"
+	closable="true" width="100%"
+	apply="org.ucla.sigma.controlador.ctrlWinAsigFuncion">
+	<grid>
+		<rows>
+			<row spans="2">
+				<div align="right">
+					<button id="btnAsignar" label="Asignar"
+						disabled="true"
+						image="/sigma/imagenes/botones-basicos/llave-mas.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<hbox widths="30%,70%" width="100%">
+	<div>
+		<listbox width="99%" id="listPerfil" model="@{winAsigFuncionctrl.perfils}"
+			selectedItem="@{winAsigFuncionctrl.seleccionPerfil}" mold="paging"
+			pageSize="10" >
+			<listhead>
+				<listheader label="Nombre" />
+			</listhead>
+			<listitem self="@{each=usuario}" value="@{usuario}">
+				<listcell label="@{usuario.persona.nombre}" />
+			</listitem>
+		</listbox>
+		
+	</div>
+	<div>
+		<listbox width="100%" id="listFuncion" model="@{winAsigFuncionctrl.funcions}"
+			multiple="true" checkmark="true" visible="false"
+			selectedItem="@{winAsigFuncionctrl.seleccionFuncion}" mold="paging"
+			pageSize="10">
+			<auxhead>
+				<auxheader>
+					<checkbox id="checkTodos" label="Selecionar Todas" />
+				</auxheader>
+			</auxhead>
+			<listhead>
+				<listheader label="Selecionar pagina actual" />
+			</listhead>
+			<listitem self="@{each=funcionalidad}"
+				value="@{funcionalidad}">
+				<listcell label="@{funcionalidad.nombre}" />
+			</listitem>
+		</listbox>
+		</div>
+	</hbox>
+</window>

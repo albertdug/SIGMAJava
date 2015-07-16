@@ -1,0 +1,48 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winAsigPerfil"?>
+
+<window id="winAsigPerfil" title="Asignar Perfiles" border="normal"
+	closable="true" width="100%"
+	apply="org.ucla.sigma.controlador.ctrlWinAsigPerfil">
+	<grid>
+		<rows>
+			<row spans="2">
+				<div align="right">
+					<button id="btnAsignar" label="Asignar"
+						image="/sigma/imagenes/botones-basicos/llave-mas.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<hbox widths="70%,30%" width="100%">
+		<listbox id="listUsuarios" model="@{winAsigPerfilctrl.usuarios}"
+			selectedItem="@{winAsigPerfilctrl.seleccionUsuario}" mold="paging"
+			pageSize="10">
+			<listhead>
+				<listheader label="Cedula" />
+				<listheader label="Nombre" />
+				<listheader label="Apellido" />
+				<listheader label="Login" />
+			</listhead>
+			<listitem self="@{each=usuario}" value="@{usuario}">
+				<listcell label="@{usuario.persona.cedula}" />
+				<listcell label="@{usuario.persona.nombre}" />
+				<listcell label="@{usuario.persona.apellido}" />
+				<listcell label="@{usuario.login}" />
+			</listitem>
+		</listbox>
+
+		<listbox id="listPerfil" model="@{winAsigPerfilctrl.perfils}"
+			multiple="true" checkmark="true"
+			selectedItem="@{winAsigPerfilctrl.seleccionPerfil}" mold="paging"
+			pageSize="10">
+			<listhead>
+				<listheader label="Perfiles" />
+			</listhead>
+			<listitem self="@{each=perfil}" value="@{perfil}">
+				<listcell label="@{perfil.nombre}" />
+			</listitem>
+		</listbox>
+	</hbox>
+</window>

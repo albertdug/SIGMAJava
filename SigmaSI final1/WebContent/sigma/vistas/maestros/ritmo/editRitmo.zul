@@ -1,0 +1,26 @@
+<?page title="Ritmo" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditRitmo"?>
+<zk>
+	<window id="winEditRitmo" title="Especie" width="50%"
+		border="normal" closable="true" apply="org.ucla.sigma.controlador.ctrlWinEditRitmo">
+		
+		<grid>
+			<columns>
+				<column width="26%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre del Ritmo" />
+					<textbox id="txtNombre"
+						value="@{winEditRitmoctrl.ritmo.nombre}" width="60%" />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

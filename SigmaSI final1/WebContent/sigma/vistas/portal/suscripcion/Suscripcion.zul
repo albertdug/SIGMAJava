@@ -1,0 +1,44 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winSuscripcion"?>
+
+<window id="winSuscripcion" title="Suscripciones" border="normal"
+	closable="true" apply="org.ucla.sigma.controlador.ctrlWinSuscripcion">
+	<grid>
+		
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Fechas" />
+					<datebox id="dboxFechaDesde" width="20%"
+						format="dd/MM/yyyy" constraint="no future"/>
+					<datebox id="dboxFechaHasta" width="20%"
+						format="dd/MM/yyyy" />		
+
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">					
+					<button id="btnVer" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listSuscripciones"
+		model="@{winSuscripcionctrl.suscripciones}"
+		selectedItem="@{winSuscripcionctrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Nombre" />
+			<listheader label="Correo" />
+			<listheader label="Fecha de suscripción" />
+		</listhead>
+		<listitem self="@{each=suscripcion}" value="@{suscripcion}">
+			<listcell label="@{suscripcion.nombre}" />
+			<listcell label="@{suscripcion.correo}" />
+			<listcell
+				label="@{suscripcion.creacion,converter='org.ucla.sigma.componentszk.FormatDateConverter'}" />
+		</listitem>
+	</listbox>
+</window>

@@ -1,0 +1,41 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winCitasMedico"?>
+<zk>
+	<window id="winCitasMedico" title="Cita" width="100%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinCitasMedico">
+		<grid>
+			<rows>
+				<row align="right" spans="2">
+					<button id="btnAtender" label="Atender Cita"
+						image="/sigma/imagenes/botones-basicos/check.png" />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+
+		<listbox id="listCitasMedico"
+			model="@{winCitasMedicoctrl.referencias}"
+			selectedItem="@{winCitasMedicoctrl.seleccion}" mold="paging"
+			pageSize="10">
+			<listhead>
+				<listheader label="Fecha" width="15%" />
+				<listheader label="Historia Médica" />
+				<listheader label="Nombre del Paciente" />
+				<listheader label="Nombre del Responsable" />
+				<listheader label="Servicio" width="15%" />
+				<listheader label="Hora" width="15%" />
+			</listhead>
+			<listitem self="@{each=referencia}" value="@{referencia}">
+				<listcell label="@{referencia.fechaCita,converter='org.ucla.sigma.componentszk.FormatDateConverter'}" />
+				<listcell
+					label="@{referencia.historial.paciente.historiaMedica}" />
+				<listcell
+					label="@{referencia.historial.paciente.nombre}" />
+				<listcell label="@{referencia.historial.paciente.responsable.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}"/>
+				<listcell label="@{referencia.tipoServicio.nombre}" />
+				<listcell label="@{referencia.horaCita,converter='org.ucla.sigma.componentszk.FormatHourConverter'}" />
+			</listitem>
+		</listbox>
+	</window>
+</zk>

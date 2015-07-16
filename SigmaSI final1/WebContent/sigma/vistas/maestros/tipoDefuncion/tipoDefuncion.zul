@@ -1,0 +1,45 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winTipoDefuncion"?>
+
+<window id="winTipoDefuncion" title="Tipo de Defunción" border="normal" closable="true"
+	width="100%" apply="org.ucla.sigma.controlador.ctrlWinTipoDefuncion" >
+	
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtTipoDefuncion" width="50%" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVer" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listTipoDefuncion"  mold="paging"
+		pageSize="10" 		model="@{winTipoDefuncionctrl.tipodefunciones}"
+ 		selectedItem="@{winTipoDefuncionctrl.seleccion}" >
+		
+		<listhead>
+			<listheader label="Nombre" />
+		</listhead>
+		<listitem self="@{each=defuncion}" value="@{defuncion}">
+			<listcell label="@{defuncion.nombre}" />
+		</listitem>
+	</listbox>
+</window>

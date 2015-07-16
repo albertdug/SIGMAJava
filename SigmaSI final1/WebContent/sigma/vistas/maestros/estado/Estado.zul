@@ -1,0 +1,45 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEstado"?>
+
+<window id="winEstado" title="Estado" border="normal" closable="true"
+	width="100%" apply="org.ucla.sigma.controlador.ctrlWinEstado">
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtNombreEstado" width="50%"
+						focus="true" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listEstado" model="@{winEstadoctrl.estados}"
+		selectedItem="@{winEstadoctrl.seleccion}" mold="paging" pageSize="10">
+		<listhead>
+			<listheader label="Estado" />
+			<listheader label="Abreviatura" />
+		</listhead>
+		<listitem self="@{each=estado}" value="@{estado}">
+			<listcell label="@{estado.nombre}" />
+			<listcell label="@{estado.abreviatura}" />
+		</listitem>
+	</listbox>
+</window>

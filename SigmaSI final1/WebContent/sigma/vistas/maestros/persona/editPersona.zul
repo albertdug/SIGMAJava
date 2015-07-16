@@ -1,0 +1,70 @@
+<?page title="Persona" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditPersona"?>
+<zk>
+	<window id="winEditPersona" title="Persona" width="50%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinEditPersona">
+		<grid>
+			<columns>
+				<column width="25%" align="right" />
+				<column />
+			</columns>
+			<rows>		
+				<row>
+					<label value="Cedula" />
+					<intbox id="txtCedula" width="65px" />
+				</row>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombre"
+						value="@{winEditPersonactrl.persona.nombre}" width="60%" />
+				</row>
+				<row>
+					<label value="Apellido" />
+					<textbox id="txtApellido"
+						value="@{winEditPersonactrl.persona.apellido}" width="60%" />
+				</row>
+				<row>
+					<label value="Estado" />
+					<listbox id="listEstados"
+						model="@{winEditPersonactrl.estados}" mold="select">
+						<listitem self="@{each=estado}"
+							value="@{estado }">
+							<listcell label="@{estado.estado.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+				<row>
+					<label value="Ciudad" />
+					<listbox id="listCiudads"
+						model="@{winEditPersonactrl.ciudads}" mold="select">
+						<listitem self="@{each=ciudad}"
+							value="@{ciudad}">
+							<listcell label="@{ciudad.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+				<row>
+					<label value="Direccion" />
+					<textbox id="txtDireccion"
+						value="@{winEditPersonactrl.persona.direccion}" width="80%" />
+				</row>
+				<row>
+					<label value="Telefono" />
+					<textbox id="txtTelefono"
+						value="@{winEditPersonactrl.persona.telefono}" width="95px" />
+				</row>
+				<row>
+					<label value="Correo" />
+					<textbox id="txtCorreo"
+						value="@{winEditPersonactrl.persona.correo}" width="60%" />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

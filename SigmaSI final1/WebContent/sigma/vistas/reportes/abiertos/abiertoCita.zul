@@ -1,0 +1,89 @@
+﻿<?page title="Abiertos" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winAbiertoCita"?>
+
+<zk>
+	<window id="winAbiertoCita"
+		title="Consulta de Citas - Servicio Médico" width="100%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinAbiertoCita">
+		<grid>
+			<columns>
+				<column label="" width="50%" />
+			</columns>
+			<rows>
+				<row>
+					<groupbox>
+						<caption>Reporte</caption>
+						Listado de Citas
+					</groupbox>
+					<groupbox>
+						<caption>Descripción</caption>
+						Muestra los datos de las Citas que cumplan
+						con los parámetros seleccionados.
+					</groupbox>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<grid>
+			<auxhead>
+				<auxheader colspan="1"
+					label="Filtros de selección y búsqueda" />
+			</auxhead>
+			<columns></columns>
+		</grid>
+
+		<grid>
+			<columns>
+				<column label="" width="50%" />
+			</columns>
+			<rows>
+				<row>
+					<groupbox>
+						<caption>Datos de la Cita</caption>
+
+						<listbox id="listColumna1">
+							<listitem id="listItemEspeciales">
+								<listcell label="Consulta">
+									<space />
+									<button id="btnTipoServicio"
+										image="/sigma/imagenes/botones-basicos/buscar.png" />
+								</listcell>
+							</listitem>
+							
+							<listitem checkable="false">
+								<listcell label="Fecha de Atención" />
+							</listitem>
+							<listitem checkable="false">
+								<listcell label="desde:">
+									<datebox id="dbInicioEmision"
+										readonly="true" />
+								</listcell>
+							</listitem>
+							<listitem checkable="false">
+								<listcell label="hasta:">
+									<datebox id="dbFinEmision"
+										readonly="true" />
+								</listcell>
+							</listitem>
+						</listbox>
+					</groupbox>
+					
+				</row>
+				<row></row>
+			</rows>
+
+		</grid>
+		<separator />
+		<separator />
+		<div align="center">
+			<button label="Exportar" id="btnGenerar"
+				image="/sigma/imagenes/botones-basicos/reportes.png">
+			</button>
+			<button label="Cancelar" id="btnCancelar"
+				image="/sigma/imagenes/botones-basicos/cancelar.png">
+			</button>
+		</div>
+
+	</window>
+</zk>

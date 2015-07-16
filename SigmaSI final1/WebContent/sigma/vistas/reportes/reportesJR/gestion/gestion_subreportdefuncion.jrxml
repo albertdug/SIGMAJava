@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="gestion_subreportdefuncion" language="groovy" pageWidth="400" pageHeight="752" columnWidth="400" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8003519c-2cb6-4116-b5f3-86fa4ab80565">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="desde" class="java.util.Date"/>
+	<parameter name="hasta" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[select
+esp.nombre especienombre,
+
+(select count(historial) from historial, paciente, raza where historial.tipo_servicioid = 'DEF' and paciente.historia_medica = historial.pacientehistoria_medica and paciente.razaid = raza.id and raza.especieid = esp.id and historial.fecha between $P{desde} and $P{hasta}) frecuenciadef,
+
+(select count(historial) from historial where historial.tipo_servicioid = 'DEF' and historial.fecha between $P{desde} and $P{hasta}) totaldefunciones
+
+from especie esp]]>
+	</queryString>
+	<field name="especienombre" class="java.lang.String"/>
+	<field name="frecuenciadef" class="java.lang.Long"/>
+	<field name="totaldefunciones" class="java.lang.Long"/>
+	<group name="especienombre">
+		<groupExpression><![CDATA[$F{especienombre}]]></groupExpression>
+	</group>
+	<title>
+		<band height="30">
+			<staticText>
+				<reportElement uuid="fa04ddae-1ce4-4223-ab92-d2d2f5c1bf90" x="0" y="0" width="400" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[DEFUNCIONES REGISTRADAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="4c717d23-dd4b-45dc-8a6a-0a05f99f50c5" x="0" y="0" width="130" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESPECIE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0da4df35-be7a-4663-a0be-2e988732762e" x="130" y="0" width="135" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="45f8ee59-77ed-4df4-b8c6-994d7dfd7bfc" x="265" y="0" width="135" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PORCENTAJE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="76186aa4-0515-4c41-a89f-4e440f03bed9" x="0" y="0" width="130" height="20"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{especienombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b8995744-c0ab-409a-b5e2-d7bc0dfc721c" x="130" y="0" width="135" height="20"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{frecuenciadef}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.0 %">
+				<reportElement uuid="7a492ff3-d1d8-46a3-8137-910744853756" x="265" y="0" width="135" height="20"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{frecuenciadef}.doubleValue()/$F{totaldefunciones}.doubleValue())==Double.NaN?0:$F{frecuenciadef}.doubleValue()/$F{totaldefunciones}.doubleValue()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42">
+			<staticText>
+				<reportElement uuid="4c717d23-dd4b-45dc-8a6a-0a05f99f50c5" x="0" y="0" width="130" height="20"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="7a492ff3-d1d8-46a3-8137-910744853756" mode="Opaque" x="130" y="0" width="135" height="20" backcolor="#FFCCCC"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totaldefunciones}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.0 %">
+				<reportElement uuid="4ecdf011-3c29-45fb-ace6-d78027e4ad30" mode="Opaque" x="265" y="0" width="135" height="20" backcolor="#FFCCCC"/>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totaldefunciones}>0?1:0]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

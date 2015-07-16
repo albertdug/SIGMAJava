@@ -1,0 +1,56 @@
+<?page title="Recepcionista" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winRecepcionista"?>
+
+<window id="winRecepcionista" title="Recepcionista" border="normal"
+	closable="true" width="100%"
+	apply="org.ucla.sigma.controlador.ctrlWinRecepcionista">
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Cedula" />
+					<intbox id="txtCedula" width="50%" focus="true" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listRecepcionista"
+		model="@{winRecepcionistactrl.recepcionistas}"
+		selectedItem="@{winRecepcionistactrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Cedula" />
+			<listheader label="Nombre" />
+			<listheader label="Apellido" />
+			<listheader label="Telefono" />
+			<listheader label="Correo" />
+			<listheader label="Ciudad" />
+		</listhead>
+		<listitem self="@{each=recepcionista}"
+			value="@{recepcionista}">
+			<listcell label="@{recepcionista.persona.cedula}" />
+			<listcell label="@{recepcionista.persona.nombre}" />
+			<listcell label="@{recepcionista.persona.apellido}" />
+			<listcell label="@{recepcionista.persona.telefono}" />
+			<listcell label="@{recepcionista.persona.correo}" />
+			<listcell label="@{recepcionista.persona.ciudad.nombre}" />
+		</listitem>
+	</listbox>
+</window>

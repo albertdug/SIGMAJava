@@ -1,0 +1,80 @@
+<?page title="Paciente" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditPaciente"?>
+<zk>
+	<window id="winEditPaciente" title="Paciente" width="50%"
+		border="normal" closable="true" apply="org.ucla.sigma.controlador.ctrlWinEditPaciente">
+		<grid>
+			<columns>
+				<column width="25%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Cedula del Responsable" />
+					<div>
+					<intbox id="txtCedulaResponsable" width="46%" value="@{winEditPacientectrl.responsable.cedula}"/>
+					<button id="btnBuscarResponsable" image="/sigma/imagenes/botones-basicos/buscar.png"/>
+					</div>
+				</row>
+				<row>
+					<label value="Nombre Responsable" />
+					<textbox id="txtNombreResponsable" value="@{winEditPacientectrl.responsable.persona.nombre}" readonly="true" />
+				</row>
+				<row>
+					<label value="Apellido Responsable" />
+					<textbox id="txtApellidoResponsable" value="@{winEditPacientectrl.responsable.persona.apellido}" readonly="true" />
+				</row>
+				<row>
+					<label value="Historia Medica" />
+					<textbox id="txtHistorial"
+						value="@{winEditPacientectrl.paciente.historiaMedica}" readonly="true" />
+				</row>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombre"
+						value="@{winEditPacientectrl.paciente.nombre}"/>
+				</row>
+				<row>
+					<label value="Fecha de Nacimiento" />
+					<datebox id="dbFechaNac"
+						value="@{winEditPacientectrl.paciente.fechaNac}" readonly="true" />
+				</row>
+				<row>
+					<label value="Sexo" />
+					<listbox id="listSexo"
+						model="@{winEditPacientectrl.sexos}" mold="select">
+						<listitem self="@{each=sexo}"
+							value="@{sexo}">
+							<listcell label="@{sexo.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+				<row>
+					<label value="Especie" />
+					<listbox id="listEspecie"
+						model="@{winEditPacientectrl.especies}" mold="select">
+						<listitem self="@{each=especie}"
+							value="@{especie}">
+							<listcell label="@{especie.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+				<row>
+					<label value="Raza" />
+					<listbox id="listRaza"
+						model="@{winEditPacientectrl.razas}" mold="select">
+						<listitem self="@{each=raza}"
+							value="@{raza}">
+							<listcell label="@{raza.nombre}" />
+						</listitem>
+					</listbox>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

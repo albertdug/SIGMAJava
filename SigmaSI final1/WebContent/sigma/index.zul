@@ -1,0 +1,50 @@
+<?page title="Sistema de Información para la Gestión Médica Animal"?>
+<?link rel="shortcut icon" href="/sigma/imagenes/decoracion/favicon.ico" type="image/x-icon"?>
+<zk>
+	<window id="winIndex" border="none" width="100%" height="100%"
+		apply="org.ucla.sigma.controlador.ctrlWinIndex">
+		<style src="/sigma/css/estilo-zk.css" />
+		<borderlayout id="borLayout" width="100%" sclass="borde">
+			<north border="none">
+				<div>
+					<image
+						src="/sigma/imagenes/decoracion/decoracion-banner.jpg"
+						width="100%" height="80px"  />
+					<div sclass="usuario">
+						<label id="nombreUsuario" />
+						<a id="cerrar" label="Cerrar" />
+					</div>
+
+				</div>
+
+
+			</north>
+			<west border="none" margins="5,0,10,10" sclass="borde"
+				width="215px" id="contMenu">
+				<tabbox id="tb" width="215px" height="auto"
+					mold="accordion" sclass="tabsMenu" tabscroll="true">
+					<tabs id="ctnTabs">
+
+					</tabs>
+					<tabpanels id="ctnTabsP">
+
+					</tabpanels>
+				</tabbox>
+
+			</west>
+			<center border="none" margins="5,0,0,10"
+				autoscroll="true" >
+				<div id="contenido" height="100%" sclass="contenidocentro"></div>
+			</center>
+			<south border="none">
+				<div style="padding:10px;text-align: center;">
+					Sistema de Información para la Gestión Médico Animal
+					<html><![CDATA[ <br/>]]></html>
+					Copyright
+					<html><![CDATA[ &copy; ]]></html>
+					UCLA - Venezuela
+				</div>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

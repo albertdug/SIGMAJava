@@ -1,0 +1,30 @@
+<?page title="Estadistico Servicio" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winCatalogoTipoServicio"?>
+<zk>
+	<window id="winCatalogoTipoServicio"
+		title="Catálogo Tipo de Servicio" border="normal" width="50%"
+		closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinCatalogoTipoServicio">
+		<groupbox>
+			<caption>Seleccione la(s) TipoServicio(s)</caption>
+
+			<listbox id="listTipoServicio"
+				model="@{winCatalogoTipoServicioctrl.tipoServicios}"
+				checkmark="true" mold="paging" multiple="true" pageSize="10"
+				nonselectableTags="*" onCreate="">
+				<listhead>
+					<listheader label="Nombre" />
+				</listhead>
+				<listitem self="@{each=tipoServicio}"
+					value="@{tipoServicio}">
+					<listcell label="@{tipoServicio.nombre}" />
+				</listitem>
+			</listbox>
+			<separator></separator>
+			<button id="btnAceptar" label="Aceptar"
+				image="/sigma/imagenes/botones-basicos/aceptar.png" />
+			<button id="btnCancelar" label="Cancelar"
+				image="/sigma/imagenes/botones-basicos/cancelar.png" />
+		</groupbox>
+	</window>
+</zk>

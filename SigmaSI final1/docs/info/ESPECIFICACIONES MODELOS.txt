@@ -1,0 +1,30 @@
+MODIFICACIONES REALIZADAS A LOS MODELOS GENERADOS POR HIBERNATE
+
+ESPECIFICACIONES:
+
+	1 ESTATUS
+		private char estatus = 'A';
+
+	2 SOBREESCRIBIR A TODOS, A LOS MODELOS CON HERENCIA SOLO toString
+		@Override
+		public boolean equals(Object obj) {
+			Estado comparacion = (Estado) obj;
+			return comparacion.getId() == id;
+		}
+
+		@Override
+		public String toString() {
+			return "Modelo Estado, id: " + id;
+		}
+		
+	3 IMPORT
+		import javax.persistence.GeneratedValue;
+		import javax.persistence.GenerationType;
+		import javax.persistence.SequenceGenerator;
+		
+	4 SECUENCIAS DEBAJO DE @Id, LOS QUE TENGAN ID INT INCREMENTABLE
+		@SequenceGenerator(name = "SEQ_ESTADO", sequenceName = "seq_estado", allocationSize = 1, schema = "public")
+		@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ESTADO")
+		
+	5 DEFINICIONES
+		@Column(name = "texto", columnDefinition = "text")

@@ -1,0 +1,1407 @@
+<?page title="Auto Generated index.zul" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winDermatologia"?>
+
+<zk>
+	<!-- 			<+++++++++++  WINDOW  +++++++++++> -->
+
+	<window id="winDermatologia" title="Dermatologia" border="normal"
+		closable="true" height="100%"
+		apply="org.ucla.sigma.controlador.ctrlWinDermatologia">
+		<style>
+			.z-fieldset.gbNortCenter{ border-style : solid; border-width
+			: 1px; border-color : #BFBFBF; padding: 0px; padding-bottom:
+			4px; padding-left: 10px; } .z-fieldset.gbDate{ border-style
+			: solid; border-width : 1px; border-color : #BFBFBF;
+			padding: 0px; padding-bottom: 4px;} .z-fieldset.gbEast{
+			border-style : solid; border-width : 1px; border-color :
+			#BFBFBF; padding: 1px;}
+		</style>
+
+		<!-- 			<+++++++++++  BORDERLAYOUT  +++++++++++> -->
+
+		<borderlayout height="100%">
+
+			<!-- 			<+++++++++++  NORTE  +++++++++++> -->
+
+			<north id="blNorte" border="none" height="115px">
+				<borderlayout height="100%">
+
+					<!-- 			<+++++++++++  NORTE - CENTRO  +++++++++++> -->
+
+					<center border="none">
+						<div>
+							<groupbox sclass="gbNortCenter"
+								height="62px" closable="false">
+								<caption style="color:#4D4D4D">
+									Paciente
+								</caption>
+								<vlayout>								
+									<hlayout spacing="3%"
+										width="100%">
+										<hbox width="210px">
+											<hlayout spacing="5px">
+												<hbox width="40px">
+													<label value="Historia" />
+												</hbox>
+												<textbox id="txtHm"
+													width="90px" style="text-align:center" />
+												<button id="btnBuscar"
+													width="40px" height="22px"
+													image="/sigma/imagenes/botones-basicos/buscar.png" />
+											</hlayout>
+										</hbox>
+										<hlayout>
+											<label value="Nombre" />
+											<textbox
+												id="txtNombrePaciente"
+												value="@{winDermatologiactrl.paciente.nombre}"
+												readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Edad" />
+											<textbox id="txtEdad"
+												width="60px" style="text-align:center" readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Sexo" />
+											<textbox id="txtSexo"
+												width="60px"
+												value="@{winDermatologiactrl.paciente.sexo.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+									</hlayout>
+									
+									<hlayout spacing="3%"
+										width="100%">
+										<hbox width="210px" />
+										<hlayout>
+											<label value="Especie" />
+											<textbox id="txtEspecie"
+												width="50px"
+												value="@{winDermatologiactrl.paciente.raza.especie.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Raza" />
+											<textbox id="txtRaza"
+												width="130px"
+												value="@{winDermatologiactrl.paciente.raza.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+									</hlayout>
+								</vlayout>
+							</groupbox>
+							<separator height="0px" />
+							<groupbox height="35px"
+								sclass="gbNortCenter">
+								<caption style="color:#4D4D4D">
+									Responsable
+								</caption>
+								<hlayout spacing="3%" width="100%">
+									<hbox width="210px">
+										<hlayout spacing="5px">
+											<hbox width="40px" >
+												<label value="Cedula"/>
+											</hbox>
+											<textbox id="txtCi"
+												width="90px"
+												value="@{winDermatologiactrl.paciente.responsable.cedula}"
+												style="text-align: center" readonly="true" />
+										</hlayout>
+									</hbox>
+									<hlayout>
+										<label value="Nombre" />
+										<textbox
+											id="txtNombreResponsable" width="200px"
+											readonly="true" 
+											value="@{winDermatologiactrl.paciente.responsable.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}"
+											/>
+									</hlayout>
+								</hlayout>
+							</groupbox>
+						</div>
+					</center>
+
+					<!-- 			<+++++++++++  NORTE - ESTE  +++++++++++> -->
+
+					<east border="none" width="17%">
+						<div align="center">
+							<groupbox height="35px" sclass="gbDate">
+								<caption style="color:#4D4D4D">
+									Fecha Actual
+								</caption>
+								<hlayout width="100%">
+									<datebox id="dbFechaActual" 
+										format="dd/MM/yyyy" buttonVisible="false" width="100%"
+										style="text-align:center" readonly="true" />
+								</hlayout>
+							</groupbox>
+							<separator height="7px" />
+							<groupbox height="57px" sclass="gbEast">
+								<vlayout spacing="1px" width="100%">
+									<hlayout>
+										<button label="Historial"
+											style="font-size:11px" id="btnHistorial" width="95px"
+											height="18px" />
+									</hlayout>
+									<hlayout>
+										<button label="Referencia"
+											style="font-size:11px" id="btnReferenciaMedica" width="95px"
+											height="18px" />
+									</hlayout>
+									<hlayout>
+										<button label="Defunción"
+											style="font-size:11px" id="btnDefuncion" width="95px"
+											height="18px" />
+									</hlayout>
+								</vlayout>
+							</groupbox>
+						</div>
+					</east>
+
+				</borderlayout>
+			</north>
+
+			<!-- 			<+++++++++++  CENTRO  +++++++++++> -->
+
+			<center id="blCentro" border="none" margins="0,0,0,0">
+				<div id="contCentro" height="100%">
+
+					<!-- 			<+++++++++++  TABBOX  +++++++++++> -->
+
+					<!--//			<++++++++++++++++++++++++++++++++++++++++  NOTA  ++++++++++++++++++++++++++++++++++++++++> -->
+					<!--//			<+  Este proceso es igual para todos las TABs, es decir, se pueden agregar TABs pero    +> -->
+					<!--//      	<+  siguiendo el mismo patrón (por excepción del tamaño de las mismas, que estará en    +> -->
+					<!--//        	<+  función de la cantidad de TABs), por otra parte, el contenido de cada TAB(tabpanel) +> -->
+					<!--//        	<+  es decisión propia (Hacer lo que la imaginación dicte).                             +> -->
+					<!--//        	<+	+++++++++++++++++++++++++++++++++++++   PD   +++++++++++++++++++++++++++++++++++++  +> -->
+					<!--//        	<+  Como sugerencia por cuestiones de estética, para los TEXTBOX(y parecidos) es 		+> -->
+					<!--//        	<+	mejor usar Width= "99,5%"(en lugar de 100%) y Style= "resize: none;"(este ultimo 	+> -->
+					<!--//        	<+	en caso de usar Multiline= "true" ), por otro lado, los GRIBs se adaptan al Width 	+> -->
+					<!--//        	<+	máximo automáticamente, evitar en lo posible usar Width =”100%”, todo esto solo 	+> -->
+					<!--//        	<+	cuando se trabaja con porcentajes, con píxeles, depende del ojo de cada quien.		+> -->
+					<!--//        	<+	+++++++++++++++++++++++++++++++++++++   PD   +++++++++++++++++++++++++++++++++++++  +> -->
+					<!--//        	<+  Como se ha de notar Diagnostico, Patologia y Tratamientos ya estan diseñados por	+> -->
+					<!--//        	<+	lo cual no deben ser modificadas, igualmente se pueden agregar o quitar las demas 	+> -->
+					<!--//        	<+	TABs segun sea el caso, aun asi, si es el caso de los servicios q carecen de alguna	+> -->
+					<!--//        	<+	de estas TABs, entonces estas deberan ser quitadas o incluso modificadas, pero	 	+> -->
+					<!--//        	<+	teniendo presente que estos cambios afectaran al controlador y por tanto deben ser  +> -->
+					<!--//        	<+	modificados en el mismo(el controlador)											 	+> -->
+					<!--//			<++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+					<tabbox id="tb6" height="100%">
+						<tabs>
+							<tab label="Exámen Clinico" width="15%"
+								style="text-align:center" />
+							<tab label="Diagnostico" width="15%"
+								style="text-align:center" />
+							<tab label="Patología" width="15%"
+								style="text-align:center" />
+							<tab label="Tratamiento" width="15%"
+								style="text-align:center" />
+						</tabs>
+						<tabpanels>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="normal"
+										autoscroll="true">
+										<div height="100%">
+
+											<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 1  +++++++++++> -->
+
+											<tabbox>
+												<tabs>
+													<tab
+														label="Datos de la Enfermedad Dermatológica" width="33%"
+														style="text-align:center" />
+													<tab
+														label="Examen Físico" width="33%"
+														style="text-align:center" />
+													<tab
+														label="Examen Dermatológico" width="33%"
+														style="text-align:center" />
+												</tabs>
+												<tabpanels>
+													<tabpanel>
+														<groupbox
+															style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+															<grid
+																style="border:none">
+																<columns>
+																	<column
+																		width="15%" />
+																	<column
+																		width="18%" />
+																	<column
+																		width="15%" />
+																	<column
+																		width="18%" />
+																	<column
+																		width="11%" />
+																	<column
+																		width="23%" />
+																</columns>
+																<rows>
+																	<row>
+																		<label
+																			value="Fecha Inicio de Enfermedad" width="100%" />
+																		<datebox
+																			id="dbInicioEnfermedad" format="medium" width="100px"
+																			style="text-align: center"
+																			value="@{winDermatologiactrl.dermatologia.inicioEnfermedad}"
+																			readonly="true" />
+																		<label
+																			value="Tiempo de evolución de la enfermedad"
+																			width="100%" />
+																		<textbox
+																			id="txtTiempoEvolucion" width="60px"
+																			style="text-align:center" readonly="true" />
+																		<label
+																			value="Edad de inicio" width="100%" />
+																		<textbox
+																			id="txtEdadInicio" width="60px"
+																			style="text-align:center" readonly="true" />
+																	</row>
+																	<row>
+																		<label
+																			value="¿Es todo el año?" width="100%" />
+																		<combobox
+																			id="cbTodoAnno" width="50px" readonly="true">
+																			<comboitem
+																				label="Si" />
+																			<comboitem
+																				label="No" />
+																		</combobox>
+																		<label
+																			value="¿Donde comenzo?" width="100%" />
+																		<cell
+																			colspan="3">
+																			<textbox
+																				id="txtDondeComenzo" width="100%"
+																				value="@{winDermatologiactrl.dermatologia.dondeComenzo}" />
+																		</cell>
+																	</row>
+																	<row>
+																		<cell />
+																		<cell />
+																		<label
+																			value="¿A que parecia entonces?" width="100%" />
+																		<cell
+																			colspan="3">
+																			<textbox
+																				id="txtAparienciaInicial" width="100%"
+																				value="@{winDermatologiactrl.dermatologia.aparienciaInicial}" />
+																		</cell>
+																	</row>
+																	<row>
+																		<cell />
+																		<cell />
+																		<label
+																			value="¿Como vario o se extendio?" width="100%" />
+																		<cell
+																			colspan="3">
+																			<textbox
+																				id="txtAvanceEnfermedad" width="100%"
+																				value="@{winDermatologiactrl.dermatologia.avanceEnfermedad}" />
+																		</cell>
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+														<separator />
+														<groupbox
+															style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+															<grid
+																style="border:none">
+																<columns>
+																	<column
+																		width="15%" valign="top" />
+																	<column
+																		width="15%" valign="top" />
+																	<column
+																		width="15%" valign="top" />
+																	<column
+																		width="55%" valign="top" />
+																</columns>
+																<rows>
+																	<row>
+																		<label
+																			value="¿Hay otros animales infectados?" width="100%" />
+																		<combobox
+																			id="cbPresenciaAnimalesInfectados" width="50px" readonly="true">
+																			<comboitem
+																				label="Si" />
+																			<comboitem
+																				label="No" />
+																		</combobox>
+																		<label
+																			value="Caso afirmativo describir" width="100%" />
+																		<textbox
+																			id="txtDescripcionAnimalesInfectados" width="99.5%"
+																			style="resize: none;" maxlength="1000"
+																			multiline="true" height="50px"
+																			value="@{winDermatologiactrl.dermatologia.descripcionAnimalesInfectados}" />
+																	</row>
+																	<row>
+																		<label
+																			value="¿Hay personas infectadas?" width="100%" />
+																		<combobox
+																			id="cbPresenciaPersonasInfetadas" width="50px" readonly="true">
+																			<comboitem
+																				label="Si" />
+																			<comboitem
+																				label="No" />
+																		</combobox>
+																		<label
+																			value="Caso afirmativo describir" width="100%" />
+																		<textbox
+																			id="txtDescripcionPersonasInfetadas" width="99.5%"
+																			style="resize: none;" maxlength="1000"
+																			multiline="true" height="50px"
+																			value="@{winDermatologiactrl.dermatologia.descripcionPersonasInfectadas}" />
+																	</row>
+																	<row>
+																		<label
+																			value="¿Ha observado pulgas o garrapatas?"
+																			width="100%" />
+																		<combobox
+																			id="cbPresenciaPulgas" width="50px" readonly="true">
+																			<comboitem
+																				label="Si" />
+																			<comboitem
+																				label="No" />
+																		</combobox>
+																		<label
+																			value="Caso afirmativo describir" width="100%" />
+																		<textbox
+																			id="txtDescripcionPulgas" width="99.5%"
+																			style="resize: none;" maxlength="1000"
+																			multiline="true" height="50px"
+																			value="@{winDermatologiactrl.dermatologia.descripcionPulgas}" />
+																	</row>
+																	<row>
+																		<label
+																			value="¿Presencia de mal olor?" width="100%" />
+																		<combobox
+																			id="cbPresenciaOlor" width="50px" readonly="true"> 
+																			<comboitem
+																				label="Si" />
+																			<comboitem
+																				label="No" />
+																		</combobox>
+																		<label
+																			value="Caso afirmativo describir" width="100%" />
+																		<textbox
+																			id="txtDescripcionOlor" width="99.5%"
+																			maxlength="1000" multiline="true" height="50px" style="resize: none;"
+																			value="@{winDermatologiactrl.dermatologia.descripcionOlor}" />
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+														<separator />
+														<groupbox
+															style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+															<grid
+																style="border:none">
+																<columns>
+																	<column
+																		width="8%" valign="top" />
+																	<column
+																		width="10%" valign="top" />
+																	<column
+																		width="8%" valign="top" />
+																	<column
+																		width="19%" valign="top" />
+																	<column
+																		width="15%" valign="top" />
+																	<column
+																		width="40%" valign="top" />
+																</columns>
+																<rows>
+																	<row>
+																		<label
+																			value="¿Se rasca?" width="100%" />
+																		<combobox
+																			id="cbPresenciaRasca" width="50px" readonly="true">
+																			<comboitem
+																				label="Si" />
+																			<comboitem
+																				label="No" />
+																		</combobox>
+																		<label
+																			value="Frecuencia" width="100%" />
+																		<listbox
+																			id="listFrecuenciaRasca" width="80%"
+																			model="@{winDermatologiactrl.frecuenciasRasca}"
+																			mold="select">
+																			<listitem
+																				self="@{each=frecuencia}" value="@{frecuencia}">
+																				<listcell
+																					label="@{frecuencia.nombre}" />
+																			</listitem>
+																		</listbox>
+																		<label
+																			value="Caso afirmativo describir" width="100%" />
+																		<textbox
+																			id="txtDescripcionRasca" width="99.5%"
+																			maxlength="1000" multiline="true" height="50px"
+																			value="@{winDermatologiactrl.dermatologia.descripcionRasca}" />
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+														<separator />
+														<groupbox
+															style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+															<grid
+																style="border:none">
+																<columns>
+																	<column
+																		width="12%" valign="top" />
+																	<column
+																		width="18%" valign="top" />
+																	<column
+																		width="12%" valign="top" align="right" />
+																	<column
+																		width="30%" valign="top" />
+																	<column
+																		width="14%" valign="top" />
+																	<column
+																		width="14%" valign="top" />
+																</columns>
+																<rows>
+																	<row>
+																		<label
+																			value="Frecuencia del baño" width="100%" />
+																		<listbox
+																			id="listFrecuenciaBano" width="100%"
+																			model="@{winDermatologiactrl.frecuenciaBanos}"
+																			mold="select">
+																			<listitem
+																				self="@{each=frecuenciaBano}"
+																				value="@{frecuenciaBano}">
+																				<listcell
+																					label="@{frecuenciaBano.nombre}" />
+																			</listitem>
+																		</listbox>
+																		<label
+																			value="Producto utilizado" width="100%" />
+																		<cell
+																			colspan="3">
+																			<textbox
+																				id="txtProductoUtilizado" width="99.5%"
+																				value="@{winDermatologiactrl.dermatologia.productoUtilizado}" />
+																		</cell>
+																	</row>
+																	<row>
+																		<cell />
+																		<cell />
+																		<label
+																			value="Efectos del Producto" width="100%" />
+																		<cell
+																			colspan="3">
+																			<textbox
+																				id="txtEfectoProducto" width="99.5%"
+																				maxlength="1000" multiline="true" height="50px"
+																				value="@{winDermatologiactrl.dermatologia.efectoProducto}" />
+																		</cell>
+																	</row>
+																	<row>
+																		<cell />
+																		<cell />
+																		<label
+																			value="Medicamento utilizado" width="100%" />
+																		<cell
+																			colspan="3">
+																			<textbox
+																				id="txtMedicamentoUtilizado" width="99.5%"
+																				value="@{winDermatologiactrl.dermatologia.medicamentoUtilizado}" />
+																		</cell>
+																	</row>
+																	<row>
+																		<cell />
+																		<cell />
+																		<label
+																			value="Dosis, Efectos y Fechas de uso del Medicamento"
+																			width="100%" />
+																		<cell
+																			colspan="3">
+																			<textbox
+																				id="txtDescripcionMedicamento" width="99.5%"
+																				maxlength="1000" multiline="true" height="50px"
+																				value="@{winDermatologiactrl.dermatologia.descripcionMedicamento}" />
+																		</cell>
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+													</tabpanel>
+													<tabpanel>
+														<groupbox
+															style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+															<grid
+																style="border:none">
+																<columns>
+																	<column
+																		width="15%" />
+																	<column
+																		width="18%" />
+																	<column
+																		width="15%" />
+																	<column
+																		width="18%" />
+																	<column
+																		width="15%" />
+																	<column
+																		width="19%" />
+																</columns>
+																<rows>
+																	<row>
+																		<label
+																			value="Temperatura C°" width="100%" />
+																		<spinner
+																			id="spTemperatura" width="50px"
+																			value="@{winDermatologiactrl.dermatologia.temperatura}" />
+																		<label
+																			value="Tiempo de Perfusion Capilar (Seg)"
+																			width="100%" />
+																		<spinner
+																			id="spPerfusionCapilar" width="50px"
+																			value="@{winDermatologiactrl.dermatologia.perfusionCapilar}" />
+																		<label
+																			value="Nodulos linfáticos" width="100%" />
+																		<spinner
+																			id="spNodulosLinfaticos" width="50px"
+																			value="@{winDermatologiactrl.dermatologia.nodulosLinfaticos}" />
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+														<separator />
+														<groupbox
+															style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+															<grid
+																style="border:none">
+																<columns>
+																	<column
+																		width="15%" />
+																	<column
+																		width="35%" />
+																	<column
+																		width="15%" />
+																	<column
+																		width="35%" />
+																</columns>
+																<rows>
+																	<row>
+																		<label
+																			value="Presencia de reflejo deglutorio" width="100%" />
+																		<combobox
+																			id="cbPresenciaReflejoDeglutorio" width="50px"
+																			readonly="true">
+																			<comboitem
+																				label="Si" />
+																			<comboitem
+																				label="No" />
+																		</combobox>
+																		<label
+																			value="Palpación abdominal" />
+																		<listbox
+																			id="listPalpacionAbdominal" width="100%"
+																			model="@{winDermatologiactrl.palpacionAbdominales}"
+																			mold="select">
+																			<listitem
+																				self="@{each=palpacionAbdominal}"
+																				value="@{palpacionAbdominal}">
+																				<listcell
+																					label="@{palpacionAbdominal.nombre}" />
+																			</listitem>
+																		</listbox>
+																	</row>
+																	<row>
+																		<label
+																			value="Presencia de reflejo tusigeno" width="100%" />
+																		<combobox
+																			id="cbPresenciaReflejoTusigeno" width="50px"
+																			readonly="true">
+																			<comboitem
+																				label="Si" />
+																			<comboitem
+																				label="No" />
+																		</combobox>
+																		<label
+																			value="Estado de hidratación" />
+																		<listbox
+																			id="listEstadoHidratacion" width="100%"
+																			model="@{winDermatologiactrl.estadoHidrataciones}"
+																			mold="select">
+																			<listitem
+																				self="@{each=estadoHidratacion}"
+																				value="@{estadoHidratacion}">
+																				<listcell
+																					label="@{estadoHidratacion.nombre}" />
+																			</listitem>
+																		</listbox>
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+													</tabpanel>
+													<tabpanel>
+														<groupbox
+															style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+															<grid
+																style="border:none">
+																<columns>
+																	<column
+																		width="12%" valign="top" />
+																	<column
+																		width="18%" valign="top" />
+																	<column
+																		width="15%" valign="top" />
+																	<column
+																		width="65%" valign="top" />
+																</columns>
+																<rows>
+																	<row>
+																		<label
+																			value="Textura Pilosa" width="100%" />
+																		<listbox
+																			width="90%" id="listTexturaPilosa"
+																			model="@{winDermatologiactrl.texturaPilosas}"
+																			mold="select">
+																			<listitem
+																				self="@{each=texturaPilosa}"
+																				value="@{texturaPilosa}">
+																				<listcell
+																					label="@{texturaPilosa.nombre}" />
+																			</listitem>
+																		</listbox>
+																		<label
+																			value="Textura de la piel, Elasticidad y Espesor:"
+																			width="100%" />
+																		<textbox
+																			id="txtPielElasticidadEspesor" width="99.5%"
+																			maxlength="1000" multiline="true" height="50px"
+																			value="@{winDermatologiactrl.dermatologia.descripcionPiel}" />
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+														<separator />
+														<groupbox
+															style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+															<grid
+																style="border:none">
+																<columns>
+																	<column
+																		width="15%" valign="top" />
+																	<column
+																		width="15%" valign="top" />
+																	<column
+																		width="15%" valign="top" />
+																	<column
+																		width="55%" valign="top" />
+																</columns>
+																<rows>
+																	<row>
+																		<label
+																			value="Presencia de electroparasitos" width="100%" />
+																		<combobox
+																			id="cbPresenciaElectroparasitos" width="50px" readonly="true">
+																			<comboitem
+																				label="Si" />
+																			<comboitem
+																				label="No" />
+																		</combobox>
+																		<label
+																			value="Caso afirmativo indicar Genero" width="100%" />
+																		<textbox
+																			id="txtGeneroElectroparasitos" width="99.5%"
+																			value="@{winDermatologiactrl.dermatologia.generoElectroparasitos}" />
+																	</row>
+																	<row>
+																		<cell />
+																		<cell />
+																		<label
+																			value="Características de la infestación"
+																			width="100%" />
+																		<textbox
+																			id="txtCaracteristicasInfestacion" width="99.5%"
+																			style="resize: none;" maxlength="1000"
+																			multiline="true" height="50px"
+																			value="@{winDermatologiactrl.dermatologia.caracteristicasInfestacion}" />
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+														<separator />
+														<groupbox
+															style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+															<grid
+																style="border:none">
+																<columns>
+																	<column
+																		width="33%" valign="top" />
+																	<column
+																		width="34%" valign="top" />
+																	<column
+																		width="33%" valign="top" />
+																</columns>
+																<rows>
+																	<row>
+																		<listbox
+																			id="listLesionPrimaria" width="99%"
+																			model="@{winDermatologiactrl.lesionesPrimaria}"
+																			multiple="true" checkmark="true">
+																			<listhead>
+																				<listheader
+																					label="Lesiones Primarias" />
+																			</listhead>
+																			<listitem
+																				self="@{each=lesionPrimaria}"
+																				value="@{lesionPrimaria}">
+																				<listcell
+																					label="@{lesionPrimaria.nombre}" />
+																			</listitem>
+																		</listbox>
+																		<listbox
+																			id="listLesionPS" width="99%"
+																			model="@{winDermatologiactrl.lesionesPS}"
+																			multiple="true" checkmark="true">
+																			<listhead>
+																				<listheader
+																					label="Lesiones Primarias o Secundarias" />
+																			</listhead>
+																			<listitem
+																				self="@{each=lesionPS}" value="@{lesionPS}">
+																				<listcell
+																					label="@{lesionPS.nombre}" />
+																			</listitem>
+																		</listbox>
+																		<listbox
+																			id="listLesionSecundaria" width="99%"
+																			model="@{winDermatologiactrl.lesionesSecundaria}"
+																			multiple="true" checkmark="true">
+																			<listhead>
+																				<listheader
+																					label="Lesiones Secundarias" />
+																			</listhead>
+																			<listitem
+																				self="@{each=lesionSecundaria}"
+																				value="@{lesionSecundaria}">
+																				<listcell
+																					label="@{lesionSecundaria.nombre}" />
+																			</listitem>
+																		</listbox>
+																	</row>
+																	<row>
+																		<div>
+																			<label
+																				value="Descripcion:" width="100%" />
+																			<textbox
+																				id="txtDescripcionLesionPrimaria" width="99.5%"
+																				style="resize: none;" maxlength="1000"
+																				multiline="true" height="50px"
+																				value="@{winDermatologiactrl.dermatologia.descripcionLesionPrimaria}" />
+																		</div>
+																		<div>
+																			<label
+																				value="Descripcion:" width="100%" />
+																			<textbox
+																				id="txtDescripcionLesionPS" width="99.5%"
+																				style="resize: none;" maxlength="1000"
+																				multiline="true" height="50px"
+																				value="@{winDermatologiactrl.dermatologia.descripcionLesionPS}" />
+																		</div>
+																		<div>
+																			<label
+																				value="Descripcion:" width="100%" />
+																			<textbox
+																				id="txtDescripcionLesionSecundaria" width="99.5%"
+																				style="resize: none;" maxlength="1000"
+																				multiline="true" height="50px"
+																				value="@{winDermatologiactrl.dermatologia.descripcionLesionSecundaria}" />
+																		</div>
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+														<separator />
+														<groupbox
+															style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+															<grid
+																style="border:none">
+																<columns>
+																	<column
+																		width="33%" valign="top" />
+																	<column
+																		width="33%" valign="top" />
+																	<column
+																		width="34%" valign="top" />
+																</columns>
+																<rows>
+																	<row>
+																		<listbox
+																			id="listPatronDistribucion" width="99%"
+																			model="@{winDermatologiactrl.patronDistribuciones}"
+																			multiple="true" checkmark="true">
+																			<listhead>
+																				<listheader
+																					label="Patrón de Distribución" />
+																			</listhead>
+																			<listitem
+																				self="@{each=patronDistribucion}"
+																				value="@{patronDistribucion}">
+																				<listcell
+																					label="@{patronDistribucion.nombre}" />
+																			</listitem>
+																		</listbox>
+																		<listbox
+																			id="listConfiguracion" width="99%"
+																			model="@{winDermatologiactrl.configuraciones}"
+																			multiple="true" checkmark="true">
+																			<listhead>
+																				<listheader
+																					label="Configuración" />
+																			</listhead>
+																			<listitem
+																				self="@{each=configuracion}"
+																				value="@{configuracion}">
+																				<listcell
+																					label="@{configuracion.nombre}" />
+																			</listitem>
+																		</listbox>
+																		<listbox
+																			id="listConsistencia" width="99%"
+																			model="@{winDermatologiactrl.consistencias}"
+																			multiple="true" checkmark="true">
+																			<listhead>
+																				<listheader
+																					label="Consistencia" />
+																			</listhead>
+																			<listitem
+																				self="@{each=consistencia}"
+																				value="@{consistencia}">
+																				<listcell
+																					label="@{consistencia.nombre}" />
+																			</listitem>
+																		</listbox>
+																	</row>
+																	<row>
+																		<div>
+																			<label
+																				value="Descripcion:" width="100%" />
+																			<textbox
+																				id="txtDescripcionPatronDistribucion" width="99.5%"
+																				style="resize: none;" maxlength="1000"
+																				multiline="true" height="50px"
+																				value="@{winDermatologiactrl.dermatologia.descripcionPatronDistribucion}" />
+																		</div>
+																		<div>
+																			<label
+																				value="Descripcion:" width="100%" />
+																			<textbox
+																				id="txtDescripcionConfiguracion" width="99.5%"
+																				style="resize: none;" maxlength="1000"
+																				multiline="true" height="50px"
+																				value="@{winDermatologiactrl.dermatologia.descripcionConfiguracion}" />
+																		</div>
+																		<div>
+																			<label
+																				value="Descripcion:" width="100%" />
+																			<textbox
+																				id="txtDescripcionConsistencia" width="99.5%"
+																				style="resize: none;" maxlength="1000"
+																				multiline="true" height="50px"
+																				value="@{winDermatologiactrl.dermatologia.descripcionConsistencia}" />
+																		</div>
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+														<separator />
+														<groupbox
+															style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+															<grid
+																style="border:none">
+																<columns>
+																	<column
+																		width="6%" valign="top" />
+																	<column
+																		width="22%" valign="top" />
+																	<column
+																		width="6%" valign="top" />
+																	<column
+																		width="30%" valign="top" />
+																	<column
+																		width="6%" valign="top" />
+																	<column
+																		width="30%" valign="top" />
+																</columns>
+																<rows>
+																	<row>
+																		<label
+																			value="Color" width="100%" />
+																		<listbox
+																			id="listColorPiel" width="90%"
+																			model="@{winDermatologiactrl.colorPieles}"
+																			mold="select">
+																			<listitem
+																				self="@{each=colorPiel}" value="@{colorPiel}">
+																				<listcell
+																					label="@{colorPiel.nombre}" />
+																			</listitem>
+																		</listbox>
+																		<label
+																			value="Pulpejos" width="100%" />
+																		<textbox
+																			id="txtPulpejos" width="98%" style="resize: none;"
+																			maxlength="1000" multiline="true" height="40px"
+																			value="@{winDermatologiactrl.dermatologia.pulpejos}" />
+																		<label
+																			value="Uñas" width="100%" />
+																		<textbox
+																			id="txtUnas" width="99%" style="resize: none;"
+																			maxlength="1000" multiline="true" height="40px"
+																			value="@{winDermatologiactrl.dermatologia.unnas}" />
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+													</tabpanel>
+												</tabpanels>
+											</tabbox>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 1  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="none"
+										autoscroll="true">
+										<div height="100%">
+
+											<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 2  +++++++++++> -->
+
+											<groupbox id="gbSintoma"
+												mold="3d">
+												<caption id="cpArrow"
+													image="/sigma/imagenes/botones-basicos/quitar.png"
+													label="Sintomas" />
+												<!-- <+++++++AQUI++++++> -->
+												<grid
+													style="0px;border:none">
+													<columns>
+														<column
+															width="50%" valign="top" />
+														<column
+															width="50%" valign="top" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<listbox
+																id="listListadoSintomas1"
+																model="@{winDermatologiactrl.sintomas1}"
+																multiple="true" checkmark="true">
+																<listhead />
+																<listitem
+																	self="@{each=sintoma}" value="@{sintoma}">
+																	<listcell
+																		label="@{sintoma.nombre}" />
+																</listitem>
+															</listbox>
+															<listbox
+																id="listListadoSintomas2"
+																model="@{winDermatologiactrl.sintomas2}"
+																multiple="true" checkmark="true">
+																<listhead />
+																<listitem
+																	self="@{each=sintoma}" value="@{sintoma}">
+																	<listcell
+																		label="@{sintoma.nombre}" />
+																</listitem>
+															</listbox>
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+											<separator />
+											<grid>
+												<columns>
+													<column width="50%" />
+													<column width="50%" />
+												</columns>
+												<rows>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Procedimientos Diagnósticos" width="100%" />
+																<textbox
+																	id="txtDiagnosticoProcedimiento" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winDermatologiactrl.dermatologia.diagnosticoProcedimiento}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Diagnostico Tentativo" width="100%" />
+																<textbox
+																	id="txtDiagnosticoTentativo" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winDermatologiactrl.dermatologia.diagnosticoTentativo}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Diagnostico Diferencial" width="100%" />
+																<textbox
+																	id="txtDiagnosticoDiferencial" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winDermatologiactrl.dermatologia.diagnosticoDiferencial}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Diagnostico Definitivo" width="100%" />
+																<textbox
+																	id="txtDiagnosticoDefinitivo" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winDermatologiactrl.dermatologia.diagnosticoDefinitivo}" />
+															</div>
+														</cell>
+													</row>
+												</rows>
+											</grid>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 2  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="none"
+										autoscroll="true">
+										<div height="100%">
+
+											<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 3  +++++++++++> -->
+
+											<grid>
+												<columns>
+													<column width="30%" />
+													<column width="50%" />
+													<column width="20%" />
+												</columns>
+												<rows>
+													<row
+														style="border:none">
+														<vlayout>
+															<label
+																value="Tipo" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listPatologiaTipo" width="90%"
+																model="@{winDermatologiactrl.tipoPatologiaCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=tipoPatologiaC}"
+																	value="@{tipoPatologiaC}">
+																	<listcell
+																		label="@{tipoPatologiaC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<vlayout>
+															<label
+																value="Patologias" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listPatoligias" width="90%"
+																model="@{winDermatologiactrl.patologiaCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=patologiaC}" value="@{patologiaC}">
+																	<listcell
+																		label="@{patologiaC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<div>
+															<button
+																id="btnMasPatologia"
+																image="/sigma/imagenes/botones-basicos/agregar.png"
+																width="30px" />
+															<button
+																id="btnMenosPatologia"
+																image="/sigma/imagenes/botones-basicos/quitar.png"
+																width="30px" />
+														</div>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<listbox
+																id="listListadoPatologias"
+																model="@{winDermatologiactrl.patologias}">
+																<listhead>
+																	<listheader
+																		label="Patologia" />
+																	<listheader
+																		label="Tipo" />
+																</listhead>
+																<listitem
+																	self="@{each=patologia}" value="@{patologia}">
+																	<listcell
+																		label="@{patologia.nombre}" />
+																	<listcell
+																		label="@{patologia.tipoPatologia.nombre}" />
+																</listitem>
+															</listbox>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Comentario Clinico" width="100%" />
+																<textbox
+																	id="txtPatologiaComentario" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winDermatologiactrl.dermatologia.patologiaComentario}" />
+															</div>
+														</cell>
+													</row>
+												</rows>
+											</grid>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 3  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="none"
+										autoscroll="true">
+										<div height="100%">
+
+											<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 4  +++++++++++> -->
+
+											<grid>
+												<columns>
+													<column width="30%" />
+													<column width="50%" />
+													<column width="20%" />
+												</columns>
+												<rows>
+													<row
+														style="border:none">
+														<vlayout>
+															<label
+																value="Tipo" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listTratamientoTipo" width="90%"
+																model="@{winDermatologiactrl.tipoTratamientoCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=tipoTratamientoC}"
+																	value="@{tipoTratamientoC}">
+																	<listcell
+																		label="@{tipoTratamientoC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<vlayout>
+															<label
+																value="Tratamiento" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listTratamiento" width="90%"
+																model="@{winDermatologiactrl.tratamientoCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=tratamientoC}" value="@{tratamientoC}">
+																	<listcell
+																		label="@{tratamientoC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<div>
+															<button
+																id="btnMasTratamiento"
+																image="/sigma/imagenes/botones-basicos/agregar.png"
+																width="30px" />
+															<button
+																id="btnMenosTratamiento"
+																image="/sigma/imagenes/botones-basicos/quitar.png"
+																width="30px" />
+														</div>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<listbox
+																id="listListadoTratamiento"
+																model="@{winDermatologiactrl.tratamientos}">
+																<listhead>
+																	<listheader
+																		label="Tratamiento" />
+																	<listheader
+																		label="Tipo" />
+																</listhead>
+																<listitem
+																	self="@{each=tratamiento}" value="@{tratamiento}">
+																	<listcell
+																		label="@{tratamiento.nombre}" />
+																	<listcell
+																		label="@{tratamiento.tipoTratamiento.nombre}" />
+																</listitem>
+															</listbox>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Indicaciones Terapeuticas" width="100%" />
+																<textbox
+																	id="txtTratamientoIndicaciones" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winDermatologiactrl.dermatologia.tratamientoIndicaciones}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Tratamiento Aplicado en la Consulta"
+																	width="100%" />
+																<textbox
+																	id="txtTratamientoAplicado" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winDermatologiactrl.dermatologia.tratamientoAplicado}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Indicaciones Terapeuticas Enviadas"
+																	width="100%" />
+																<textbox
+																	id="txtTratamientoEnviado" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winDermatologiactrl.dermatologia.tratamientoEnviado}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<groupbox
+																style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+																<div>
+																	<label
+																		value="Observaciones" width="100%" />
+																	<textbox
+																		id="txtObservaciones" width="99.5%"
+																		style="resize: none;" maxlength="1000"
+																		multiline="true" height="60px"
+																		value="@{winDermatologiactrl.dermatologia.observaciones}" />
+																</div>
+															</groupbox>
+														</cell>
+													</row>
+												</rows>
+											</grid>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 4  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+						</tabpanels>
+					</tabbox>
+				</div>
+			</center>
+
+			<!-- 			<+++++++++++  SUR  +++++++++++> -->
+
+			<south height="32px" border="none" id="blSur">
+				<div style="padding:4px;">
+					<button label="Guardar" id="btnGuardarPrincipal"
+						image="/sigma/imagenes/botones-basicos/guardar.png" />
+					<button label="Cancelar" id="btnCancelarPrincipal"
+						image="/sigma/imagenes/botones-basicos/cancelar.png" />
+				</div>
+			</south>
+
+		</borderlayout>
+	</window>
+</zk>

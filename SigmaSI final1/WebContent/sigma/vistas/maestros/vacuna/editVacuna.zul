@@ -1,0 +1,38 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Vacunas" width="50%" border="normal"
+		closable="true">
+		<grid>
+			<columns>
+				<column width="25%"/>
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre" />
+					<textbox width="60%"/>
+				</row>
+				<row>
+					<label value="Descripción" />
+					<textbox width="60%"/>
+				</row>
+				<row>
+					<label value="Especie" />
+					<combobox width="40%">
+						<comboitem label="Caninos" />
+						<comboitem label="Felinos" />
+					</combobox>
+				</row>
+			</rows>
+		</grid>
+		<separator />
+			<button id="btnEditar" label="Editar" onClick=""
+						image="/recursos/zk/Imagenes/BotonesBasicos/editar.png" />
+						<button id="btnGuardar" label="Guardar" onClick=""
+						image="/recursos/zk/Imagenes/BotonesBasicos/guardar.png" />
+				     	<button id="btnEliminar" label="Eliminar" onClick=""
+						image="/recursos/zk/Imagenes/BotonesBasicos/eliminar.png" />
+						<button id="btnCancelar" label="Cancelar" onClick=""
+						image="/recursos/zk/Imagenes/BotonesBasicos/cancelar.png" />
+	</window>
+</zk>

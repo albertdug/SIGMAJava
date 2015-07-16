@@ -1,0 +1,52 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winReferencia"?>
+<zk>
+	<window title="Referencias" id="winReferencia" width="100%" border="normal"
+		closable="true" apply= "org.ucla.sigma.controlador.ctrlWinReferencia" >
+
+		<grid>
+			<columns>
+				<column label="" />
+				<column label="" />
+				<column label="" />
+				<column label="" />
+			</columns>
+			<rows>
+				<row align="left" spans="2,3">
+					<div align="left">
+					<label value="Referencias desde" />
+					<datebox id="dbInicio" constraint="no future" readonly="true" /> <label value = "hasta"/> <datebox id="dbFin" readonly="true"/><space/>
+					<button id="btnBuscar"
+							image="/sigma/imagenes/botones-basicos/buscar.png" />
+							</div>
+							<div align="right">
+					<button id="btnAsignar" label="Asignar Cita"
+							image="/sigma/imagenes/botones-basicos/check.png" />
+							<button id="btnVer" label="Ver Todas"
+							image="/sigma/imagenes/botones-basicos/ver.png" />
+					</div>
+				</row>	
+			</rows>
+		</grid>
+		<separator />
+
+		<listbox id="listReferencias" model="@{winReferenciactrl.referencias}"
+		selectedItem="@{winReferenciactrl.seleccion}" mold="paging"
+		pageSize="10">
+			<listhead>
+				<listheader label="Fecha de Emisión" width="21%" />
+				<listheader label="Historia Médica" width="19%" />
+				<listheader label="Nombre del Paciente" width="21%" />
+				<listheader label="Nombre del Responsable" width="25%" />
+				<listheader label="Servicio" />
+			</listhead>
+			<listitem self="@{each=referencia}" value="@{referencia}"  >
+				<listcell label="@{referencia.fechaExpedicion,converter='org.ucla.sigma.componentszk.FormatDateConverter'}" />
+				<listcell label="@{referencia.historial.paciente.historiaMedica}" />
+				<listcell label="@{referencia.historial.paciente.nombre}" />
+				<listcell label="@{referencia.historial.paciente.responsable.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}"/>
+				<listcell label="@{referencia.tipoServicio.nombre}" />
+			</listitem>
+		</listbox>
+	</window>
+</zk>

@@ -1,0 +1,31 @@
+<?page title="Tipo Imagenología" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditTipoImagenologia"?>
+<zk>
+	<window id="winEditTipoImagenologia" title="Tipo Imagenología" width="50%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinEditTipoImagenologia">
+		<grid>
+			<columns>
+				<column width="26%" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombre"
+						value="@{winEditTipoImagenologiactrl.tipoImagenologia.nombre}" width="60%" />
+				</row>
+				<row>
+					<label value="Descripcion" />
+					<textbox id="txtDescripcion"
+						value="@{winEditTipoImagenologiactrl.tipoImagenologia.descripcion}" width="60%" />
+				</row>
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Guardar"
+			image="/sigma/imagenes/botones-basicos/guardar.png" />
+		<button id="btnCancelar" label="Cancelar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+	</window>
+</zk>

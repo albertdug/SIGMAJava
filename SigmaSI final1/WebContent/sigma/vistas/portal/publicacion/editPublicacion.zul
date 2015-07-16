@@ -1,0 +1,74 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winEditPublicacion"?>
+<window id="winEditPublicacion" title="Publicacion" width="50%"
+	border="normal" closable="true" sizable="true"
+	apply="org.ucla.sigma.controlador.ctrlWinEditPublicacion">
+	<grid>
+		<columns>
+			<column width="150px" />
+			<column />
+		</columns>
+		<rows>
+			<row>
+				<label value="Fecha de creación" />
+				<datebox buttonVisible="false" readonly="true"
+					width="100px" format="dd/MM/yyyy"
+					value="@{winEditPublicacionctrl.publicacion.creacion}" />
+			</row>
+			<row>
+				<label value="Titulo" />
+				<textbox id="txtTitulo"
+					value="@{winEditPublicacionctrl.publicacion.titulo}" width="90%" />
+			</row>
+			<row>
+				<label value="Texto" />
+				<textbox id="txtTexto"
+					value="@{winEditPublicacionctrl.publicacion.texto}"
+					multiline="true" rows="6" width="90%" />
+			</row>
+
+			<row>
+				<label value="Genero Publicación" />
+				<listbox id="listGeneros"
+					model="@{winEditPublicacionctrl.generos}" mold="select">
+					<listitem self="@{each=genero}" value="@{genero}">
+						<listcell
+							label="@{genero.genero_publicacion.nombre}" />
+					</listitem>
+				</listbox>
+			</row>
+			<row>
+				<label value="Tipo Publicación" />
+				<listbox id="listTipos"
+					model="@{winEditPublicacionctrl.tipos}" mold="select">
+					<listitem self="@{each=tipo}" value="@{tipo}">
+						<listcell
+							label="@{tipo.tipo_publicacion.nombre}" />
+					</listitem>
+				</listbox>
+			</row>
+			<row valign="top" spans="1,1,2">
+				<button id="btnImg" label="Seleccionar Imagen" />
+				<image id="imgImagen" width="70px" height="70px" />
+			</row>
+			<row valign="top" spans="1,1,2">
+				<button id="btnAdj" label="Seleccionar Archivos" />
+				<listbox id="listAdjuntos"
+				model="@{winEditPublicacionctrl.adjuntos}" mold="paging"
+				pageSize="10">
+				<listhead>
+					<listheader label="Archivos Adjuntos" />
+				</listhead>
+				<listitem self="@{each=adjunto}" value="@{adjunto}">
+					<listcell label="@{adjunto.nombre}" />
+				</listitem>
+			</listbox>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<button id="btnGuardar" label="Guardar"
+		image="/sigma/imagenes/botones-basicos/guardar.png" />
+	<button id="btnCancelar" label="Cancelar"
+		image="/sigma/imagenes/botones-basicos/cancelar.png" />
+</window>

@@ -1,0 +1,1320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<bean id="TServicioTipoServicioWeb" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoServicioWeb" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoServicioWeb</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- CONFIGURACION -->
+	<bean id="TServicioFuncion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioFuncion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioFuncion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioPerfil" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPerfil" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPerfil</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioNoModel" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioNoModel" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioNoModel</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTipoMensaje" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoMensaje" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoMensaje</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioMensaje" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioMensaje" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioMensaje</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioBoton" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioBoton" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioBoton</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- SIGMA -->
+	<bean id="TServicioEstado" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioEstado" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioEstado</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioCiudad" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioCiudad" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioCiudad</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioEspecie" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioEspecie" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioEspecie</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioRaza" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioRaza" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioRaza</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioConsultaGeneral" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioConsultaGeneral" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioConsultaGeneral</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioHistorial" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioHistorial" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioHistorial</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTipoEntidadExterna" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoEntidadExterna" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoEntidadExterna</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioPersona" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPersona" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPersona</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioPublicacion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPublicacion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPublicacion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioPublicidad" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPublicidad" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPublicidad</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioRecepcionista" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioRecepcionista" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioRecepcionista</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioReferencia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioReferencia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioReferencia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioReferenciaCirugia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioReferenciaCirugia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioReferenciaCirugia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioReferenciaConsultaEspecializada" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioReferenciaConsultaEspecializada" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioReferenciaConsultaEspecializada</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioReferenciaImagenologia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioReferenciaImagenologia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioReferenciaImagenologia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioReferenciaLaboratorio" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioReferenciaLaboratorio" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioReferenciaLaboratorio</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioResponsable" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioResponsable" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioResponsable</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioRespuesta" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioRespuesta" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioRespuesta</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioServicio" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioServicio" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioServicio</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioSexo" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioSexo" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioSexo</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioSintoma" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioSintoma" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioSintoma</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTipoDefuncion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoDefuncion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoDefuncion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTipoPatologia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoPatologia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoPatologia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTipoReferencia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoReferencia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoReferencia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTipoServicio" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoServicio" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoServicio</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTipoTratamiento" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoTratamiento" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoTratamiento</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTratamiento" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTratamiento" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTratamiento</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTraumatologia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTraumatologia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTraumatologia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioUsuario" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioUsuario" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioUsuario</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioVeterinario" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioVeterinario" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioVeterinario</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioPatologia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPatologia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPatologia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioPaciente" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPaciente" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPaciente</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioOftalmologia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioOftalmologia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioOftalmologia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioNotificacion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioNotificacion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioNotificacion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioNeurologia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioNeurologia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioNeurologia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioLaboratorio" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioLaboratorio" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioLaboratorio</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioImagenologia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioImagenologia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioImagenologia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioImagen" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioImagen" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioImagen</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="TServicioHospitalDifusion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioHospitalDifusion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioHospitalDifusion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioHospital" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioHospital" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioHospital</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioFichaMedica" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioFichaMedica" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioFichaMedica</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioEntidadExterna" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioEntidadExterna" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioEntidadExterna</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioDifusion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioDifusion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioDifusion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioDia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces" value="org.ucla.sigma.interfazservicio.IServicioDia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioDia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioDiaDeAtencion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioDiaDeAtencion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioDiaDeAtencion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioDermatologia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioDermatologia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioDermatologia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioDefuncion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioDefuncion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioDefuncion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioCirugia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioCirugia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioCirugia</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="TServicioCirugiaTransquisurgico" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioCirugiaTransquirurgico" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioCirugiaTransquirurgico</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="TServicioCirugiaProcesar" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioCirugiaProcesar" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioCirugiaProcesar</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="TServicioCirugiaPreOperatoria" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioCirugiaPreOperatoria" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioCirugiaPreOperatoria</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioCirugiaPostOperatoria" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioCirugiaPostOperatoria" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioCirugiaPostOperatoria</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioCarnet" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioCarnet" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioCarnet</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioCardiologia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioCardiologia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioCardiologia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioBoletinInformativo" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioBoletinInformativo" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioBoletinInformativo</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioArea" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioArea" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioArea</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioAdjunto" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioAdjunto" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioAdjunto</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioTipoAlimentacion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoAlimentacion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoAlimentacion</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioFrecuencia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioFrecuencia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioFrecuencia</value>
+			</list>
+		</property>
+	</bean>
+			<bean id="TServicioFrecuenciaTipo" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioFrecuenciaTipo" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioFrecuenciaTipo</value>
+			</list>
+		</property>
+	</bean>
+		<bean id="TServicioFrecuenciaBano" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioFrecuenciaBano" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioFrecuenciaBano</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioGanglio" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioGanglio" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioGanglio</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioSegmento" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioSegmento" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioSegmento</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="TServicioPatron" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPatron" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPatron</value>
+			</list>
+		</property>
+	</bean>
+
+
+
+	<bean id="TServicioRitmo" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioRitmo" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioRitmo</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="TServicioSilueta" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioSilueta" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioSilueta</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioPulmonar" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPulmonar" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPulmonar</value>
+			</list>
+		</property>
+
+
+
+	</bean>
+	<bean id="TServicioAuscultacion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioAuscultacion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioAuscultacion</value>
+			</list>
+		</property>
+	</bean>
+
+
+
+	<bean id="TServicioMembrana" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioMembrana" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioMembrana</value>
+			</list>
+		</property>
+	</bean>
+
+
+
+	<bean id="TServicioCardiaca" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioCardiaca" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioCardiaca</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="TServicioPalpacionAbdominal" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPalpacionAbdominal" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPalpacionAbdominal</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioRadiografia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioRadiografia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioRadiografia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioEcosonograma" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioEcosonograma" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioEcosonograma</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioEcocardiograma" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioEcocardiograma" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioEcocardiograma</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioEndoscopia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioEndoscopia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioEndoscopia</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioExamen" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioExamen" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioExamen</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioTipoExamen" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoExamen" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoExamen</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioCursoClinico" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioCursoClinico" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioCursoClinico</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioPostura" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPostura" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPostura</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioAtaxia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioAtaxia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioAtaxia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioValoracionSubjetiva" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioValoracionSubjetiva" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioValoracionSubjetiva</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioCojera" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioCojera" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioCojera</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioReflejoEspinal" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioReflejoEspinal" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioReflejoEspinal</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioParesiaPlejia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioParesiaPlejia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioParesiaPlejia</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioDolor" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioDolor" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioDolor</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioReaccionPostular" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioReaccionPostular" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioReaccionPostular</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioTipoPublicacion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoPublicacion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoPublicacion</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioGeneroPublicacion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioGeneroPublicacion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioGeneroPublicacion</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioSuscripcion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioSuscripcion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioSuscripcion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioReflejo" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioReflejo" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioReflejo</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioPatronDistribucion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPatronDistribucion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPatronDistribucion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioOtrasCaracteristicas" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioOtrasCaracteristicas" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioOtrasCaracteristicas</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioEstadoHidratacion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioEstadoHidratacion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioEstadoHidratacion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioColor" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioColor" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioColor</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioDosis" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioDosis" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioDosis</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioEspesor" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioEspesor" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioEspesor</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioElasticidad" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioElasticidad" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioElasticidad</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioConsistencia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioConsistencia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioConsistencia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioProfundidad" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioProfundidad" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioProfundidad</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioPulpejos" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioPulpejos" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioPulpejos</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioUnas" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioUnas" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioUnas</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioParteCuerpo" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioParteCuerpo" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioParteCuerpo</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioMembranaMucosa" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioMembranaMucosa" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioMembranaMucosa</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTexturaPiel" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTexturaPiel" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTexturaPiel</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTexturaPilosa" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTexturaPilosa" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTexturaPilosa</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioLesionPrimaria" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioLesionPrimaria" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioLesionPrimaria</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioLesionSecundaria" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioLesionSecundaria" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioLesionSecundaria</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioProducto" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioProducto" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioProducto</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioMedicamento" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioMedicamento" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioMedicamento</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioLesionPS" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioLesionPS" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioLesionPS</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="TServicioConfiguracion" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioConfiguracion" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioConfiguracion</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioEspImagenologia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioEspImagenologia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioEspImagenologia</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="TServicioTipoImagenologia" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces"
+			value="org.ucla.sigma.interfazservicio.IServicioTipoImagenologia" />
+		<property name="interceptorNames">
+			<list>
+				<value>txInterceptor</value>
+				<value>beanServicioTipoImagenologia</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,47 @@
+<?page title="Auto Generated index.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winCiudad"?>
+
+<window id="winCiudad" title="Ciudad" border="normal" width="100%"
+	closable="true" apply="org.ucla.sigma.controlador.ctrlWinCiudad">
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtNombreCiudad" width="50%" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listCiudad" model="@{winCiudadctrl.ciudades}"
+		selectedItem="@{winCiudadctrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Ciudad" />			
+			<listheader label="Código Postal" />
+			<listheader label="Estado" />
+		</listhead>
+		<listitem self="@{each=ciudad}" value="@{ciudad}">
+			<listcell label="@{ciudad.nombre}" />
+			<listcell label="@{ciudad.codigoPostal}" />
+			<listcell label="@{ciudad.estado.nombre}" />
+		</listitem>
+	</listbox>
+</window>

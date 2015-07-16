@@ -1,0 +1,985 @@
+<?page title="Auto Generated index.zul" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winServicioCardiologia"?>
+
+<zk>
+	<!-- 			<+++++++++++  WINDOW  +++++++++++> -->
+
+	<window id="winServicioCardiologia" title="Cardiologia"
+		border="normal" closable="true" height="100%"
+		apply="org.ucla.sigma.controlador.ctrlWinServicioCardiologia">
+		<style>
+			.z-fieldset.gbNortCenter{ border-style : solid; border-width
+			: 1px; border-color : #BFBFBF; padding: 0px; padding-bottom:
+			4px; padding-left: 10px; } .z-fieldset.gbDate{ border-style
+			: solid; border-width : 1px; border-color : #BFBFBF;
+			padding: 0px; padding-bottom: 4px;} .z-fieldset.gbEast{
+			border-style : solid; border-width : 1px; border-color :
+			#BFBFBF; padding: 1px;}
+		</style>
+
+		<!-- 			<+++++++++++  BORDERLAYOUT  +++++++++++> -->
+
+		<borderlayout height="100%">
+
+			<!-- 			<+++++++++++  NORTE  +++++++++++> -->
+
+			<north id="blNorte" border="none" height="115px">
+				<borderlayout height="100%">
+
+					<!-- 			<+++++++++++  NORTE - CENTRO  +++++++++++> -->
+
+					<center border="none">
+						<div>
+							<groupbox sclass="gbNortCenter"
+								height="62px" closable="false">
+								<caption style="color:#4D4D4D">
+									Paciente
+								</caption>
+								<vlayout>
+							<hlayout spacing="3%"
+										width="100%">
+										<hbox width="210px">
+											<hlayout spacing="5px">
+												<hbox width="40px">
+													<label value="Historia" />
+												</hbox>
+												<textbox id="txtHm"
+													width="90px" style="text-align:center" />
+												<button id="btnBuscar"
+													width="40px" height="22px"
+													image="/sigma/imagenes/botones-basicos/buscar.png" />
+											</hlayout>
+										</hbox>
+										<hlayout>
+											<label value="Nombre" />
+											<textbox
+												id="txtNombrePaciente"
+												value="@{winServicioCardiologiactrl.paciente.nombre}"
+												readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Edad" />
+											<textbox id="txtEdad"
+												width="60px" style="text-align:center" readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Sexo" />
+											<textbox id="txtSexo"
+												width="60px"
+												value="@{winServicioCardiologiactrl.paciente.sexo.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+									</hlayout>
+									<hlayout spacing="3%"
+										width="100%">
+										<hbox width="210px" />
+										<hlayout>
+											<label value="Especie" />
+											<textbox id="txtEspecie"
+												width="50px"
+												value="@{winServicioCardiologiactrl.paciente.raza.especie.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Raza" />
+											<textbox id="txtRaza"
+												width="130px"
+												value="@{winServicioCardiologiactrl.paciente.raza.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+									</hlayout>
+								</vlayout>
+							</groupbox>
+							<separator height="0px" />
+							<groupbox height="35px"
+								sclass="gbNortCenter">
+								<caption style="color:#4D4D4D">
+									Responsable
+								</caption>
+								<hlayout spacing="3%" width="100%">
+										<hbox width="210px">
+										<hlayout spacing="5px">
+											<hbox width="40px" >
+												<label value="Cedula"/>
+											</hbox>
+											<textbox id="txtCi"
+												width="90px"
+												value="@{winServicioCardiologiactrl.paciente.responsable.cedula}"
+												style="text-align: center" readonly="true" />
+										</hlayout>
+									</hbox>
+									<hlayout>
+										<label value="Nombre" />
+										<textbox
+											id="txtNombreResponsable" width="200px"
+											value="@{winServicioCardiologiactrl.paciente.responsable.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}"
+											readonly="true" />
+									</hlayout>
+								</hlayout>
+							</groupbox>
+						</div>
+					</center>
+
+					<!-- 			<+++++++++++  NORTE - ESTE  +++++++++++> -->
+
+					<east border="none" width="17%">
+						<div align="center">
+							<groupbox height="35px" sclass="gbDate">
+								<caption style="color:#4D4D4D">
+									Fecha Actual
+								</caption>
+								<hlayout width="100%">
+									<datebox id="dbFechaActual" 
+										format="dd/MM/yyyy" buttonVisible="false" width="100%"
+										style="text-align:center" readonly="true" />
+								</hlayout>
+							</groupbox>
+							<separator height="7px" />
+							<groupbox height="57px" sclass="gbEast">
+								<vlayout spacing="1px" width="100%">
+									<hlayout>
+										<button label="Historial"
+											style="font-size:11px" id="btnHistorial" width="95px"
+											height="18px" />
+									</hlayout>
+									<hlayout>
+										<button label="Referencia"
+											style="font-size:11px" id="btnReferenciaMedica" width="95px"
+											height="18px" />
+									</hlayout>
+									<hlayout>
+										<button label="Defunción"
+											style="font-size:11px" id="btnDefuncion" width="95px"
+											height="18px" />
+									</hlayout>
+								</vlayout>
+							</groupbox>
+						</div>
+					</east>
+
+				</borderlayout>
+			</north>
+
+			<!-- 			<+++++++++++  CENTRO  +++++++++++> -->
+
+			<center id="blCentro" border="none" margins="0,0,0,0">
+				<div id="contCentro" height="100%">
+
+					<!-- 			<+++++++++++  TABBOX  +++++++++++> -->
+
+					<!--//			<++++++++++++++++++++++++++++++++++++++++  NOTA  ++++++++++++++++++++++++++++++++++++++++> -->
+					<!--//			<+  Este proceso es igual para todos las TABs, es decir, se pueden agregar TABs pero    +> -->
+					<!--//      	<+  siguiendo el mismo patrón (por excepción del tamaño de las mismas, que estará en    +> -->
+					<!--//        	<+  función de la cantidad de TABs), por otra parte, el contenido de cada TAB(tabpanel) +> -->
+					<!--//        	<+  es decisión propia (Hacer lo que la imaginación dicte).                             +> -->
+					<!--//        	<+	+++++++++++++++++++++++++++++++++++++   PD   +++++++++++++++++++++++++++++++++++++  +> -->
+					<!--//        	<+  Como sugerencia por cuestiones de estética, para los TEXTBOX(y parecidos) es 		+> -->
+					<!--//        	<+	mejor usar Width= "99,5%"(en lugar de 100%) y Style= "resize: none;"(este ultimo 	+> -->
+					<!--//        	<+	en caso de usar Multiline= "true" ), por otro lado, los GRIBs se adaptan al Width 	+> -->
+					<!--//        	<+	máximo automáticamente, evitar en lo posible usar Width =”100%”, todo esto solo 	+> -->
+					<!--//        	<+	cuando se trabaja con porcentajes, con píxeles, depende del ojo de cada quien.		+> -->
+					<!--//        	<+	+++++++++++++++++++++++++++++++++++++   PD   +++++++++++++++++++++++++++++++++++++  +> -->
+					<!--//        	<+  Como se ha de notar Diagnostico, Patologia y Tratamientos ya estan diseñados por	+> -->
+					<!--//        	<+	lo cual no deben ser modificadas, igualmente se pueden agregar o quitar las demas 	+> -->
+					<!--//        	<+	TABs segun sea el caso, aun asi, si es el caso de los servicios q carecen de alguna	+> -->
+					<!--//        	<+	de estas TABs, entonces estas deberan ser quitadas o incluso modificadas, pero	 	+> -->
+					<!--//        	<+	teniendo presente que estos cambios afectaran al controlador y por tanto deben ser  +> -->
+					<!--//        	<+	modificados en el mismo(el controlador)											 	+> -->
+					<!--//			<++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+					<tabbox id="tb6" height="100%">
+						<tabs>
+							<tab label="Cardiologia" width="15%"
+								style="text-align:center" />
+							<tab label="Diagnostico" width="15%"
+								style="text-align:center" />
+							<tab label="Patología" width="15%"
+								style="text-align:center" />
+							<tab label="Tratamiento" width="15%"
+								style="text-align:center" />
+						</tabs>
+						<tabpanels>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="normal"
+										autoscroll="true">
+										<div height="100%">
+
+											<tabbox id="tb2"
+												width="100%">
+												<tabs>
+													<tab
+														label="Examen Fisico" />
+													<tab
+														label="Estudio Radiologico de Torax" />
+													<tab
+														label="ElectroCarigrafía" />
+												</tabs>
+
+												<tabpanels>
+													<tabpanel>
+														<grid
+															sizedByContent="true" span="true">
+															<columns>
+																<column
+																	hflex="min" />
+																<column
+																	hflex="min" />
+																<column
+																	hflex="min" />
+																<column
+																	hflex="min" />
+																<column
+																	hflex="min" />
+																<column
+																	hflex="min" />
+															</columns>
+															<rows
+																width="auto">
+																<row>
+																	<label
+																		value="F.C" />
+																	<decimalbox
+																		value="@{winServicioCardiologiactrl.cardiologia.fc}"
+																		id="dbFC" format="###.##" />
+																	<label
+																		value="F.V" />
+																	<decimalbox
+																		value="@{winServicioCardiologiactrl.cardiologia.fv}"
+																		id="dbFV" format="###.##" />
+																	<label
+																		value="Frec. Femoral" />
+																	<decimalbox
+																		value="@{winServicioCardiologiactrl.cardiologia.frecFemoral}"
+																		id="dbFrecFemoral" format="###.##" />
+																</row>
+																<row>
+																	<label
+																		value="Mem. Mucosas" width="20px" />
+																	<listbox
+																		id="listMembrana"
+																		model="@{winServicioCardiologiactrl.membranas}"
+																		mold="select">
+																		<listitem
+																			self="@{each=membrana}" value="@{membrana}">
+																			<listcell
+																				label="@{membrana.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<label
+																		value="Pulso Femoral" width="100%" />
+																	<decimalbox
+																		value="@{winServicioCardiologiactrl.cardiologia.pulsoFemoral}"
+																		id="dbPulsoFemoral" format="###.##" />
+																	<label
+																		value="Auscultación" />
+																	<listbox
+																		id="listAuscultacion"
+																		model="@{winServicioCardiologiactrl.auscultacions}"
+																		mold="select">
+																		<listitem
+																			self="@{each=auscultacion}"
+																			value="@{auscultacion}">
+																			<listcell
+																				label="@{auscultacion.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+																<row>
+																	<label
+																		value="Pulmonar" width="20px" />
+																	<listbox
+																		id="listPulmonar"
+																		model="@{winServicioCardiologiactrl.pulmonars}"
+																		mold="select">
+																		<listitem
+																			self="@{each=pulmonar}" value="@{pulmonar}">
+																			<listcell
+																				label="@{pulmonar.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<label
+																		value="Cardiaca" />
+																	<listbox
+																		id="listCardiaca"
+																		model="@{winServicioCardiologiactrl.cardiacas}"
+																		mold="select">
+																		<listitem
+																			self="@{each=cardiaca}" value="@{cardiaca}">
+																			<listcell
+																				label="@{cardiaca.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<label
+																		value="Palpación Abdominal" width="50%" />
+																	<listbox
+																		id="listPalpacionAbdominal"
+																		model="@{winServicioCardiologiactrl.palpacionabdominals}"
+																		mold="select">
+																		<listitem
+																			self="@{each=palpacionabdominal}"
+																			value="@{palpacionabdominal}">
+																			<listcell
+																				label="@{palpacionabdominal.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+															</rows>
+														</grid>
+													</tabpanel>
+													<tabpanel>
+														<grid
+															width="100%">
+															<columns>
+																<column />
+																<column />
+																<column />
+																<column />
+																<column
+																	width="10%" />
+																<column />
+															</columns>
+															<rows
+																width="auto">
+																<row>
+																	<label
+																		value="Patron Pulmonar" />
+																	<listbox
+																		id="listPatron"
+																		model="@{winServicioCardiologiactrl.patrons}"
+																		mold="select">
+																		<listitem
+																			self="@{each=patron}" value="@{patron}">
+																			<listcell
+																				label="@{patron.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<label
+																		value="Silueta Cardiaca" />
+																	<listbox
+																		id="listSilueta"
+																		model="@{winServicioCardiologiactrl.siluetas}"
+																		mold="select">
+																		<listitem
+																			self="@{each=silueta}" value="@{silueta}">
+																			<listcell
+																				label="@{silueta.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<label
+																		value="ICV" />
+																	<decimalbox
+																		value="@{winServicioCardiologiactrl.cardiologia.icv}"
+																		id="dbICV" format="###.##" />
+																</row>
+															</rows>
+														</grid>
+													</tabpanel>
+													<tabpanel>
+														<grid
+															width="100%%">
+															<columns>
+																<column />
+																<column />
+																<column />
+																<column />
+																<column />
+																<column />
+															</columns>
+															<rows>
+																<row>
+																	<label
+																		value="Frec. Cardica" width="120%" />
+																	<decimalbox
+																		id="dbFrecCardiaca" format="###.##"
+																		value="@{winServicioCardiologiactrl.cardiologia.frecCardiaca}" />
+																	<label
+																		value="Ritmo" width="100%" />
+																	<listbox
+																		id="listRitmo"
+																		model="@{winServicioCardiologiactrl.ritmos}"
+																		mold="select">
+																		<listitem
+																			self="@{each=ritmo}" value="@{ritmo}">
+																			<listcell
+																				label="@{ritmo.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<label
+																		value="Eje Electrico Medio" />
+																	<decimalbox
+																		id="dbEjeElectricoM" format="###.##"
+																		value="@{winServicioCardiologiactrl.cardiologia.ejeElectricoM}" />
+																</row>
+																<row>
+																	<label
+																		value="Onda P" />
+																	<decimalbox
+																		id="dbOndaP"
+																		value="@{winServicioCardiologiactrl.cardiologia.ondaP}"
+																		format="###.##" />
+																	<label
+																		value="Seg" />
+																	<spinner
+																		id="spOndaPSeg"
+																		value="@{winServicioCardiologiactrl.cardiologia.ondaPSeg}"
+																		width="50px" />
+																	<label
+																		value="MinV" />
+																	<spinner
+																		id="spOndaPSegMin"
+																		value="@{winServicioCardiologiactrl.cardiologia.ondaPSegMin}"
+																		width="50px" />
+																</row>
+																<row
+																	spans="1,1,1,3">
+																	<label
+																		value="Intervalo PR" />
+																	<spinner
+																		id="spIntervaloPR"
+																		value="@{winServicioCardiologiactrl.cardiologia.intervaloPR}"
+																		width="50px" />
+																	<label
+																		value="Seg" />
+																	<spinner
+																		id="spIntervaloPRSeg"
+																		value="@{winServicioCardiologiactrl.cardiologia.intervaloPRSeg}"
+																		width="50px" />
+																</row>
+																<row>
+																	<label
+																		value="Complejo QRS" />
+																	<decimalbox
+																		id="dbComplejoQRS"
+																		value="@{winServicioCardiologiactrl.cardiologia.complejoQRS}"
+																		format="###.##" />
+																	<label
+																		value="Seg" />
+																	<spinner
+																		id="spComplejoQRSSeg"
+																		value="@{winServicioCardiologiactrl.cardiologia.complejoQRSSeg}"
+																		width="50px" />
+																	<label
+																		value="MinV" />
+																	<spinner
+																		id="spComplejoQRSMinV"
+																		value="@{winServicioCardiologiactrl.cardiologia.complejoQRSMinV}"
+																		width="50px" />
+																</row>
+																<row
+																	spans="1,1,1,3">
+																	<label
+																		value="Intervalo QT" />
+																	<decimalbox
+																		id="dbIntervaloQT"
+																		value="@{winServicioCardiologiactrl.cardiologia.intervaloQT}"
+																		format="###.##" />
+																	<label
+																		value="Seg" />
+																	<spinner
+																		id="spIntervaloSeg"
+																		value="@{winServicioCardiologiactrl.cardiologia.intervaloSeg}"
+																		width="50px" />
+																</row>
+																<row>
+																	<label
+																		value=" Onda T" />
+																	<decimalbox
+																		id="dbOndaT"
+																		value="@{winServicioCardiologiactrl.cardiologia.ondaT}"
+																		format="###.##" />
+																	<label
+																		value="Seg" />
+																	<spinner
+																		id="spOndaSeg"
+																		value="@{winServicioCardiologiactrl.cardiologia.ondaSeg}"
+																		width="50px" />
+																	<label
+																		value="MinV" />
+																	<spinner
+																		id="spOndaSegMinV"
+																		value="@{winServicioCardiologiactrl.cardiologia.ondaSegMinV}"
+																		width="50px" />
+																</row>
+																<row
+																	spans="1,5">
+																	<label
+																		value="Segmento ST" />
+																	<listbox
+																		id="listSegmento"
+																		model="@{winServicioCardiologiactrl.segmentos}"
+																		mold="select">
+																		<listitem
+																			self="@{each=segmento}" value="@{segmento}">
+																			<listcell
+																				label="@{segmento.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+																<row
+																	valign="top" spans="1,6">
+																	<label
+																		value="Hallazgos" />
+																	<textbox
+																		id="txtHallazgos"
+																		value="@{winServicioCardiologiactrl.cardiologia.hallazgos}"
+																		width="100%" height="100%" multiline="true" rows="3" />
+																</row>
+																<row
+																	valign="top" spans="1,6">
+																	<label
+																		value="Diagnóstico" />
+																	<textbox
+																		id="txtDiagnosticoCardiaca"
+																		value="@{winServicioCardiologiactrl.cardiologia.diagnosticoCardiaca}"
+																		width="100%" height="100%" multiline="true" rows="3" />
+																</row>
+																<row
+																	valign="top" spans="1,6">
+																	<label
+																		value="Tratamiento" />
+																	<textbox
+																		id="txtTratamientoCaridaca"
+																		value="@{winServicioCardiologiactrl.cardiologia.tratamientoCaridaca}"
+																		width="100%" height="100%" multiline="true" rows="3" />
+																</row>
+															</rows>
+														</grid>
+													</tabpanel>
+												</tabpanels>
+											</tabbox>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 1  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="none"
+										autoscroll="true">
+										<div height="100%">
+
+											<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 3  +++++++++++> -->
+
+											<groupbox id="gbSintoma"
+												mold="3d">
+												<caption id="cpArrow"
+													image="/sigma/imagenes/botones-basicos/quitar.png"
+													label="Sintomas" />
+												<!-- <+++++++AQUI++++++> -->
+												<grid
+													style="0px;border:none">
+													<columns>
+														<column
+															width="50%" valign="top" />
+														<column
+															width="50%" valign="top" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<listbox
+																id="listListadoSintomas1"
+																model="@{winServicioCardiologiactrl.sintomas1}"
+																multiple="true" checkmark="true">
+																<listhead />
+																<listitem
+																	self="@{each=sintoma}" value="@{sintoma}">
+																	<listcell
+																		label="@{sintoma.nombre}" />
+																</listitem>
+															</listbox>
+															<listbox
+																id="listListadoSintomas2"
+																model="@{winServicioCardiologiactrl.sintomas2}"
+																multiple="true" checkmark="true">
+																<listhead />
+																<listitem
+																	self="@{each=sintoma}" value="@{sintoma}">
+																	<listcell
+																		label="@{sintoma.nombre}" />
+																</listitem>
+															</listbox>
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+											<separator />
+											<grid>
+												<columns>
+													<column width="50%" />
+													<column width="50%" />
+												</columns>
+												<rows>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Procedimientos Diagnósticos" width="100%" />
+																<textbox
+																	id="txtDiagnosticoProcedimiento" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winServicioCardiologiactrl.cardiologia.diagnosticoProcedimiento}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Diagnostico Tentativo" width="100%" />
+																<textbox
+																	id="txtDiagnosticoTentativo" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winServicioCardiologiactrl.cardiologia.diagnosticoTentativo}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Diagnostico Diferencial" width="100%" />
+																<textbox
+																	id="txtDiagnosticoDiferencial" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winServicioCardiologiactrl.cardiologia.diagnosticoDiferencial}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Diagnostico Definitivo" width="100%" />
+																<textbox
+																	id="txtDiagnosticoDefinitivo" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winServicioCardiologiactrl.cardiologia.diagnosticoDefinitivo}" />
+															</div>
+														</cell>
+													</row>
+												</rows>
+											</grid>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 3  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="none"
+										autoscroll="true">
+										<div height="100%">
+
+											<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 4  +++++++++++> -->
+
+											<grid>
+												<columns>
+													<column width="30%" />
+													<column width="50%" />
+													<column width="20%" />
+												</columns>
+												<rows>
+													<row
+														style="border:none">
+														<vlayout>
+															<label
+																value="Tipo" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listPatologiaTipo" width="90%"
+																model="@{winServicioCardiologiactrl.tipoPatologiaCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=tipoPatologiaC}"
+																	value="@{tipoPatologiaC}">
+																	<listcell
+																		label="@{tipoPatologiaC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<vlayout>
+															<label
+																value="Patologias" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listPatoligias" width="90%"
+																model="@{winServicioCardiologiactrl.patologiaCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=patologiaC}" value="@{patologiaC}">
+																	<listcell
+																		label="@{patologiaC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<div>
+															<button
+																id="btnMasPatologia"
+																image="/sigma/imagenes/botones-basicos/agregar.png"
+																width="30px" />
+															<button
+																id="btnMenosPatologia"
+																image="/sigma/imagenes/botones-basicos/quitar.png"
+																width="30px" />
+														</div>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<listbox
+																id="listListadoPatologias"
+																model="@{winServicioCardiologiactrl.patologias}">
+																<listhead>
+																	<listheader
+																		label="Patologia" />
+																	<listheader
+																		label="Tipo" />
+																</listhead>
+																<listitem
+																	self="@{each=patologia}" value="@{patologia}">
+																	<listcell
+																		label="@{patologia.nombre}" />
+																	<listcell
+																		label="@{patologia.tipoPatologia.nombre}" />
+																</listitem>
+															</listbox>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Comentario Clinico" width="100%" />
+																<textbox
+																	id="txtPatologiaComentario" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winServicioCardiologiactrl.cardiologia.patologiaComentario}" />
+															</div>
+														</cell>
+													</row>
+												</rows>
+											</grid>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 4  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="none"
+										autoscroll="true">
+										<div height="100%">
+
+											<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 5  +++++++++++> -->
+
+											<grid>
+												<columns>
+													<column width="30%" />
+													<column width="50%" />
+													<column width="20%" />
+												</columns>
+												<rows>
+													<row
+														style="border:none">
+														<vlayout>
+															<label
+																value="Tipo" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listTratamientoTipo" width="90%"
+																model="@{winServicioCardiologiactrl.tipoTratamientoCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=tipoTratamientoC}"
+																	value="@{tipoTratamientoC}">
+																	<listcell
+																		label="@{tipoTratamientoC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<vlayout>
+															<label
+																value="Tratamiento" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listTratamiento" width="90%"
+																model="@{winServicioCardiologiactrl.tratamientoCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=tratamientoC}" value="@{tratamientoC}">
+																	<listcell
+																		label="@{tratamientoC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<div>
+															<button
+																id="btnMasTratamiento"
+																image="/sigma/imagenes/botones-basicos/agregar.png"
+																width="30px" />
+															<button
+																id="btnMenosTratamiento"
+																image="/sigma/imagenes/botones-basicos/quitar.png"
+																width="30px" />
+														</div>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<listbox
+																id="listListadoTratamiento"
+																model="@{winServicioCardiologiactrl.tratamientos}">
+																<listhead>
+																	<listheader
+																		label="Tratamiento" />
+																	<listheader
+																		label="Tipo" />
+																</listhead>
+																<listitem
+																	self="@{each=tratamiento}" value="@{tratamiento}">
+																	<listcell
+																		label="@{tratamiento.nombre}" />
+																	<listcell
+																		label="@{tratamiento.tipoTratamiento.nombre}" />
+																</listitem>
+															</listbox>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Indicaciones Terapeuticas" width="100%" />
+																<textbox
+																	id="txtTratamientoIndicaciones" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winServicioCardiologiactrl.cardiologia.tratamientoIndicaciones}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Tratamiento Aplicado en la Consulta"
+																	width="100%" />
+																<textbox
+																	id="txtTratamientoAplicado" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winServicioCardiologiactrl.cardiologia.tratamientoAplicado}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Indicaciones Terapeuticas Enviadas"
+																	width="100%" />
+																<textbox
+																	id="txtTratamientoEnviado" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winServicioCardiologiactrl.cardiologia.tratamientoEnviado}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<groupbox
+																style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+																<div>
+																	<label
+																		value="Observaciones" width="100%" />
+																	<textbox
+																		id="txtObservaciones" width="99.5%"
+																		style="resize: none;" maxlength="1000"
+																		multiline="true" height="60px"
+																		value="@{winServicioCardiologiactrl.cardiologia.observaciones}" />
+																</div>
+															</groupbox>
+														</cell>
+													</row>
+												</rows>
+											</grid>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 5  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+						</tabpanels>
+					</tabbox>
+				</div>
+			</center>
+
+			<!-- 			<+++++++++++  SUR  +++++++++++> -->
+
+			<south height="32px" border="none" id="blSur">
+				<div style="padding:4px;">
+					<button label="Guardar" id="btnGuardarPrincipal"
+						image="/sigma/imagenes/botones-basicos/guardar.png" />
+					<button label="Cancelar" id="btnCancelarPrincipal"
+						image="/sigma/imagenes/botones-basicos/cancelar.png" />
+				</div>
+			</south>
+
+		</borderlayout>
+	</window>
+</zk>

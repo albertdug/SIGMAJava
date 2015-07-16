@@ -1,0 +1,1984 @@
+<?page title="Auto Generated index.zul" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winNeurologia"?>
+
+<zk>
+	<!-- 			<+++++++++++  WINDOW  +++++++++++> -->
+
+	<window id="winNeurologia" title="Consulta Neurologica" border="normal" closable="true"
+		height="100%"
+		apply="org.ucla.sigma.controlador.ctrlWinNeurologia">
+		<style>
+			.z-fieldset.gbNortCenter{ border-style : solid; border-width
+			: 1px; border-color : #BFBFBF; padding: 0px; padding-bottom:
+			4px; padding-left: 10px; } .z-fieldset.gbDate{ border-style
+			: solid; border-width : 1px; border-color : #BFBFBF;
+			padding: 0px; padding-bottom: 4px;} .z-fieldset.gbEast{
+			border-style : solid; border-width : 1px; border-color :
+			#BFBFBF; padding: 1px;}
+		</style>
+
+		<!-- 			<+++++++++++  BORDERLAYOUT  +++++++++++> -->
+
+		<borderlayout height="100%">
+
+			<!-- 			<+++++++++++  NORTE  +++++++++++> -->
+
+			<north id="blNorte" border="none" height="115px">
+				<borderlayout height="100%">
+
+					<!-- 			<+++++++++++  NORTE - CENTRO  +++++++++++> -->
+
+					<center border="none">
+						<div>
+							<groupbox sclass="gbNortCenter"
+								height="62px" closable="false">
+								<caption style="color:#4D4D4D">
+									Paciente
+								</caption>
+								<vlayout>
+									<hlayout spacing="3%"
+										width="100%">
+										<hbox width="210px">
+											<hlayout spacing="5px">
+												<hbox width="40px">
+													<label value="Historia" />
+												</hbox>
+												<textbox id="txtHm"
+													width="90px" style="text-align:center" />
+												<button id="btnBuscar"
+													width="40px" height="22px"
+													image="/sigma/imagenes/botones-basicos/buscar.png" />
+											</hlayout>
+										</hbox>
+										<hlayout>
+											<label value="Nombre" />
+											<textbox
+												id="txtNombrePaciente"
+												value="@{winNeurologiactrl.paciente.nombre}"
+												readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Edad" />
+											<textbox id="txtEdad"
+												width="60px" style="text-align:center" readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Sexo" />
+											<textbox id="txtSexo"
+												width="60px"
+												value="@{winNeurologiactrl.paciente.sexo.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+									</hlayout>
+									<hlayout spacing="3%"
+										width="100%">
+										<hbox width="210px" />
+										<hlayout>
+											<label value="Especie" />
+											<textbox id="txtEspecie"
+												width="50px"
+												value="@{winNeurologiactrl.paciente.raza.especie.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+										<hlayout>
+											<label value="Raza" />
+											<textbox id="txtRaza"
+												width="130px"
+												value="@{winNeurologiactrl.paciente.raza.nombre}"
+												style="text-align:center" readonly="true" />
+										</hlayout>
+									</hlayout>
+								</vlayout>
+							</groupbox>
+							<separator height="0px" />
+							<groupbox height="35px"
+								sclass="gbNortCenter">
+								<caption style="color:#4D4D4D">
+									Responsable
+								</caption>
+								<hlayout spacing="3%" width="100%">
+									<hbox width="210px">
+										<hlayout spacing="5px">
+											<hbox width="40px" >
+												<label value="Cedula"/>
+											</hbox>
+											<textbox id="txtCi"
+												width="90px"
+												value="@{winNeurologiactrl.paciente.responsable.cedula}"
+												style="text-align: center" readonly="true" />
+										</hlayout>
+									</hbox>
+									<hlayout>
+										<label value="Nombre" />
+										<textbox
+											id="txtNombreResponsable" width="200px"
+											value="@{winNeurologiactrl.paciente.responsable.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}"
+											readonly="true" />
+									</hlayout>
+								</hlayout>
+							</groupbox>
+						</div>
+					</center>
+
+					<!-- 			<+++++++++++  NORTE - ESTE  +++++++++++> -->
+
+					<east border="none" width="17%">
+						<div align="center">
+							<groupbox height="35px" sclass="gbDate">
+								<caption style="color:#4D4D4D">
+									Fecha Actual
+								</caption>
+								<hlayout width="100%">
+									<datebox id="dbFechaActual" 
+										format="dd/MM/yyyy" buttonVisible="false" width="100%"
+										style="text-align:center" readonly="true" />
+								</hlayout>
+							</groupbox>
+							<separator height="7px" />
+							<groupbox height="57px" sclass="gbEast">
+								<vlayout spacing="1px" width="100%">
+									<hlayout>
+										<button label="Historial"
+											style="font-size:11px" id="btnHistorial" width="95px"
+											height="18px" />
+									</hlayout>
+									<hlayout>
+										<button label="Referencia"
+											style="font-size:11px" id="btnReferenciaMedica" width="95px"
+											height="18px" />
+									</hlayout>
+									<hlayout>
+										<button label="Defunción"
+											style="font-size:11px" id="btnDefuncion" width="95px"
+											height="18px" />
+									</hlayout>
+								</vlayout>
+							</groupbox>
+						</div>
+					</east>
+
+				</borderlayout>
+			</north>
+
+			<!-- 			<+++++++++++  CENTRO  +++++++++++> -->
+
+			<center id="blCentro" border="none" margins="0,0,0,0">
+				<div id="contCentro" height="100%">
+
+					<!-- 			<+++++++++++  TABBOX  +++++++++++> -->
+
+					<!--//			<++++++++++++++++++++++++++++++++++++++++  NOTA  ++++++++++++++++++++++++++++++++++++++++> -->
+					<!--//			<+  Este proceso es igual para todos las TABs, es decir, se pueden agregar TABs pero    +> -->
+					<!--//      	<+  siguiendo el mismo patrón (por excepción del tamaño de las mismas, que estará en    +> -->
+					<!--//        	<+  función de la cantidad de TABs), por otra parte, el contenido de cada TAB(tabpanel) +> -->
+					<!--//        	<+  es decisión propia (Hacer lo que la imaginación dicte).                             +> -->
+					<!--//        	<+	+++++++++++++++++++++++++++++++++++++   PD   +++++++++++++++++++++++++++++++++++++  +> -->
+					<!--//        	<+  Como sugerencia por cuestiones de estética, para los TEXTBOX(y parecidos) es 		+> -->
+					<!--//        	<+	mejor usar Width= "99,5%"(en lugar de 100%) y Style= "resize: none;"(este ultimo 	+> -->
+					<!--//        	<+	en caso de usar Multiline= "true" ), por otro lado, los GRIBs se adaptan al Width 	+> -->
+					<!--//        	<+	máximo automáticamente, evitar en lo posible usar Width =”100%”, todo esto solo 	+> -->
+					<!--//        	<+	cuando se trabaja con porcentajes, con píxeles, depende del ojo de cada quien.		+> -->
+					<!--//        	<+	+++++++++++++++++++++++++++++++++++++   PD   +++++++++++++++++++++++++++++++++++++  +> -->
+					<!--//        	<+  Como se ha de notar Diagnostico, Patologia y Tratamientos ya estan diseñados por	+> -->
+					<!--//        	<+	lo cual no deben ser modificadas, igualmente se pueden agregar o quitar las demas 	+> -->
+					<!--//        	<+	TABs segun sea el caso, aun asi, si es el caso de los servicios q carecen de alguna	+> -->
+					<!--//        	<+	de estas TABs, entonces estas deberan ser quitadas o incluso modificadas, pero	 	+> -->
+					<!--//        	<+	teniendo presente que estos cambios afectaran al controlador y por tanto deben ser  +> -->
+					<!--//        	<+	modificados en el mismo(el controlador)											 	+> -->
+					<!--//			<++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+					<tabbox id="tb6" height="100%">
+						<tabs>
+							<tab label="Exploración Neurologica"
+								width="15%" style="text-align:center" />
+							<tab label="Diagnostico" width="15%"
+								style="text-align:center" />
+							<tab label="Patología" width="15%"
+								style="text-align:center" />
+							<tab label="Tratamiento" width="15%"
+								style="text-align:center" />
+						</tabs>
+						<tabpanels>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="normal"
+										autoscroll="true">
+										<div height="100%">
+
+											<tabbox id="tb2" width="100%">
+												<tabs>
+													<tab
+														label="Exámen Físico" />
+													<tab label="Marcha" />
+													<tab
+														label="Reacciones Posturales" />
+													<tab
+														label="Pares Craneales" />
+													<tab
+														label="Reflejos Espinales" />
+
+												</tabs>
+
+
+												<tabpanels>
+
+													<!-- Inicio de Examen Fisico -->
+
+
+													<tabpanel>
+														<grid width="95%">
+															<columns>
+																<column width="20%" />
+																<column />
+															</columns>
+															<rows>
+																<row>
+																	<label
+																		value="Curso Clínico" style="font-weight:bold" />
+																	<listbox
+																		id="listCursoClinico"
+																		model="@{winNeurologiactrl.cursoClinicos}"
+																		mold="select">
+																		<listitem
+																			self="@{each=cursoClinico}"
+																			value="@{cursoClinico}">
+																			<listcell
+																				label="@{cursoClinico.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+																<row>
+
+																	<label
+																		value="Valoración Subjetiva" style="font-weight:bold" />
+																	<listbox
+																		id="listValoracionSubjetiva"
+																		model="@{winNeurologiactrl.valoracionSubjetivas}"
+																		mold="select">
+																		<listitem
+																			self="@{each=valoracionSubjetiva}"
+																			value="@{valoracionSubjetiva}">
+																			<listcell
+																				label="@{valoracionSubjetiva.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Postura" style="font-weight:bold" />
+																	<listbox
+																		id="listPostura" model="@{winNeurologiactrl.posturas}"
+																		mold="select">
+																		<listitem
+																			self="@{each=postura}" value="@{postura}">
+																			<listcell
+																				label="@{postura.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Otras" style="font-weight:bold" />
+																	<textbox id="txtOtras" width="100%">
+																	</textbox>
+																</row>
+															</rows>
+														</grid>
+														<separator />
+														<separator />
+													</tabpanel>
+													<!-- Fin de Curso Clinico -->
+
+													<!-- Inicio de Marcha -->
+													<tabpanel>
+														<grid width="95%">
+															<columns>
+																<column
+																	width="28%" />
+																<column />
+															</columns>
+															<rows>
+																<row>
+																	<div>
+																		<label
+																			value="Normal" style="font-weight:bold" />
+																		<checkbox></checkbox>
+																	</div>
+																</row>
+																<row>
+																	<label
+																		value="Ataxia" style="font-weight:bold" />
+																	<listbox
+																		id="listAtaxia" model="@{winNeurologiactrl.ataxias}"
+																		mold="select">
+																		<listitem
+																			self="@{each=ataxia}" value="@{ataxia}">
+																			<listcell
+																				label="@{ataxia.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<separator />
+																	<label
+																		value="Paresia" style="font-weight:bold" />
+																	<listbox
+																		id="listParesia" model="@{winNeurologiactrl.paresias}"
+																		mold="select">
+																		<listitem
+																			self="@{each=paresia}" value="@{paresia}">
+																			<listcell
+																				label="@{paresia.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Paso Corto/Rigidez" style="font-weight:bold" />
+																	<listbox
+																		id="listDolor" model="@{winNeurologiactrl.dolores}"
+																		mold="select">
+																		<listitem
+																			self="@{each=dolor}" value="@{dolor}">
+																			<listcell
+																				label="@{dolor.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<separator />
+																	<label
+																		value="Plejia" style="font-weight:bold" />
+																	<listbox
+																		id="listParesia1"
+																		model="@{winNeurologiactrl.paresias1}"
+																		mold="select">
+																		<listitem
+																			self="@{each=paresia1}" value="@{paresia1}">
+																			<listcell
+																				label="@{paresia1.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Incapaz de Mantenerse en Pie"
+																		style="font-weight:bold" />
+																	<listbox
+																		id="listDolor1" model="@{winNeurologiactrl.dolores1}"
+																		mold="select">
+																		<listitem
+																			self="@{each=dolor1}" value="@{dolor1}">
+																			<listcell
+																				label="@{dolor1.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<separator />
+																	<label
+																		value="Cojera" style="font-weight:bold" />
+																	<listbox
+																		id="listCojera" model="@{winNeurologiactrl.cojeras}"
+																		mold="select">
+																		<listitem
+																			self="@{each=cojera}" value="@{cojera}">
+																			<listcell
+																				label="@{cojera.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+															</rows>
+														</grid>
+														<separator />
+													</tabpanel>
+													<!-- Fin de Marcha -->
+
+													<!-- Inicio de Reacciones Posturales -->
+													<tabpanel>
+														<grid width="95%">
+															<columns>
+																<column width="20%" />
+																<column />
+															</columns>
+															<rows>
+
+																<row>
+																	<label value="" />
+																	<label value="" />
+																	<separator />
+																	<label value="Izquierda" style="font-weight:bold"/>
+																	<label value="Derecha" style="font-weight:bold"/>
+																</row>
+
+																<row>
+																	<label
+																		value="Propiocepción consciente"
+																		style="font-weight:bold" />
+																	<label
+																		value="Torácica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular"
+																		model="@{winNeurologiactrl.reaccionPostulares}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular}"
+																			value="@{reaccionPostular}">
+																			<listcell
+																				label="@{reaccionPostular.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular1"
+																		model="@{winNeurologiactrl.reaccionPostulares1}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular1}"
+																			value="@{reaccionPostular1}">
+																			<listcell
+																				label="@{reaccionPostular1.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+																<row>
+																	<label value="" />
+																	<label value="Pélvica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular2"
+																		model="@{winNeurologiactrl.reaccionPostulares2}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular2}"
+																			value="@{reaccionPostular2}">
+																			<listcell
+																				label="@{reaccionPostular2.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular3"
+																		model="@{winNeurologiactrl.reaccionPostulares3}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular3}"
+																			value="@{reaccionPostular3}">
+																			<listcell
+																				label="@{reaccionPostular3.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label value="Salto" style="font-weight:bold" />
+																	<label value="Torácica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular4"
+																		model="@{winNeurologiactrl.reaccionPostulares4}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular4}"
+																			value="@{reaccionPostular4}">
+																			<listcell
+																				label="@{reaccionPostular4.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular5"
+																		model="@{winNeurologiactrl.reaccionPostulares5}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular5}"
+																			value="@{reaccionPostular5}">
+																			<listcell
+																				label="@{reaccionPostular5.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+																<row>
+																	<label value="" />
+																	<label value="Pélvica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular6"
+																		model="@{winNeurologiactrl.reaccionPostulares6}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular6}"
+																			value="@{reaccionPostular6}">
+																			<listcell
+																				label="@{reaccionPostular6.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular7"
+																		model="@{winNeurologiactrl.reaccionPostulares7}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular7}"
+																			value="@{reaccionPostular7}">
+																			<listcell
+																				label="@{reaccionPostular7.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label value="Carretilla" style="font-weight:bold" />
+																	<label value="Torácica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular8"
+																		model="@{winNeurologiactrl.reaccionPostulares8}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular8}"
+																			value="@{reaccionPostular8}">
+																			<listcell
+																				label="@{reaccionPostular8.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular9"
+																		model="@{winNeurologiactrl.reaccionPostulares9}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular9}"
+																			value="@{reaccionPostular9}">
+																			<listcell
+																				label="@{reaccionPostular9.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+																<row>
+																	<label value="" />
+																	<label value="Pélvica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular10"
+																		model="@{winNeurologiactrl.reaccionPostulares10}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular10}"
+																			value="@{reaccionPostular10}">
+																			<listcell
+																				label="@{reaccionPostular10.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular11"
+																		model="@{winNeurologiactrl.reaccionPostulares11}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular11}"
+																			value="@{reaccionPostular11}">
+																			<listcell
+																				label="@{reaccionPostular11.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Hemiestación Marcha" style="font-weight:bold" />
+																	<label
+																		value="Torácica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular12"
+																		model="@{winNeurologiactrl.reaccionPostulares12}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular12}"
+																			value="@{reaccionPostular12}">
+																			<listcell
+																				label="@{reaccionPostular12.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular13"
+																		model="@{winNeurologiactrl.reaccionPostulares13}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular13}"
+																			value="@{reaccionPostular13}">
+																			<listcell
+																				label="@{reaccionPostular13.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+																<row>
+																	<label value="" />
+																	<label value="Pélvica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular14"
+																		model="@{winNeurologiactrl.reaccionPostulares14}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular14}"
+																			value="@{reaccionPostular14}">
+																			<listcell
+																				label="@{reaccionPostular14.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular15"
+																		model="@{winNeurologiactrl.reaccionPostulares15}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular15}"
+																			value="@{reaccionPostular15}">
+																			<listcell
+																				label="@{reaccionPostular15.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Colocación Marcha" style="font-weight:bold" />
+																	<label
+																		value="Torácica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular16"
+																		model="@{winNeurologiactrl.reaccionPostulares16}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular16}"
+																			value="@{reaccionPostular16}">
+																			<listcell
+																				label="@{reaccionPostular16.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular17"
+																		model="@{winNeurologiactrl.reaccionPostulares17}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular17}"
+																			value="@{reaccionPostular17}">
+																			<listcell
+																				label="@{reaccionPostular17.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+																<row>
+																	<label value="" />
+																	<label value="Pélvica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular18"
+																		model="@{winNeurologiactrl.reaccionPostulares18}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular18}"
+																			value="@{reaccionPostular18}">
+																			<listcell
+																				label="@{reaccionPostular18.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular19"
+																		model="@{winNeurologiactrl.reaccionPostulares19}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular19}"
+																			value="@{reaccionPostular19}">
+																			<listcell
+																				label="@{reaccionPostular19.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Extensor Postular" style="font-weight:bold" />
+																	<label
+																		value="Torácica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular20"
+																		model="@{winNeurologiactrl.reaccionPostulares20}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular20}"
+																			value="@{reaccionPostular20}">
+																			<listcell
+																				label="@{reaccionPostular20.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular21"
+																		model="@{winNeurologiactrl.reaccionPostulares21}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular21}"
+																			value="@{reaccionPostular21}">
+																			<listcell
+																				label="@{reaccionPostular21.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+																<row>
+																	<label value="" />
+																	<label value="Pélvica" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular22"
+																		model="@{winNeurologiactrl.reaccionPostulares22}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular22}"
+																			value="@{reaccionPostular22}">
+																			<listcell
+																				label="@{reaccionPostular22.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular23"
+																		model="@{winNeurologiactrl.reaccionPostulares23}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular23}"
+																			value="@{reaccionPostular23}">
+																			<listcell
+																				label="@{reaccionPostular23.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+															</rows>
+														</grid>
+														<separator />
+														<separator />
+													</tabpanel>
+													<!-- Fin de Reacciones Posturales -->
+
+													<!-- Inicio de Pares Craneales -->
+													<tabpanel>
+
+														<grid
+															width="95%">
+															<columns>
+																<column width="20%" />
+																<column width="20%" />
+															</columns>
+															<rows>
+
+																<row>
+																	<label value="" />
+																	<separator />
+																	<label value="Izquierdo" style="font-weight:bold"/>
+																	<label value="Derecho"  style="font-weight:bold"/>
+																</row>
+
+																<row>
+																	<label value="Olfato" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular24"
+																		model="@{winNeurologiactrl.reaccionPostulares24}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular24}"
+																			value="@{reaccionPostular24}">
+																			<listcell
+																				label="@{reaccionPostular24.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular25"
+																		model="@{winNeurologiactrl.reaccionPostulares25}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular25}"
+																			value="@{reaccionPostular25}">
+																			<listcell
+																				label="@{reaccionPostular25.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Respuesta de Amenaza" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular26"
+																		model="@{winNeurologiactrl.reaccionPostulares26}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular26}"
+																			value="@{reaccionPostular26}">
+																			<listcell
+																				label="@{reaccionPostular26.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular27"
+																		model="@{winNeurologiactrl.reaccionPostulares27}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular27}"
+																			value="@{reaccionPostular27}">
+																			<listcell
+																				label="@{reaccionPostular27.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Tamaño Pupilar" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular28"
+																		model="@{winNeurologiactrl.reaccionPostulares28}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular28}"
+																			value="@{reaccionPostular28}">
+																			<listcell
+																				label="@{reaccionPostular28.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular29"
+																		model="@{winNeurologiactrl.reaccionPostulares29}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular29}"
+																			value="@{reaccionPostular29}">
+																			<listcell
+																				label="@{reaccionPostular29.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Respuesta Pupilar a la Luz"
+																		style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular30"
+																		model="@{winNeurologiactrl.reaccionPostulares30}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular30}"
+																			value="@{reaccionPostular30}">
+																			<listcell
+																				label="@{reaccionPostular30.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular31"
+																		model="@{winNeurologiactrl.reaccionPostulares31}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular31}"
+																			value="@{reaccionPostular31}">
+																			<listcell
+																				label="@{reaccionPostular31.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Estrabismo en Reposo" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular32"
+																		model="@{winNeurologiactrl.reaccionPostulares32}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular32}"
+																			value="@{reaccionPostular32}">
+																			<listcell
+																				label="@{reaccionPostular32.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular33"
+																		model="@{winNeurologiactrl.reaccionPostulares33}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular33}"
+																			value="@{reaccionPostular33}">
+																			<listcell
+																				label="@{reaccionPostular33.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Estrabismo Posicional"
+																		style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular34"
+																		model="@{winNeurologiactrl.reaccionPostulares34}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular34}"
+																			value="@{reaccionPostular34}">
+																			<listcell
+																				label="@{reaccionPostular34.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular35"
+																		model="@{winNeurologiactrl.reaccionPostulares35}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular35}"
+																			value="@{reaccionPostular35}">
+																			<listcell
+																				label="@{reaccionPostular35.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Nistagmo" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular36"
+																		model="@{winNeurologiactrl.reaccionPostulares36}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular36}"
+																			value="@{reaccionPostular36}">
+																			<listcell
+																				label="@{reaccionPostular36.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular37"
+																		model="@{winNeurologiactrl.reaccionPostulares37}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular37}"
+																			value="@{reaccionPostular37}">
+																			<listcell
+																				label="@{reaccionPostular37.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Oculovestibular" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular38"
+																		model="@{winNeurologiactrl.reaccionPostulares38}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular38}"
+																			value="@{reaccionPostular38}">
+																			<listcell
+																				label="@{reaccionPostular38.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular39"
+																		model="@{winNeurologiactrl.reaccionPostulares39}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular39}"
+																			value="@{reaccionPostular39}">
+																			<listcell
+																				label="@{reaccionPostular39.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Sencibilidad Facial" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular40"
+																		model="@{winNeurologiactrl.reaccionPostulares40}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular40}"
+																			value="@{reaccionPostular40}">
+																			<listcell
+																				label="@{reaccionPostular40.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular41"
+																		model="@{winNeurologiactrl.reaccionPostulares41}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular41}"
+																			value="@{reaccionPostular41}">
+																			<listcell
+																				label="@{reaccionPostular41.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Masticación" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular42"
+																		model="@{winNeurologiactrl.reaccionPostulares42}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular42}"
+																			value="@{reaccionPostular42}">
+																			<listcell
+																				label="@{reaccionPostular42.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular43"
+																		model="@{winNeurologiactrl.reaccionPostulares43}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular43}"
+																			value="@{reaccionPostular43}">
+																			<listcell
+																				label="@{reaccionPostular43.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label value="Sencibilidad Ocular" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular44"
+																		model="@{winNeurologiactrl.reaccionPostulares44}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular44}"
+																			value="@{reaccionPostular44}">
+																			<listcell
+																				label="@{reaccionPostular44.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular45"
+																		model="@{winNeurologiactrl.reaccionPostulares45}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular45}"
+																			value="@{reaccionPostular45}">
+																			<listcell
+																				label="@{reaccionPostular45.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Palpebral" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular46"
+																		model="@{winNeurologiactrl.reaccionPostulares46}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular46}"
+																			value="@{reaccionPostular46}">
+																			<listcell
+																				label="@{reaccionPostular46.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular47"
+																		model="@{winNeurologiactrl.reaccionPostulares47}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular47}"
+																			value="@{reaccionPostular47}">
+																			<listcell
+																				label="@{reaccionPostular47.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Deglución" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular48"
+																		model="@{winNeurologiactrl.reaccionPostulares48}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular48}"
+																			value="@{reaccionPostular48}">
+																			<listcell
+																				label="@{reaccionPostular48.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular49"
+																		model="@{winNeurologiactrl.reaccionPostulares49}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular49}"
+																			value="@{reaccionPostular49}">
+																			<listcell
+																				label="@{reaccionPostular49.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label value="Lengua" style="font-weight:bold" />
+																	<separator />
+																	<listbox
+																		id="listReaccionPostular50"
+																		model="@{winNeurologiactrl.reaccionPostulares50}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular50}"
+																			value="@{reaccionPostular50}">
+																			<listcell
+																				label="@{reaccionPostular50.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReaccionPostular51"
+																		model="@{winNeurologiactrl.reaccionPostulares51}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reaccionPostular51}"
+																			value="@{reaccionPostular51}">
+																			<listcell
+																				label="@{reaccionPostular51.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+															</rows>
+														</grid>
+														<separator />
+													</tabpanel>
+													<!-- Fin de Pares Craneales -->
+
+
+													<!-- Inicio de Reflejos Espinales -->
+													<tabpanel>
+
+														<grid
+															width="95%">
+															<columns>
+																<column width="20%" />
+																<column width="20%" />
+															</columns>
+															<rows>
+
+																<row>
+																	<label value="" />
+																	<separator />
+																	<label value="Izquierdo" style="font-weight:bold" />
+																	<label value="Derecho" style="font-weight:bold" />
+																</row>
+
+
+																<row>
+																	<label value="Extremidad Torácica:" style="font-weight:bold" />
+																	<label value="Biceps" />
+																	<listbox
+																		id="listReflejoEspinal"
+																		model="@{winNeurologiactrl.reflejoEspinales}"
+																		mold="select">																										
+																		<listitem
+																			self="@{each=reflejoEspinal}"
+																			value="@{reflejoEspinal}">
+																			<listcell
+																				label="@{reflejoEspinal.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReflejoEspinal1"
+																		model="@{winNeurologiactrl.reflejoEspinales1}"
+																		mold="select" tooltiptext="Seleccione una Opción">
+																		<listitem
+																			self="@{each=reflejoEspinal1}"
+																			value="@{reflejoEspinal1}">
+																			<listcell
+																				label="@{reflejoEspinal1.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<separator />
+																	<label
+																		value="Triceps" />
+
+																	<listbox
+																		id="listReflejoEspinal2"
+																		model="@{winNeurologiactrl.reflejoEspinales2}"
+																		mold="select" top="seleccionaR">
+																		<listitem
+																			self="@{each=reflejoEspinal2}"
+																			value="@{reflejoEspinal2}">
+																			<listcell
+																				label="@{reflejoEspinal2.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReflejoEspinal3"
+																		model="@{winNeurologiactrl.reflejoEspinales3}"
+																		mold="select" tooltip="SEL">
+																		<listitem
+																			self="@{each=reflejoEspinal3}"
+																			value="@{reflejoEspinal3}">
+																			<listcell
+																				label="@{reflejoEspinal3.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<separator />
+																	<label
+																		value="Extensor Carpo Radial" />
+
+																	<listbox
+																		id="listReflejoEspinal4"
+																		model="@{winNeurologiactrl.reflejoEspinales4}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal4}"
+																			value="@{reflejoEspinal4}">
+																			<listcell
+																				label="@{reflejoEspinal4.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReflejoEspinal5"
+																		model="@{winNeurologiactrl.reflejoEspinales5}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal5}"
+																			value="@{reflejoEspinal5}">
+																			<listcell
+																				label="@{reflejoEspinal5.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<separator />
+																	<label
+																		value="Flexor" />
+
+																	<listbox
+																		id="listReflejoEspinal6"
+																		model="@{winNeurologiactrl.reflejoEspinales6}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal6}"
+																			value="@{reflejoEspinal6}">
+																			<listcell
+																				label="@{reflejoEspinal6.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReflejoEspinal7"
+																		model="@{winNeurologiactrl.reflejoEspinales7}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal7}"
+																			value="@{reflejoEspinal7}">
+																			<listcell
+																				label="@{reflejoEspinal7.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<label
+																		value="Extremidad Pélvica:" style="font-weight:bold" />
+																	<label
+																		value="Patelar" />
+																	<listbox
+																		id="listReflejoEspinal8"
+																		model="@{winNeurologiactrl.reflejoEspinales8}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal8}"
+																			value="@{reflejoEspinal8}">
+																			<listcell
+																				label="@{reflejoEspinal8.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReflejoEspinal9"
+																		model="@{winNeurologiactrl.reflejoEspinales9}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal9}"
+																			value="@{reflejoEspinal9}">
+																			<listcell
+																				label="@{reflejoEspinal9.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<separator />
+																	<label
+																		value="Tibial Craneal" />
+																	<listbox
+																		id="listReflejoEspinal10"
+																		model="@{winNeurologiactrl.reflejoEspinales10}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal10}"
+																			value="@{reflejoEspinal10}">
+																			<listcell
+																				label="@{reflejoEspinal10.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReflejoEspinal11"
+																		model="@{winNeurologiactrl.reflejoEspinales11}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal11}"
+																			value="@{reflejoEspinal11}">
+																			<listcell
+																				label="@{reflejoEspinal11.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<separator />
+																	<label
+																		value="Gastrocnemio" />
+																	<listbox
+																		id="listReflejoEspinal12"
+																		model="@{winNeurologiactrl.reflejoEspinales12}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal12}"
+																			value="@{reflejoEspinal12}">
+																			<listcell
+																				label="@{reflejoEspinal12.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReflejoEspinal13"
+																		model="@{winNeurologiactrl.reflejoEspinales13}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal13}"
+																			value="@{reflejoEspinal13}">
+																			<listcell
+																				label="@{reflejoEspinal13.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<separator />
+																	<label
+																		value="Flexor" />
+																	<listbox
+																		id="listReflejoEspinal14"
+																		model="@{winNeurologiactrl.reflejoEspinales14}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal14}"
+																			value="@{reflejoEspinal14}">
+																			<listcell
+																				label="@{reflejoEspinal14.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReflejoEspinal15"
+																		model="@{winNeurologiactrl.reflejoEspinales15}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal15}"
+																			value="@{reflejoEspinal15}">
+																			<listcell
+																				label="@{reflejoEspinal15.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+
+																<row>
+																	<separator />
+																	<label
+																		value="Perineal" />
+																	<listbox
+																		id="listReflejoEspinal16"
+																		model="@{winNeurologiactrl.reflejoEspinales16}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal16}"
+																			value="@{reflejoEspinal16}">
+																			<listcell
+																				label="@{reflejoEspinal16.nombre}" />
+																		</listitem>
+																	</listbox>
+																	<listbox
+																		id="listReflejoEspinal17"
+																		model="@{winNeurologiactrl.reflejoEspinales17}"
+																		mold="select">
+																		<listitem
+																			self="@{each=reflejoEspinal17}"
+																			value="@{reflejoEspinal17}">
+																			<listcell
+																				label="@{reflejoEspinal17.nombre}" />
+																		</listitem>
+																	</listbox>
+																</row>
+															</rows>
+														</grid>
+
+
+														<groupbox>
+															<grid>
+																<rows>
+
+
+																	<row>
+																		<label
+																			value="Atrofia" style="font-weight:bold" />
+																		<listbox
+																		id="listDolor2" model="@{winNeurologiactrl.dolores2}"
+																		mold="select">
+																		<listitem
+																			self="@{each=dolor2}" value="@{dolor2}">
+																			<listcell
+																				label="@{dolor2.nombre}" />
+																		</listitem>
+																	</listbox>
+																	</row>
+
+																	<row>
+																		<label value="Sensibilidad" style="font-weight:bold" />
+																		<label value="Hiperestesia:" />
+																		<div>
+																			<checkbox id="cervical"/>
+																			<label value="Cervical" />
+																		</div>
+																		<div>
+																			<checkbox id="toracica"></checkbox>
+																			<label value="Toracica" />
+																		</div>
+
+																	</row>
+																	<row>
+																		<separator />
+																		<separator />
+																		<div>
+																			<checkbox id="toracolumbar"></checkbox>
+																			<label value="Toracolumbar" />
+																		</div>
+																		<div>
+																			<checkbox id="lumbar"></checkbox>
+																			<label value="Lumbar" />
+																		</div>
+																	</row>
+																	<row>
+																		<separator />
+																		<separator />
+																		<div>
+																			<checkbox id="lumbosacra"></checkbox>
+																			<label value="Lumbosacra" />
+																		</div>
+																		<div>
+																			<checkbox id="caudal"></checkbox>
+																			<label value="Caudal" />
+																		</div>
+																	</row>
+																	<row>
+																		<separator />
+																		<separator />
+																		<div>
+																			<checkbox id="ninguna"></checkbox>
+																			<label value="Ninguna" />
+																		</div>
+																		<div>
+																			<checkbox id="otra"></checkbox>
+																			<label value="Otra" />
+																		</div>
+																	</row>
+
+																	<row>
+																		<label value="Cutanea del Tronco" style="font-weight:bold" />
+																		<label value="Normal:" />
+																		<combobox id="cutaneaTroncoNormal" width="40%">
+																			<comboitem label="Si" />
+																			<comboitem label="No" />
+																		</combobox>
+																	</row>
+																	<row>
+																		<label value="" />
+																		<label value="Dolor Profundo:" />
+																		<listbox
+																		id="listDolor3" model="@{winNeurologiactrl.dolores3}"
+																		mold="select">
+																		<listitem
+																			self="@{each=dolor3}" value="@{dolor3}">
+																			<listcell
+																				label="@{dolor3.nombre}" />
+																		</listitem>
+																	</listbox>
+																	</row>
+																</rows>
+															</grid>
+														</groupbox>
+
+														<separator />
+													</tabpanel>
+													<!-- Fin de Reflejos Espinales -->
+												</tabpanels>
+												<!-- Fin de Exploracion Neurologica -->
+											</tabbox>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 1  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="none"
+										autoscroll="true">
+										<div height="100%">
+
+												<groupbox id="gbSintoma"
+												mold="3d">
+												<caption id="cpArrow"
+													image="/sigma/imagenes/botones-basicos/quitar.png"
+													label="Sintomas" />
+												<!-- <+++++++AQUI++++++> -->
+												<grid
+													style="0px;border:none">
+													<columns>
+														<column
+															width="50%" valign="top" />
+														<column
+															width="50%" valign="top" />
+													</columns>
+													<rows>
+														<row
+															style="border:none">
+															<listbox
+																id="listListadoSintomas1"
+																model="@{winNeurologiactrl.sintomas1}"
+																multiple="true" checkmark="true">
+																<listhead />
+																<listitem
+																	self="@{each=sintoma}" value="@{sintoma}">
+																	<listcell
+																		label="@{sintoma.nombre}" />
+																</listitem>
+															</listbox>
+															<listbox
+																id="listListadoSintomas2"
+																model="@{winNeurologiactrl.sintomas2}"
+																multiple="true" checkmark="true">
+																<listhead />
+																<listitem
+																	self="@{each=sintoma}" value="@{sintoma}">
+																	<listcell
+																		label="@{sintoma.nombre}" />
+																</listitem>
+															</listbox>
+														</row>
+													</rows>
+												</grid>
+											</groupbox>
+											<separator />
+											<grid>
+												<columns>
+													<column width="50%" />
+													<column width="50%" />
+												</columns>
+												<rows>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Procedimientos Diagnósticos" width="100%" />
+																<textbox
+																	id="txtDiagnosticoProcedimiento" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winNeurologiactrl.neurologia.diagnosticoProcedimiento}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Diagnóstico Tentativo" width="100%" />
+																<textbox
+																	id="txtDiagnosticoTentativo" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winNeurologiactrl.neurologia.diagnosticoTentativo}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Diagnóstico Diferencial" width="100%" />
+																<textbox
+																	id="txtDiagnosticoDiferencial" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winNeurologiactrl.neurologia.diagnosticoDiferencial}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="2">
+															<div>
+																<label
+																	value="Diagnóstico Definitivo" width="100%" />
+																<textbox
+																	id="txtDiagnosticoDefinitivo" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winNeurologiactrl.neurologia.diagnosticoDefinitivo}" />
+															</div>
+														</cell>
+													</row>
+												</rows>
+											</grid>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 3  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="none"
+										autoscroll="true">
+										<div height="100%">
+
+											<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 4  +++++++++++> -->
+
+											<grid>
+												<columns>
+													<column width="30%" />
+													<column width="50%" />
+													<column width="20%" />
+												</columns>
+												<rows>
+													<row
+														style="border:none">
+														<vlayout>
+															<label
+																value="Tipo" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listPatologiaTipo" width="90%"
+																model="@{winNeurologiactrl.tipoPatologiaCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=tipoPatologiaC}"
+																	value="@{tipoPatologiaC}">
+																	<listcell
+																		label="@{tipoPatologiaC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<vlayout>
+															<label
+																value="Patologias" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listPatoligias" width="90%"
+																model="@{winNeurologiactrl.patologiaCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=patologiaC}" value="@{patologiaC}">
+																	<listcell
+																		label="@{patologiaC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<div>
+															<button
+																id="btnMasPatologia"
+																image="/sigma/imagenes/botones-basicos/agregar.png"
+																width="30px" />
+															<button
+																id="btnMenosPatologia"
+																image="/sigma/imagenes/botones-basicos/quitar.png"
+																width="30px" />
+														</div>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<listbox
+																id="listListadoPatologias"
+																model="@{winNeurologiactrl.patologias}">
+																<listhead>
+																	<listheader
+																		label="Patologia" />
+																	<listheader
+																		label="Tipo" />
+																</listhead>
+																<listitem
+																	self="@{each=patologia}" value="@{patologia}">
+																	<listcell
+																		label="@{patologia.nombre}" />
+																	<listcell
+																		label="@{patologia.tipoPatologia.nombre}" />
+																</listitem>
+															</listbox>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Comentario Clinico" width="100%" />
+																<textbox
+																	id="txtPatologiaComentario" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winNeurologiactrl.neurologia.patologiaComentario}" />
+															</div>
+														</cell>
+													</row>
+												</rows>
+											</grid>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 4  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+							<tabpanel height="100%">
+								<borderlayout height="100%">
+									<center border="none"
+										autoscroll="true">
+										<div height="100%">
+
+											<!-- 			<+++++++++++  INICIO CONTENIDO - TAB 5  +++++++++++> -->
+
+											<grid>
+												<columns>
+													<column width="30%" />
+													<column width="50%" />
+													<column width="20%" />
+												</columns>
+												<rows>
+													<row
+														style="border:none">
+														<vlayout>
+															<label
+																value="Tipo" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listTratamientoTipo" width="90%"
+																model="@{winNeurologiactrl.tipoTratamientoCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=tipoTratamientoC}"
+																	value="@{tipoTratamientoC}">
+																	<listcell
+																		label="@{tipoTratamientoC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<vlayout>
+															<label
+																value="Tratamiento" />
+															<!-- <+++++++AQUI++++++> -->
+															<listbox
+																id="listTratamiento" width="90%"
+																model="@{winNeurologiactrl.tratamientoCombo}"
+																mold="select">
+																<listitem
+																	self="@{each=tratamientoC}" value="@{tratamientoC}">
+																	<listcell
+																		label="@{tratamientoC.nombre}" />
+																</listitem>
+															</listbox>
+														</vlayout>
+														<div>
+															<button
+																id="btnMasTratamiento"
+																image="/sigma/imagenes/botones-basicos/agregar.png"
+																width="30px" />
+															<button
+																id="btnMenosTratamiento"
+																image="/sigma/imagenes/botones-basicos/quitar.png"
+																width="30px" />
+														</div>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<listbox
+																id="listListadoTratamiento"
+																model="@{winNeurologiactrl.tratamientos}">
+																<listhead>
+																	<listheader
+																		label="Tratamiento" />
+																	<listheader
+																		label="Tipo" />
+																</listhead>
+																<listitem
+																	self="@{each=tratamiento}" value="@{tratamiento}">
+																	<listcell
+																		label="@{tratamiento.nombre}" />
+																	<listcell
+																		label="@{tratamiento.tipoTratamiento.nombre}" />
+																</listitem>
+															</listbox>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Indicaciones Terapeuticas" width="100%" />
+																<textbox
+																	id="txtTratamientoIndicaciones" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winNeurologiactrl.neurologia.tratamientoIndicaciones}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Tratamiento Aplicado en la Consulta"
+																	width="100%" />
+																<textbox
+																	id="txtTratamientoAplicado" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winNeurologiactrl.neurologia.tratamientoAplicado}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<div>
+																<label
+																	value="Indicaciones Terapeuticas Enviadas"
+																	width="100%" />
+																<textbox
+																	id="txtTratamientoEnviado" width="99.5%"
+																	style="resize: none;" maxlength="1000" multiline="true"
+																	height="50px"
+																	value="@{winNeurologiactrl.neurologia.tratamientoEnviado}" />
+															</div>
+														</cell>
+													</row>
+													<row
+														style="border:none">
+														<cell
+															colspan="3">
+															<groupbox
+																style="border-style:solid; border-width:1px; border-color:#BFBFBF;">
+																<div>
+																	<label
+																		value="Observaciones" width="100%" />
+																	<textbox
+																		id="txtObservaciones" width="99.5%"
+																		style="resize: none;" maxlength="1000"
+																		multiline="true" height="60px"
+																		value="@{winNeurologiactrl.neurologia.observaciones}" />
+																</div>
+															</groupbox>
+														</cell>
+													</row>
+												</rows>
+											</grid>
+
+											<!-- 			<+++++++++++  FINAL CONTENIDO - TAB 5  +++++++++++> -->
+
+										</div>
+									</center>
+								</borderlayout>
+							</tabpanel>
+
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+							<!-- 			<+++++++++++++++++++++++++++++++++++++++++++++++++> -->
+
+						</tabpanels>
+					</tabbox>
+				</div>
+			</center>
+
+			<!-- 			<+++++++++++  SUR  +++++++++++> -->
+
+			<south height="32px" border="none" id="blSur">
+				<div style="padding:4px;">
+					<button label="Guardar" id="btnGuardarPrincipal"
+						image="/sigma/imagenes/botones-basicos/guardar.png" />
+					<button label="Cancelar" id="btnCancelarPrincipal"
+						image="/sigma/imagenes/botones-basicos/cancelar.png" />
+				</div>
+			</south>
+
+		</borderlayout>
+	</window>
+</zk>

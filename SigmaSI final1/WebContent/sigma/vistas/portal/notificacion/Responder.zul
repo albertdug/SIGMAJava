@@ -1,0 +1,78 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winResponder"?>
+<zk>
+	<window id="winResponder" title="Notificación" width="50%"
+		border="normal" closable="true"
+		apply="org.ucla.sigma.controlador.ctrlWinResponder">
+
+		<grid>
+			<columns>
+				<column width="120px" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="Fecha de creación" />
+					<datebox id="dbCreacion" buttonVisible="false"
+						readonly="true" width="100px" format="dd/MM/yyyy"
+						value="@{winResponderctrl.notificacion.creacion}" />
+				</row>
+				<row>
+					<label value="Nombre" />
+					<textbox id="txtNombre"
+						value="@{winResponderctrl.notificacion.nombre}" width="60%"
+						readonly="true" />
+				</row>
+				<row>
+					<label value="Apellido" />
+					<textbox id="txtApellido"
+						value="@{winResponderctrl.notificacion.apellido}" width="60%"
+						readonly="true" />
+				</row>
+				<row>
+					<label value="Correo" />
+					<textbox id="txtCorreo"
+						value="@{winResponderctrl.notificacion.correo}" width="60%"
+						readonly="true" />
+				</row>
+
+				<row>
+					<label value="Teléfono" />
+					<textbox id="txtTelefono"
+						value="@{winResponderctrl.notificacion.telefono}" width="60%"
+						readonly="true" />
+				</row>
+
+				<row>
+					<label value="Texto" />
+					<textbox id="txtTexto"
+						value="@{winResponderctrl.notificacion.texto}" multiline="true"
+						rows="5" width="90%" readonly="true" />
+				</row>
+				<row>
+					<label value="Fecha de respuesta" />
+					<datebox id="dbCreacionRespuesta" buttonVisible="false"
+						readonly="true" width="100px" format="dd/MM/yyyy"
+						value="@{winResponderctrl.respuesta.creacion}" />
+				</row>
+				<row>
+					<label value="Usuario" />
+					<textbox id="txtUsuario"
+						value="@{winResponderctrl.respuesta.usuario.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}" width="60%" readonly="true" />
+				</row>
+				<row>
+					<label value="Respuesta" />
+					<textbox id="txtRespuesta" multiline="true" value="@{winResponderctrl.respuesta.texto}"
+						rows="5" width="90%" focus="true" />
+				</row>
+
+			</rows>
+		</grid>
+		<separator />
+		<button id="btnGuardar" label="Responder"
+			image="/sigma/imagenes/botones-basicos/enviar-email.png" />
+		<button id="btnCancelar" label="Cerrar"
+			image="/sigma/imagenes/botones-basicos/cancelar.png" />
+
+	</window>
+</zk>

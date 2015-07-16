@@ -1,0 +1,52 @@
+<?page title="Usuario" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winUsuario"?>
+
+<window id="winUsuario" title="Usuario" border="normal" closable="true"
+	width="100%" apply="org.ucla.sigma.controlador.ctrlWinUsuario">
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Cedula" />
+					<intbox id="txtNombre" width="50%"
+						focus="true" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listUsuario" model="@{winUsuarioctrl.usuarios}"
+		selectedItem="@{winUsuarioctrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Cedula" />
+			<listheader label="Nombre" />
+			<listheader label="Apellido" />
+			<listheader label="Correo" />
+			<listheader label="Login" />
+		</listhead>
+		<listitem self="@{each=usuario}" value="@{usuario}">
+			<listcell label="@{usuario.persona.cedula}" />
+			<listcell label="@{usuario.persona.nombre}" />
+			<listcell label="@{usuario.persona.apellido}" />
+			<listcell label="@{usuario.persona.correo}" />
+			<listcell label="@{usuario.persona.usuario.login}" />
+		</listitem>
+	</listbox>
+</window>

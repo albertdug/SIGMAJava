@@ -1,0 +1,53 @@
+<?page title="Paciente" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./winPaciente"?>
+
+<window id="winPaciente" title="Paciente" border="normal" width="100%"
+	closable="true" apply="org.ucla.sigma.controlador.ctrlWinPaciente">
+	<grid>
+		<columns>
+			<column label="" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<div align="left">
+					<label value="Nombre" />
+					<textbox id="txtNombre" width="50%" focus="true" />
+					<button id="btnBuscar" label="Buscar"
+						image="/sigma/imagenes/botones-basicos/buscar.png" />
+				</div>
+				<div align="right">
+					<button id="btnNuevo" label="Nuevo"
+						image="/sigma/imagenes/botones-basicos/agregar.png" />
+					<button id="btnEditar" label="Editar"
+						image="/sigma/imagenes/botones-basicos/editar.png" />
+					<button id="btnEliminar" label="Eliminar"
+						image="/sigma/imagenes/botones-basicos/eliminar.png" />
+					<button id="btnVerTodos" label="Ver Todos"
+						image="/sigma/imagenes/botones-basicos/ver.png" />
+				</div>
+			</row>
+		</rows>
+	</grid>
+	<separator />
+	<listbox id="listPaciente" model="@{winPacientectrl.pacientes}"
+		selectedItem="@{winPacientectrl.seleccion}" mold="paging"
+		pageSize="10">
+		<listhead>
+			<listheader label="Nombre" />
+			<listheader label="Fecha de Nacimiento" />
+			<listheader label="Sexo" />
+			<listheader label="Raza" />
+			<listheader label="Especie" />
+			<listheader label="Responsable" />
+		</listhead>
+		<listitem self="@{each=paciente}" value="@{paciente}">
+			<listcell label="@{paciente.nombre}" />
+			<listcell label="@{paciente.fechaNac,converter='org.ucla.sigma.componentszk.FormatDateConverter'}" />
+			<listcell label="@{paciente.sexo.nombre}" />
+			<listcell label="@{paciente.raza.nombre}" />
+			<listcell label="@{paciente.raza.especie.nombre}" />
+			<listcell label="@{paciente.responsable.persona,converter='org.ucla.sigma.componentszk.ConcatenarPersonaConverter'}" />			
+		</listitem>
+	</listbox>
+</window>
